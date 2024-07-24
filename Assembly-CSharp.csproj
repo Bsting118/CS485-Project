@@ -84,6 +84,7 @@
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\HiRezSpaceshipsCreatorFree\Readme.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\_FAQ - Informations\Help Readme SOS.txt" />
+    <None Include="Assets\_Bsting\Asset Store Packages\OccaSoftware\Crosshairs\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1068,6 +1069,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="OccaSoftware.Crosshairs.Editor.csproj">
+      <Project>{36085278-EB8A-1896-0015-5FA54CB6D4F7}</Project>
+      <Name>OccaSoftware.Crosshairs.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

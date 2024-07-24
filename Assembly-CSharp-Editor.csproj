@@ -1121,6 +1121,10 @@
       <Project>{21660E05-AEBE-76E2-E4B2-4B3480A877A2}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="OccaSoftware.Crosshairs.Editor.csproj">
+      <Project>{36085278-EB8A-1896-0015-5FA54CB6D4F7}</Project>
+      <Name>OccaSoftware.Crosshairs.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
