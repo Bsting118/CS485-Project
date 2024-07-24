@@ -70,6 +70,8 @@
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipMovementInput.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Patterns\Singleton.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\Fracture.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\ExampleFracture.cs" />
     <Compile Include="Assets\Input\PlayerInputSystem.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovementInput.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchProjection.cs" />
@@ -84,6 +86,7 @@
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\HiRezSpaceshipsCreatorFree\Readme.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\_FAQ - Informations\Help Readme SOS.txt" />
+    <None Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Readme.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\OccaSoftware\Crosshairs\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
