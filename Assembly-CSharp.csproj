@@ -69,8 +69,8 @@
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\IShipMovement.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipMovementInput.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Patterns\Singleton.cs" />
-    <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\Fracture.cs" />
+    <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\ExampleFracture.cs" />
     <Compile Include="Assets\Input\PlayerInputSystem.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovementInput.cs" />
@@ -926,10 +926,6 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -940,6 +936,10 @@
     </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
