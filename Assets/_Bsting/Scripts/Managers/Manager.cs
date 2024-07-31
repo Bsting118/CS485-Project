@@ -10,7 +10,7 @@ using UnityEngine;
 /// <summary>
 /// Base class that inherits from a generic Singleton to ensure basic managers are only instanced once.
 /// </summary>
-public class Manager : Singleton<Manager>
+public class Manager<T> : Singleton<T> where T: Manager<T>
 {
     // ...
     #region MonoBehaviors

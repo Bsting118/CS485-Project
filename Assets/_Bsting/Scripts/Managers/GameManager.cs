@@ -11,7 +11,7 @@ using UnityEngine;
 /// <summary>
 /// Class that manages the overall game session, which includes mouse positions, PlayerInput instance(s), and quitting the game.
 /// </summary>
-public class GameManager : Manager
+public class GameManager : Manager<GameManager>
 {
     [SerializeField] private bool _hideMouseCursor = true;
     [SerializeField] private bool _confineMouseCursorToGameWindow = true;

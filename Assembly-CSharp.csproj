@@ -64,6 +64,7 @@
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipController.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipMovementBase.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchPosition.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Interfaces\IVirtualCameras.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\AddSpaceDust.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchRotation.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\IShipMovement.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\ExampleFracture.cs" />
     <Compile Include="Assets\Input\PlayerInputSystem.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovementInput.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Managers\CameraManager.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchProjection.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipInputHandler.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\GameManager.cs" />

@@ -80,6 +80,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f3fb0f5-4ded-4a0d-9cac-f04957040af2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -214,6 +223,17 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""QuitGameOverride"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""be8051a7-b964-41b8-aa5a-4680bb278229"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -295,6 +315,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_AircraftRoll = m_Player.FindAction("AircraftRoll", throwIfNotFound: true);
         m_Player_AircraftThrust = m_Player.FindAction("AircraftThrust", throwIfNotFound: true);
         m_Player_QuitGameOverride = m_Player.FindAction("QuitGameOverride", throwIfNotFound: true);
+        m_Player_ToggleCamera = m_Player.FindAction("ToggleCamera", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
@@ -364,6 +385,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AircraftRoll;
     private readonly InputAction m_Player_AircraftThrust;
     private readonly InputAction m_Player_QuitGameOverride;
+    private readonly InputAction m_Player_ToggleCamera;
     public struct PlayerActions
     {
         private @PlayerInputSystem m_Wrapper;
@@ -374,6 +396,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         public InputAction @AircraftRoll => m_Wrapper.m_Player_AircraftRoll;
         public InputAction @AircraftThrust => m_Wrapper.m_Player_AircraftThrust;
         public InputAction @QuitGameOverride => m_Wrapper.m_Player_QuitGameOverride;
+        public InputAction @ToggleCamera => m_Wrapper.m_Player_ToggleCamera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,6 +424,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @QuitGameOverride.started += instance.OnQuitGameOverride;
             @QuitGameOverride.performed += instance.OnQuitGameOverride;
             @QuitGameOverride.canceled += instance.OnQuitGameOverride;
+            @ToggleCamera.started += instance.OnToggleCamera;
+            @ToggleCamera.performed += instance.OnToggleCamera;
+            @ToggleCamera.canceled += instance.OnToggleCamera;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -423,6 +449,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @QuitGameOverride.started -= instance.OnQuitGameOverride;
             @QuitGameOverride.performed -= instance.OnQuitGameOverride;
             @QuitGameOverride.canceled -= instance.OnQuitGameOverride;
+            @ToggleCamera.started -= instance.OnToggleCamera;
+            @ToggleCamera.performed -= instance.OnToggleCamera;
+            @ToggleCamera.canceled -= instance.OnToggleCamera;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -531,6 +560,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         void OnAircraftRoll(InputAction.CallbackContext context);
         void OnAircraftThrust(InputAction.CallbackContext context);
         void OnQuitGameOverride(InputAction.CallbackContext context);
+        void OnToggleCamera(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

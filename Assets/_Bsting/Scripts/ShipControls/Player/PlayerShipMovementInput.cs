@@ -15,6 +15,7 @@ public class PlayerShipMovementInput : ShipMovementInput
     public PlayerInputSystem _playerInputMap { get; private set; }
 
     [SerializeField] private GameManager _connectedGameManager = null;
+    [SerializeField] private CameraManager _connectedCameraManager = null;
     [SerializeField] private bool _realisticJoyStickEnabled = true;
     [SerializeField] private bool _filterMouseMovement = false;
     [SerializeField] private float _factorToEaseShipRollBy = 1.0f;
@@ -34,6 +35,11 @@ public class PlayerShipMovementInput : ShipMovementInput
         { 
             _connectedGameManager.SetPlayerInputInstance(_playerInputMap);
             _filterMouseMovement = _connectedGameManager.IsMouseIgnoredOutsideGameWindow();
+        }
+
+        if (_connectedCameraManager != null)
+        {
+            _connectedCameraManager.SetPlayerInputInstance(_playerInputMap);
         }
         
     }

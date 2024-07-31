@@ -29,6 +29,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
         if (Instance != null && Instance != this)
         {
+            Debug.Log("Destroying Object");
             DestroyImmediate(this.gameObject);
         }
         else
