@@ -81,6 +81,7 @@
     <Compile Include="Assets\_Bsting\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovement.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Skybox\SkyboxHandler.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Cameras\ToggleAsteroidsCam.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\Manager.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\InstanceExample.cs" />
   </ItemGroup>

@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 39794353}
   - component: {fileID: 39794358}
   - component: {fileID: 39794357}
+  - component: {fileID: 39794359}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -217,7 +218,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -323,6 +324,20 @@ Skybox:
   m_GameObject: {fileID: 39794351}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 0}
+--- !u!114 &39794359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39794351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b6a90e387083f48829d245b1d33607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipelineAsset: {fileID: 11400000, guid: 7b7fd9122c28c4d15b667c7040e3b3fd, type: 2}
+  _spaceDustDome: {fileID: 1125442578}
 --- !u!1 &150092292 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9055202225991738955, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
@@ -503,6 +518,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8480954940046612, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480954940046612, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480954940046612, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 39794359}
+    - target: {fileID: 8480954940046612, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480954940046612, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleAsteroidsDisplayOn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480954940046612, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ToggleAsteroidsCam, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480954940046612, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1276503476368695643, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       propertyPath: m_Name
@@ -542,6 +585,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258346055603455661, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258346055603455661, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258346055603455661, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 39794359}
+    - target: {fileID: 2258346055603455661, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258346055603455661, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleAsteroidsDisplayOff
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258346055603455661, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ToggleAsteroidsCam, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2258346055603455661, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2757262541232981810, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
@@ -696,6 +774,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1125442578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9030755534898010744, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 569508171}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1316707945
 GameObject:
   m_ObjectHideFlags: 0
