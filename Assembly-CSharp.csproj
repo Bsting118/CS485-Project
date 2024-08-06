@@ -77,6 +77,7 @@
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovementInput.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\CameraManager.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchProjection.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\ShipFX\ControlThrusterTrail.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipInputHandler.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovement.cs" />

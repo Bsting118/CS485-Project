@@ -13,7 +13,7 @@ public class ToggleAsteroidsCam : MonoBehaviour
     private FullScreenPassRendererFeature _outlineFullscreenShader; // Toggle this ON when in the air
     [SerializeField] private GameObject _spaceDustDome; //Toggle this OFF when in the air
 
-    private void Start()
+    void Start()
     {
         pipelineAsset.GetRenderer(0);
         
@@ -31,6 +31,11 @@ public class ToggleAsteroidsCam : MonoBehaviour
                 break;
             }
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        ToggleAsteroidsDisplayOff();
     }
 
     public void ToggleAsteroidsDisplayOn()
