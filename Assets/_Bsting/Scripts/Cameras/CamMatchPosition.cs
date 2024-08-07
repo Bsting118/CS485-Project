@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamMatchPosition : MonoBehaviour
+namespace Bsting.Ship.Player.Camera
 {
-    [field: SerializeField] public Transform TargetCamera;
-
-    void Awake()
+    public class CamMatchPosition : MonoBehaviour
     {
-        MatchPositionOfThisCamera(TargetCamera);
-    }
+        [field: SerializeField] public Transform TargetCamera;
 
-    void LateUpdate()
-    {
-        MatchPositionOfThisCamera(TargetCamera);
-    }
+        void Awake()
+        {
+            MatchPositionOfThisCamera(TargetCamera);
+        }
 
-    private void MatchPositionOfThisCamera(Transform toTarget)
-    {
-        this.gameObject.transform.position = toTarget.position;
+        void LateUpdate()
+        {
+            MatchPositionOfThisCamera(TargetCamera);
+        }
+
+        private void MatchPositionOfThisCamera(Transform toTarget)
+        {
+            this.gameObject.transform.position = toTarget.position;
+        }
     }
 }

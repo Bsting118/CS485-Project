@@ -2,42 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blaster : MonoBehaviour
+namespace Bsting.Ship.Weapons
 {
-    [SerializeField] BlasterProjectile _projectilePrefab;
-    [SerializeField] Transform _muzzle;
-    [SerializeField]
-    [Range(0f, 5f)] float _cooldownTime = 0.25f;
-
-    bool CanFire
+    public class Blaster : MonoBehaviour
     {
-        get
+        [SerializeField] BlasterProjectile _projectilePrefab;
+        [SerializeField] Transform _muzzle;
+        [SerializeField]
+        [Range(0f, 5f)] float _cooldownTime = 0.25f;
+
+        bool CanFire
         {
-            _cooldown -= Time.deltaTime;
-            return _cooldown <= 0f;
+            get
+            {
+                _cooldown -= Time.deltaTime;
+                return _cooldown <= 0f;
+            }
         }
-    }
 
-    private float _cooldown;
-    private PlayerInputSystem _currentPlayerInputSystem;
+        private float _cooldown;
+        private PlayerInputSystem _currentPlayerInputSystem;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (CanFire && _currentPlayerInputSystem.Player.Fire.WasPressedThisFrame()) // TODO: Change to new input system
+        // Update is called once per frame
+        void Update()
         {
-            FireProjectile();
+            if (CanFire && _currentPlayerInputSystem.Player.Fire.WasPressedThisFrame()) // TODO: Change to new input system
+            {
+                FireProjectile();
+            }
         }
-    }
 
-    void FireProjectile()
-    {
-        _cooldown = _cooldownTime;
-        Instantiate(_projectilePrefab, _muzzle.position, transform.rotation);
-    }
+        void FireProjectile()
+        {
+            _cooldown = _cooldownTime;
+            Instantiate(_projectilePrefab, _muzzle.position, transform.rotation);
+        }
 
-    public void SetPlayerInputInstance(PlayerInputSystem newInputInstance)
-    {
-        _currentPlayerInputSystem = newInputInstance;
+        public void SetPlayerInputInstance(PlayerInputSystem newInputInstance)
+        {
+            _currentPlayerInputSystem = newInputInstance;
+        }
     }
 }

@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamMatchRotation : MonoBehaviour
+namespace Bsting.Ship.Player.Camera
 {
-    [field: SerializeField] public Transform TargetCamera;
-
-    void LateUpdate()
+    public class CamMatchRotation : MonoBehaviour
     {
-        MatchRotationOfThisCamera(TargetCamera);
-    }
+        [field: SerializeField] public Transform TargetCamera;
 
-    private void MatchRotationOfThisCamera(Transform toTarget)
-    {
-        this.gameObject.transform.rotation = toTarget.rotation;
+        void LateUpdate()
+        {
+            MatchRotationOfThisCamera(TargetCamera);
+        }
+
+        private void MatchRotationOfThisCamera(Transform toTarget)
+        {
+            this.gameObject.transform.rotation = toTarget.rotation;
+        }
     }
 }

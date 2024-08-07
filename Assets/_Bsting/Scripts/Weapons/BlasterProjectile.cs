@@ -2,44 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlasterProjectile : MonoBehaviour
+namespace Bsting.Ship.Weapons
 {
-    [SerializeField] [Range(5000f, 25000f)]
-    float _launchForce = 10000f;
-
-    [SerializeField][Range(10, 1000)] int _damage = 100;
-    [SerializeField][Range(2f, 10f)] float _range = 5f;
-
-    Rigidbody _rigidBody;
-    float _duration;
-
-    bool OutOfFuel
+    public class BlasterProjectile : MonoBehaviour
     {
-        get
+        [SerializeField]
+        [Range(5000f, 25000f)]
+        float _launchForce = 10000f;
+
+        [SerializeField][Range(10, 1000)] int _damage = 100;
+        [SerializeField][Range(2f, 10f)] float _range = 5f;
+
+        Rigidbody _rigidBody;
+        float _duration;
+
+        bool OutOfFuel
         {
-            _duration -= Time.deltaTime;
-            return _duration <= 0f;
+            get
+            {
+                _duration -= Time.deltaTime;
+                return _duration <= 0f;
+            }
         }
-    }
 
-    void Awake()
-    {
-        _rigidBody = GetComponent<Rigidbody>();
-    }
+        void Awake()
+        {
+            _rigidBody = GetComponent<Rigidbody>();
+        }
 
-    void OnEnable()
-    {
-        _rigidBody.AddForce(_launchForce * transform.forward);
-        _duration = _range;
-    }
+        void OnEnable()
+        {
+            _rigidBody.AddForce(_launchForce * transform.forward);
+            _duration = _range;
+        }
 
-    void Update()
-    {
-        if (OutOfFuel) {  Destroy(gameObject); }
-    }
+        void Update()
+        {
+            if (OutOfFuel) { Destroy(gameObject); }
+        }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log($"Projectile collided with {collision.collider.name}");
+        void OnCollisionEnter(Collision collision)
+        {
+            Debug.Log($"Projectile collided with {collision.collider.name}");
+        }
     }
 }

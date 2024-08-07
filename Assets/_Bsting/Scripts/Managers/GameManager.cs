@@ -8,89 +8,92 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using UnityEngine;
 
-/// <summary>
-/// Class that manages the overall game session, which includes mouse positions, PlayerInput instance(s), and quitting the game.
-/// </summary>
-public class GameManager : Manager<GameManager>
+namespace Bsting.Ship.Managers
 {
-    [SerializeField] private bool _hideMouseCursor = true;
-    [SerializeField] private bool _confineMouseCursorToGameWindow = true;
-    [SerializeField] private bool _ignoreMouseCursorOutsideGameWindow = true;
-
-    private PlayerInputSystem _currentPlayerInputSystem = null;
-
-    #region MonoBehaviors
-    protected override void Awake()
+    /// <summary>
+    /// Class that manages the overall game session, which includes mouse positions, PlayerInput instance(s), and quitting the game.
+    /// </summary>
+    public class GameManager : Manager<GameManager>
     {
-        base.Awake();
-    }
+        [SerializeField] private bool _hideMouseCursor = true;
+        [SerializeField] private bool _confineMouseCursorToGameWindow = true;
+        [SerializeField] private bool _ignoreMouseCursorOutsideGameWindow = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        RestrictMouseInputToGameWindow(shouldHideCursor:_hideMouseCursor, shouldConfineCursor:_confineMouseCursorToGameWindow);
-    }
+        private PlayerInputSystem _currentPlayerInputSystem = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (_currentPlayerInputSystem != null)
+        #region MonoBehaviors
+        protected override void Awake()
         {
-            if (WasQuitOverrideTriggered())
+            base.Awake();
+        }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            RestrictMouseInputToGameWindow(shouldHideCursor: _hideMouseCursor, shouldConfineCursor: _confineMouseCursorToGameWindow);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (_currentPlayerInputSystem != null)
             {
-                QuitGame();
+                if (WasQuitOverrideTriggered())
+                {
+                    QuitGame();
+                }
             }
         }
-    }
-    #endregion
+        #endregion
 
-    #region Helper Function(s)
-    private void RestrictMouseInputToGameWindow(bool shouldHideCursor = false, bool shouldConfineCursor = false)
-    {
-        if (shouldConfineCursor)
+        #region Helper Function(s)
+        private void RestrictMouseInputToGameWindow(bool shouldHideCursor = false, bool shouldConfineCursor = false)
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            if (shouldConfineCursor)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+
+            if (shouldHideCursor)
+            {
+                Cursor.visible = false;
+            }
+            else
+            {
+                Cursor.visible = true;
+            }
         }
-        else
+
+        public void SetPlayerInputInstance(PlayerInputSystem newInputInstance)
         {
-            Cursor.lockState = CursorLockMode.None;
+            _currentPlayerInputSystem = newInputInstance;
         }
 
-        if (shouldHideCursor)
+        public bool IsMouseIgnoredOutsideGameWindow()
         {
-            Cursor.visible = false;
+            bool result = _ignoreMouseCursorOutsideGameWindow;
+            return result;
         }
-        else
+
+        public bool WasQuitOverrideTriggered()
         {
-            Cursor.visible = true;
+            return _currentPlayerInputSystem.Player.QuitGameOverride.WasPressedThisFrame();
         }
-    }
 
-    public void SetPlayerInputInstance(PlayerInputSystem newInputInstance)
-    {
-        _currentPlayerInputSystem = newInputInstance;
-    }
-
-    public bool IsMouseIgnoredOutsideGameWindow()
-    {
-        bool result = _ignoreMouseCursorOutsideGameWindow;
-        return result;
-    }
-
-    public bool WasQuitOverrideTriggered()
-    {
-        return _currentPlayerInputSystem.Player.QuitGameOverride.WasPressedThisFrame();
-    }
-
-    public void QuitGame()
-    {
+        public void QuitGame()
+        {
 
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #else
         // TODO: Handle WebGL shutdown case
         Application.Quit();
 #endif
+        }
+        #endregion
     }
-    #endregion
 }

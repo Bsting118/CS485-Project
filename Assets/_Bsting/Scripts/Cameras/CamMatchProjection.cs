@@ -2,56 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamMatchProjection : MonoBehaviour
+namespace Bsting.Ship.Player.Camera
 {
-    [field: SerializeField] public Transform TargetCamera;
+    using Camera = UnityEngine.Camera;
 
-    void Awake()
+    public class CamMatchProjection : MonoBehaviour
     {
-        MatchProjectionOfThisCamera(TargetCamera.gameObject);
-    }
+        [field: SerializeField] public Transform TargetCamera;
 
-    void LateUpdate()
-    {
-        MatchProjectionOfThisCamera(TargetCamera.gameObject);
-    }
-
-    private void MatchProjectionOfThisCamera(GameObject toTarget)
-    {
-        if (toTarget.GetComponent<Camera>() != null)
+        void Awake()
         {
-            Camera toCamera = toTarget.GetComponent<Camera>();
-            Camera srcCamera = this.gameObject.GetComponent<Camera>();
-
-            DetermineProjectionType(srcCamera, toCamera);
-            srcCamera.fieldOfView = toCamera.fieldOfView;
-            srcCamera.farClipPlane = toCamera.farClipPlane;
-            srcCamera.nearClipPlane = toCamera.nearClipPlane;
-            DetermineIfPhysicalCamera(srcCamera, toCamera);
+            MatchProjectionOfThisCamera(TargetCamera.gameObject);
         }
-    }
 
-    private void DetermineProjectionType(Camera forThisCam, Camera usingThisCam)
-    {
-        if (usingThisCam.orthographic)
+        void LateUpdate()
         {
-            forThisCam.orthographic = true;
+            MatchProjectionOfThisCamera(TargetCamera.gameObject);
         }
-        else
-        {
-            forThisCam.orthographic = false;
-        }
-    }
 
-    private void DetermineIfPhysicalCamera(Camera forThisCam, Camera usingThisCam)
-    {
-        if (usingThisCam.usePhysicalProperties)
+        private void MatchProjectionOfThisCamera(GameObject toTarget)
         {
-            forThisCam.usePhysicalProperties = true;
+            if (toTarget.GetComponent<Camera>() != null)
+            {
+                Camera toCamera = toTarget.GetComponent<Camera>();
+                Camera srcCamera = this.gameObject.GetComponent<Camera>();
+
+                DetermineProjectionType(srcCamera, toCamera);
+                srcCamera.fieldOfView = toCamera.fieldOfView;
+                srcCamera.farClipPlane = toCamera.farClipPlane;
+                srcCamera.nearClipPlane = toCamera.nearClipPlane;
+                DetermineIfPhysicalCamera(srcCamera, toCamera);
+            }
         }
-        else
+
+        private void DetermineProjectionType(Camera forThisCam, Camera usingThisCam)
         {
-            forThisCam.usePhysicalProperties = false;
+            if (usingThisCam.orthographic)
+            {
+                forThisCam.orthographic = true;
+            }
+            else
+            {
+                forThisCam.orthographic = false;
+            }
+        }
+
+        private void DetermineIfPhysicalCamera(Camera forThisCam, Camera usingThisCam)
+        {
+            if (usingThisCam.usePhysicalProperties)
+            {
+                forThisCam.usePhysicalProperties = true;
+            }
+            else
+            {
+                forThisCam.usePhysicalProperties = false;
+            }
         }
     }
 }
