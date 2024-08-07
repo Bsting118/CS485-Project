@@ -28,6 +28,9 @@ public class ShipController : MonoBehaviour
     [SerializeField][Range(-1f, 1f)] private float _pitchFactor;
     [SerializeField][Range(-1f, 1f)] private float _rollFactor;
 
+    [Header("Ship Model Components")]
+    [SerializeField] List<ShipEngine> _engines;
+
     private Rigidbody _thisRigidBody;
     IShipMovement SourcedInput => _shipMovementInput.ShipControls;
 
@@ -35,6 +38,14 @@ public class ShipController : MonoBehaviour
     void Awake()
     {
         _thisRigidBody = GetComponent<Rigidbody>();
+    }
+
+    void Start()
+    {
+        foreach (ShipEngine engine in _engines)
+        {
+            engine.Init(SourcedInput);
+        }
     }
 
     private void Update()

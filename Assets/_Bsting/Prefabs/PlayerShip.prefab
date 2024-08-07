@@ -1017,6 +1017,9 @@ MonoBehaviour:
   _yawFactor: 0
   _pitchFactor: 0
   _rollFactor: 0
+  _engines:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &8396387196670154774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,6 +1461,7 @@ GameObject:
   - component: {fileID: 6019763934234964050}
   - component: {fileID: 986820815255537378}
   - component: {fileID: 1636392204103518830}
+  - component: {fileID: 888815004043585922}
   m_Layer: 0
   m_Name: Blaster_Right
   m_TagString: Untagged
@@ -1480,6 +1484,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3279101713025553926}
+  - {fileID: 8465209315960042937}
   m_Father: {fileID: 3456099716402772840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &986820815255537378
@@ -1532,6 +1537,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &888815004043585922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778013085211213188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe9cd58c0e06bd48baae12e7b403c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 4423013550958302311, guid: a6bbdd2a01c545948baf43522429551a,
+    type: 3}
+  _muzzle: {fileID: 8465209315960042937}
+  _cooldownTime: 0.25
 --- !u!1 &1789056549644762108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1818,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1990568815742069415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4221760414630729811}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4221760414630729811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990568815742069415}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5606360249857659020}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004536069771123354
 GameObject:
   m_ObjectHideFlags: 0
@@ -5095,6 +5147,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6123686279445364627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8465209315960042937}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8465209315960042937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123686279445364627}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6019763934234964050}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6138870474273938705
 GameObject:
   m_ObjectHideFlags: 0
@@ -5142,6 +5225,9 @@ MonoBehaviour:
   _inputTypeForThisShip: 0
   _connectedGameManager: {fileID: 0}
   _connectedCameraManager: {fileID: 0}
+  _listOfConnectedBlasters:
+  - {fileID: 7805182449436144389}
+  - {fileID: 888815004043585922}
   _realisticJoyStickEnabled: 0
   _filterMouseMovement: 0
   _factorToEaseShipRollBy: 3
@@ -7306,6 +7392,7 @@ GameObject:
   - component: {fileID: 5606360249857659020}
   - component: {fileID: 4087367961649381686}
   - component: {fileID: 9211358811168885710}
+  - component: {fileID: 7805182449436144389}
   m_Layer: 0
   m_Name: Blaster_Left
   m_TagString: Untagged
@@ -7328,6 +7415,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8222342162522519956}
+  - {fileID: 4221760414630729811}
   m_Father: {fileID: 3456099716402772840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4087367961649381686
@@ -7380,6 +7468,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7805182449436144389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500908934133205160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe9cd58c0e06bd48baae12e7b403c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _projectilePrefab: {fileID: 4423013550958302311, guid: a6bbdd2a01c545948baf43522429551a,
+    type: 3}
+  _muzzle: {fileID: 4221760414630729811}
+  _cooldownTime: 0.25
 --- !u!1 &8625907578867253327
 GameObject:
   m_ObjectHideFlags: 0

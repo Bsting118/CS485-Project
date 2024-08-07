@@ -155,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 39794351}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.294, z: 37.329998}
+  m_LocalPosition: {x: 0, y: 0.294, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -546,10 +546,20 @@ PrefabInstance:
       propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 930244127957696101, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Name
+      value: SideThrusterLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 1276503476368695643, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276503476368695643, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1519719717174147020, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
@@ -636,6 +646,16 @@ PrefabInstance:
       propertyPath: _connectedCameraManager
       value: 
       objectReference: {fileID: 357863598}
+    - target: {fileID: 3053812439551317894, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: _engines.Array.data[0]
+      value: 
+      objectReference: {fileID: 1406902091}
+    - target: {fileID: 3053812439551317894, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: _engines.Array.data[1]
+      value: 
+      objectReference: {fileID: 962057341}
     - target: {fileID: 3456099716402772840, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -649,7 +669,7 @@ PrefabInstance:
     - target: {fileID: 3456099716402772840, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3456099716402772840, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
@@ -686,6 +706,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4221760414630729811, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221760414630729811, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221760414630729811, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.239
+      objectReference: {fileID: 0}
+    - target: {fileID: 7476389623418565012, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Name
+      value: SideThrusterRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396387196670154774, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396387196670154774, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: 1f3fb0f5-4ded-4a0d-9cac-f04957040af2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8396387196670154774, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: Player/ToggleCamera[/Keyboard/q]
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465209315960042937, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465209315960042937, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465209315960042937, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.239
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7506634832749086439, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
     - {fileID: 9076539810307139332, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
@@ -695,7 +765,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 930244127957696101, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1406902091}
+    - targetCorrespondingSourceObject: {fileID: 930244127957696101, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1406902090}
+    - targetCorrespondingSourceObject: {fileID: 7476389623418565012, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 962057341}
     - targetCorrespondingSourceObject: {fileID: 7476389623418565012, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       insertIndex: -1
@@ -901,6 +979,19 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &962057341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962057336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bef080be6c35584d810de34a476dc45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thruster: {fileID: 962057336}
 --- !u!1 &1125442578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9030755534898010744, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
@@ -1074,6 +1165,19 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1406902091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406902086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bef080be6c35584d810de34a476dc45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thruster: {fileID: 1406902086}
 --- !u!1 &1650062291
 GameObject:
   m_ObjectHideFlags: 0

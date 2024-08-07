@@ -16,6 +16,7 @@ public class PlayerShipMovementInput : ShipMovementInput
 
     [SerializeField] private GameManager _connectedGameManager = null;
     [SerializeField] private CameraManager _connectedCameraManager = null;
+    [SerializeField] private List<Blaster> _listOfConnectedBlasters;
     [SerializeField] private bool _realisticJoyStickEnabled = true;
     [SerializeField] private bool _filterMouseMovement = false;
     [SerializeField] private float _factorToEaseShipRollBy = 1.0f;
@@ -41,6 +42,8 @@ public class PlayerShipMovementInput : ShipMovementInput
         {
             _connectedCameraManager.SetPlayerInputInstance(_playerInputMap);
         }
+
+        ConnectAllShipBlasters();
         
     }
 
@@ -60,4 +63,15 @@ public class PlayerShipMovementInput : ShipMovementInput
         base.OnDestroy();
     }
     #endregion
+
+    private void ConnectAllShipBlasters()
+    {
+        foreach (Blaster connectedBlaster in _listOfConnectedBlasters)
+        {
+            if (connectedBlaster != null)
+            {
+                connectedBlaster.SetPlayerInputInstance(_playerInputMap);
+            }
+        }
+    }
 }
