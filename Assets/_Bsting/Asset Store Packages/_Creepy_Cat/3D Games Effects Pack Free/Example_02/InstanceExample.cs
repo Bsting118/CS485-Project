@@ -48,13 +48,15 @@ public class InstanceExample : MonoBehaviour
 	private ParticleSystem instantiate(ParticleSystem prefab, Vector3 position)
 	{
 		ParticleSystem newParticleSystem = Instantiate(prefab,position,Quaternion.identity) as ParticleSystem;
+		var newPSMain = newParticleSystem.main;
 
 		/// -----------------------------
 		// Make sure it will be destroyed
 		/// -----------------------------
 		Destroy(
 			newParticleSystem.gameObject,
-			newParticleSystem.startLifetime
+			newPSMain.startLifetime.constant
+			//newParticleSystem.startLifetime
 		);
 
 		return newParticleSystem;

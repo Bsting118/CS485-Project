@@ -60,27 +60,41 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorSound.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Weapons\Blaster.cs" />
     <Compile Include="Assets\_Bsting\Scripts\AnimatedControls\AnimateCockpitControls.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipController.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorSmoke.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipMovementBase.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipEngine.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchPosition.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorComponent.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IVirtualCameras.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\AddSpaceDust.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchRotation.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorShockwave.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Weapons\BlasterProjectile.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorSpray.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipMovementInput.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorSparks.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Patterns\Singleton.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorCloudRing.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\Fracture.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorGlow.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\ExampleFracture.cs" />
     <Compile Include="Assets\Input\PlayerInputSystem.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorLight.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\Detonator.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorFireball.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovementInput.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\CameraManager.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchProjection.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\ControlThrusterTrail.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorForce.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IShipMovement.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorHeatwave.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipInputHandler.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovement.cs" />
@@ -91,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />
+    <None Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
     <None Include="Assets\_Bsting\Asset Store Packages\HiRezSpaceshipsCreatorFree\Readme.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\_FAQ - Informations\Help Readme SOS.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Readme.txt" />
