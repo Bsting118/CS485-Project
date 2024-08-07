@@ -43,7 +43,12 @@ namespace Bsting.Ship.Weapons
 
         void OnCollisionEnter(Collision collision)
         {
-            Debug.Log($"Projectile collided with {collision.collider.name}");
+            IDamageable damageable = collision.collider.gameObject.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                Vector3 hitPosition = collision.GetContact(0).point; // Get Vector3 at point of contact
+                damageable.TakeDamage(_damage, hitPosition);
+            }
         }
     }
 }

@@ -60,6 +60,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Bsting\Scripts\Asteroids\Asteroid.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorSound.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Weapons\Blaster.cs" />
     <Compile Include="Assets\_Bsting\Scripts\AnimatedControls\AnimateCockpitControls.cs" />
@@ -73,6 +74,8 @@
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\AddSpaceDust.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchRotation.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Asteroids\FracturedAsteroid.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Weapons\TargetCrosshair.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorShockwave.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Weapons\BlasterProjectile.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorSpray.cs" />
@@ -102,6 +105,7 @@
     <Compile Include="Assets\_Bsting\Scripts\Cameras\ToggleAsteroidsCam.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\Manager.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\InstanceExample.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Interfaces\IDamageable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />

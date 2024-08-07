@@ -1549,6 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe9cd58c0e06bd48baae12e7b403c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _crosshairToAimBlasterAt: {fileID: 1916518236488713945}
   _projectilePrefab: {fileID: 4423013550958302311, guid: a6bbdd2a01c545948baf43522429551a,
     type: 3}
   _muzzle: {fileID: 8465209315960042937}
@@ -5616,6 +5617,7 @@ GameObject:
   - component: {fileID: 8022602139415263996}
   - component: {fileID: 3869714524953020093}
   - component: {fileID: 5072962738806878161}
+  - component: {fileID: 1916518236488713945}
   m_Layer: 0
   m_Name: CockpitEquipments_HUD-2
   m_TagString: Untagged
@@ -5689,6 +5691,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1916518236488713945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467521438303643101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e108fbb513156545803020807efaef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distanceFromOrigin: 25
 --- !u!1 &6599926317279219875
 GameObject:
   m_ObjectHideFlags: 0
@@ -7480,6 +7495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe9cd58c0e06bd48baae12e7b403c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _crosshairToAimBlasterAt: {fileID: 1916518236488713945}
   _projectilePrefab: {fileID: 4423013550958302311, guid: a6bbdd2a01c545948baf43522429551a,
     type: 3}
   _muzzle: {fileID: 4221760414630729811}

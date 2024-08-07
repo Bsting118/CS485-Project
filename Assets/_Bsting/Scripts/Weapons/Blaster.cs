@@ -6,6 +6,8 @@ namespace Bsting.Ship.Weapons
 {
     public class Blaster : MonoBehaviour
     {
+        [SerializeField] TargetCrosshair _crosshairToAimBlasterAt;
+
         [SerializeField] BlasterProjectile _projectilePrefab;
         [SerializeField] Transform _muzzle;
         [SerializeField]
@@ -26,6 +28,11 @@ namespace Bsting.Ship.Weapons
         // Update is called once per frame
         void Update()
         {
+            if (_crosshairToAimBlasterAt != null)
+            {
+                this.gameObject.transform.LookAt(_crosshairToAimBlasterAt.GetCrosshairPointToAimAt());
+            }
+
             if (CanFire && _currentPlayerInputSystem.Player.Fire.WasPressedThisFrame()) // TODO: Change to new input system
             {
                 FireProjectile();
