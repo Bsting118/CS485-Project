@@ -73,8 +73,8 @@
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IVirtualCameras.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\AddSpaceDust.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
-    <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchRotation.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Asteroids\FracturedAsteroid.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchRotation.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Weapons\TargetCrosshair.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorShockwave.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Weapons\BlasterProjectile.cs" />

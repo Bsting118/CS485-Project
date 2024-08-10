@@ -596,6 +596,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 888815004043585922, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: _projectileSpawnForwardOffset
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 930244127957696101, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       propertyPath: m_Name
@@ -1250,6 +1255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7805182449436144389, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: _projectileSpawnForwardOffset
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7857979890294570583, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}

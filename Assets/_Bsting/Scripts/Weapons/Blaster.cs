@@ -10,8 +10,10 @@ namespace Bsting.Ship.Weapons
 
         [SerializeField] BlasterProjectile _projectilePrefab;
         [SerializeField] Transform _muzzle;
+        //[SerializeField] float _projectileSpawnForwardOffset = 0.0f;
         [SerializeField]
         [Range(0f, 5f)] float _cooldownTime = 0.25f;
+        
 
         bool CanFire
         {
@@ -43,6 +45,8 @@ namespace Bsting.Ship.Weapons
         {
             _cooldown = _cooldownTime;
             Instantiate(_projectilePrefab, _muzzle.position, transform.rotation);
+            //Vector3 spawnPos = new Vector3(_muzzle.position.x, _muzzle.position.y, _muzzle.position.z + _projectileSpawnForwardOffset);
+            //Instantiate(_projectilePrefab, spawnPos, _projectilePrefab.transform.rotation);
         }
 
         public void SetPlayerInputInstance(PlayerInputSystem newInputInstance)
