@@ -141,16 +141,19 @@ namespace Bsting.Ship
             // TODO: Change out .AddForce() with setting the RigidBody's velocity directly instead and then ease to reset back to 0 once hyperspeed is done
             if (Mathf.Approximately(0f, _thrustFactor) && _isHyperspeedPressed)
             {
+                Debug.Log("Adding hyperspeed force while no thrust is active.");
                 _thisRigidBody.AddForce(transform.forward * (_currentBoostSpeed * _hyperspeedFactor * Time.fixedDeltaTime));
                 CheckIfBoostedSpeedExceedsMaxSpeed();
             }
             else if (!_connectedInputMap.Player.AircraftThrust.IsPressed() && _isHyperspeedPressed)
             {
+                Debug.Log("Adding hyperspeed force while no thrust input is pressed.");
                 _thisRigidBody.AddForce(transform.forward * (_currentBoostSpeed * _hyperspeedFactor * Time.fixedDeltaTime));
                 CheckIfBoostedSpeedExceedsMaxSpeed();
             }
             else if (!Mathf.Approximately(0f, _thrustFactor) && _isHyperspeedPressed)
             {
+                Debug.Log("Adding hyperspeed force while thrust IS active.");
                 _currentBoostSpeed += (_thrustForce * _thrustFactor);
                 CheckIfBoostedSpeedExceedsMaxSpeed();
                 _thisRigidBody.AddForce(transform.forward * (_currentBoostSpeed * _hyperspeedFactor * Time.fixedDeltaTime));
@@ -160,7 +163,7 @@ namespace Bsting.Ship
             {
                 _thisRigidBody.AddForce(transform.forward * (_thrustForce * _thrustFactor * Time.fixedDeltaTime));
             }
-            Debug.Log("New current boost speed = " + _currentBoostSpeed);
+            
         }
         #endregion
 
