@@ -25,7 +25,7 @@ namespace Bsting.Ship.Player
         [SerializeField] private bool _filterMouseMovement = false;
         [SerializeField] private float _factorToEaseShipRollBy = 1.0f;
         [SerializeField] private float _factorToEaseShipThrustBy = 1.0f;
-        [SerializeField] private float _factorToBoostShipSpeedBy = 3.0f;
+        [SerializeField] private float _factorToBoostShipHyperspeedBy = 3.0f;
 
         #region MonoBehaviors
         protected override void Awake()
@@ -61,7 +61,7 @@ namespace Bsting.Ship.Player
                                                              shouldFilterMousePos: _filterMouseMovement,
                                                              stepFactorToEaseRoll: _factorToEaseShipRollBy,
                                                              stepFactorToEaseThrust: _factorToEaseShipThrustBy,
-                                                             hyperspeedBoostFactor: _factorToBoostShipSpeedBy);
+                                                             hyperspeedBoostFactor: _factorToBoostShipHyperspeedBy);
         }
 
         protected override void OnDestroy()

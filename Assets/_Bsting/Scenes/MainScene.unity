@@ -542,6 +542,11 @@ PrefabInstance:
       propertyPath: _connectedCameraManager
       value: 
       objectReference: {fileID: 357863598}
+    - target: {fileID: 2757262541232981810, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: _factorToBoostShipSpeedBy
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3456099716402772840, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       propertyPath: m_LocalPosition.x
