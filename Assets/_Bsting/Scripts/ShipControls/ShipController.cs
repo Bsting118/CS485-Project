@@ -145,14 +145,12 @@ namespace Bsting.Ship
             if (Mathf.Approximately(0f, _thrustFactor) && _isHyperspeedPressed)
             {
                 CheckIfHyperspeedHasBeenJumpstarted();
-                //_thisRigidBody.velocity = new Vector3(_cachedOriginalVelocity.x, _cachedOriginalVelocity.y, _currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 _thisRigidBody.velocity = transform.forward * (_currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 CheckIfBoostedSpeedExceedsMaxSpeed();
             }
             else if (!_connectedInputMap.Player.AircraftThrust.IsPressed() && _isHyperspeedPressed)
             {
                 CheckIfHyperspeedHasBeenJumpstarted();
-                //_thisRigidBody.velocity = new Vector3(_cachedOriginalVelocity.x, _cachedOriginalVelocity.y, _currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 _thisRigidBody.velocity = transform.forward * (_currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 CheckIfBoostedSpeedExceedsMaxSpeed();
             }
@@ -160,7 +158,6 @@ namespace Bsting.Ship
             {
                 _hasHyperSpeedJumpstarted = true;
                 _currentBoostSpeed = _MAX_SPEED_FACTOR;
-                //_thisRigidBody.velocity = new Vector3(_cachedOriginalVelocity.x, _cachedOriginalVelocity.y, _currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 _thisRigidBody.velocity = transform.forward * (_currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 CheckIfBoostedSpeedExceedsMaxSpeed();
             }
