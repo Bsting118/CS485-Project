@@ -30,7 +30,8 @@ namespace Bsting.Ship
                                                      bool shouldInvertPitch = false,
                                                      bool shouldFilterMousePos = false,
                                                      float stepFactorToEaseRoll = 1.0f,
-                                                     float stepFactorToEaseThrust = 1.0f)
+                                                     float stepFactorToEaseThrust = 1.0f,
+                                                     float hyperspeedBoostFactor = 2.0f)
         {
             IShipMovement determinedSource = null;
 
@@ -48,6 +49,7 @@ namespace Bsting.Ship
                     newPlayerMovement._isMouseFilteredToGameWindow = shouldFilterMousePos;
                     newPlayerMovement._stepValueToEaseRoll = stepFactorToEaseRoll;
                     newPlayerMovement._stepValueToEaseThrust = stepFactorToEaseThrust;
+                    newPlayerMovement.HyperspeedBoostAmount = hyperspeedBoostFactor; // ADDING 
 
                     // Copy over interface:
                     determinedSource = newPlayerMovement;

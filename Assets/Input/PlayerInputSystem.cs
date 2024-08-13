@@ -73,6 +73,15 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""AircraftHyperSpeed"",
+                    ""type"": ""Button"",
+                    ""id"": ""ab8cf7af-cb58-4129-8da8-695ddeec9156"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""QuitGameOverride"",
                     ""type"": ""Button"",
                     ""id"": ""05f94904-cceb-4941-81bd-1a9d2670e019"",
@@ -131,7 +140,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/position/y"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""AircraftPitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -142,7 +151,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/position/x"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""AircraftYaw"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -164,7 +173,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""AircraftRoll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -175,7 +184,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""AircraftRoll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -197,7 +206,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""AircraftThrust"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -208,7 +217,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""AircraftThrust"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -230,8 +239,19 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""ToggleCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90d55dd0-80ec-4ab1-b178-67313591ee9e"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""AircraftHyperSpeed"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -314,6 +334,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         m_Player_AircraftPitch = m_Player.FindAction("AircraftPitch", throwIfNotFound: true);
         m_Player_AircraftRoll = m_Player.FindAction("AircraftRoll", throwIfNotFound: true);
         m_Player_AircraftThrust = m_Player.FindAction("AircraftThrust", throwIfNotFound: true);
+        m_Player_AircraftHyperSpeed = m_Player.FindAction("AircraftHyperSpeed", throwIfNotFound: true);
         m_Player_QuitGameOverride = m_Player.FindAction("QuitGameOverride", throwIfNotFound: true);
         m_Player_ToggleCamera = m_Player.FindAction("ToggleCamera", throwIfNotFound: true);
         // UI
@@ -384,6 +405,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AircraftPitch;
     private readonly InputAction m_Player_AircraftRoll;
     private readonly InputAction m_Player_AircraftThrust;
+    private readonly InputAction m_Player_AircraftHyperSpeed;
     private readonly InputAction m_Player_QuitGameOverride;
     private readonly InputAction m_Player_ToggleCamera;
     public struct PlayerActions
@@ -395,6 +417,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         public InputAction @AircraftPitch => m_Wrapper.m_Player_AircraftPitch;
         public InputAction @AircraftRoll => m_Wrapper.m_Player_AircraftRoll;
         public InputAction @AircraftThrust => m_Wrapper.m_Player_AircraftThrust;
+        public InputAction @AircraftHyperSpeed => m_Wrapper.m_Player_AircraftHyperSpeed;
         public InputAction @QuitGameOverride => m_Wrapper.m_Player_QuitGameOverride;
         public InputAction @ToggleCamera => m_Wrapper.m_Player_ToggleCamera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -421,6 +444,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @AircraftThrust.started += instance.OnAircraftThrust;
             @AircraftThrust.performed += instance.OnAircraftThrust;
             @AircraftThrust.canceled += instance.OnAircraftThrust;
+            @AircraftHyperSpeed.started += instance.OnAircraftHyperSpeed;
+            @AircraftHyperSpeed.performed += instance.OnAircraftHyperSpeed;
+            @AircraftHyperSpeed.canceled += instance.OnAircraftHyperSpeed;
             @QuitGameOverride.started += instance.OnQuitGameOverride;
             @QuitGameOverride.performed += instance.OnQuitGameOverride;
             @QuitGameOverride.canceled += instance.OnQuitGameOverride;
@@ -446,6 +472,9 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
             @AircraftThrust.started -= instance.OnAircraftThrust;
             @AircraftThrust.performed -= instance.OnAircraftThrust;
             @AircraftThrust.canceled -= instance.OnAircraftThrust;
+            @AircraftHyperSpeed.started -= instance.OnAircraftHyperSpeed;
+            @AircraftHyperSpeed.performed -= instance.OnAircraftHyperSpeed;
+            @AircraftHyperSpeed.canceled -= instance.OnAircraftHyperSpeed;
             @QuitGameOverride.started -= instance.OnQuitGameOverride;
             @QuitGameOverride.performed -= instance.OnQuitGameOverride;
             @QuitGameOverride.canceled -= instance.OnQuitGameOverride;
@@ -559,6 +588,7 @@ public partial class @PlayerInputSystem: IInputActionCollection2, IDisposable
         void OnAircraftPitch(InputAction.CallbackContext context);
         void OnAircraftRoll(InputAction.CallbackContext context);
         void OnAircraftThrust(InputAction.CallbackContext context);
+        void OnAircraftHyperSpeed(InputAction.CallbackContext context);
         void OnQuitGameOverride(InputAction.CallbackContext context);
         void OnToggleCamera(InputAction.CallbackContext context);
     }

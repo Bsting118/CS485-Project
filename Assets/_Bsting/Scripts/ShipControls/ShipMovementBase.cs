@@ -18,5 +18,6 @@ namespace Bsting.Ship
         public abstract float YawFactorInput { get; }
         public abstract float ThrustFactorInput { get; }
         public abstract float RollFactorInput { get; }
+        public abstract float HyperspeedFactorInput { get; }
     }
 }

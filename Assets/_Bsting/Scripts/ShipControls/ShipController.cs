@@ -29,6 +29,7 @@ namespace Bsting.Ship
         [SerializeField][Range(-1f, 1f)] private float _yawFactor;
         [SerializeField][Range(-1f, 1f)] private float _pitchFactor;
         [SerializeField][Range(-1f, 1f)] private float _rollFactor;
+        [SerializeField] private float _hyperspeedFactor;
 
         [Header("Ship Model Components")]
         [SerializeField] List<ShipEngine> _engines;
@@ -52,10 +53,12 @@ namespace Bsting.Ship
 
         private void Update()
         {
+            // Get processed input values from interface to Input Actions:
             _thrustFactor = SourcedInput.ThrustFactorInput;
             _yawFactor = SourcedInput.YawFactorInput;
             _pitchFactor = SourcedInput.PitchFactorInput;
             _rollFactor = SourcedInput.RollFactorInput;
+            _hyperspeedFactor = SourcedInput.HyperspeedFactorInput;
         }
 
         void FixedUpdate()
@@ -82,9 +85,19 @@ namespace Bsting.Ship
             }
 
             // Physics-update THRUST:
+            /*
             if (!Mathf.Approximately(0f, _thrustFactor))
             {
                 _thisRigidBody.AddForce(transform.forward * (_thrustForce * _thrustFactor * Time.fixedDeltaTime));
+            }*/
+            if (Mathf.Approximately(0f, _thrustFactor) && !Mathf.Approximately(1.0f, _hyperspeedFactor))
+            {
+                Debug.Log("Adding hyperspeed force to RigidBody while no thrust input is active!");
+                _thisRigidBody.AddForce(transform.forward * ((_thrustForce / 2) * _hyperspeedFactor * Time.fixedDeltaTime));
+            }
+            else if (!Mathf.Approximately(0f, _thrustFactor))
+            {
+                _thisRigidBody.AddForce(transform.forward * (_thrustForce * _thrustFactor * _hyperspeedFactor * Time.fixedDeltaTime));
             }
         }
         #endregion

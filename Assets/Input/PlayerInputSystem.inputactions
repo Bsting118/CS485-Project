@@ -51,6 +51,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "AircraftHyperSpeed",
+                    "type": "Button",
+                    "id": "ab8cf7af-cb58-4129-8da8-695ddeec9156",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "QuitGameOverride",
                     "type": "Button",
                     "id": "05f94904-cceb-4941-81bd-1a9d2670e019",
@@ -109,7 +118,7 @@
                     "path": "<Mouse>/position/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "AircraftPitch",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -120,7 +129,7 @@
                     "path": "<Mouse>/position/x",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "AircraftYaw",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -142,7 +151,7 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "AircraftRoll",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -153,7 +162,7 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "AircraftRoll",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -175,7 +184,7 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "AircraftThrust",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -186,7 +195,7 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "AircraftThrust",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -208,8 +217,19 @@
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "ToggleCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90d55dd0-80ec-4ab1-b178-67313591ee9e",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "AircraftHyperSpeed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

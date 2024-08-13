@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3203556938583631081}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_ThrottleControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7851228891955025823}
   - component: {fileID: 6434387815536311286}
   - component: {fileID: 6434675116714153460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Handle-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 6930143611048111900}
   - component: {fileID: 4447710237385171926}
   - component: {fileID: 6709092056997765341}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Handle-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 1648965539649790794}
   - component: {fileID: 1391439533510568391}
   - component: {fileID: 3880048526107210641}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cockpit3_Interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 8125903919112224629}
   - component: {fileID: 3888452842560023646}
   - component: {fileID: 9127744758120108808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch3-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 2717121239975527292}
   - component: {fileID: 2255316972432929944}
   - component: {fileID: 6468698075976164359}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_ThrottleControl1-Handle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 2744849257841623095}
   - component: {fileID: 2792709932470630904}
   - component: {fileID: 495346348938022581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thruster1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 1933766757220422615}
   - component: {fileID: 7704532475795154103}
   - component: {fileID: 5635098522909036026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button4-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 3928390690946806506}
   - component: {fileID: 7599880580530655752}
   - component: {fileID: 6119847544661735999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch2-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4323176274968550329}
   - component: {fileID: 6674403596410253235}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,8 +762,10 @@ GameObject:
   - component: {fileID: 141940944798847676}
   - component: {fileID: 4779013690894730520}
   - component: {fileID: 7858097796728797472}
-  m_Layer: 0
-  m_Name: MainBody13
+  - component: {fileID: 5945400023426039333}
+  - component: {fileID: 5736729572814744475}
+  m_Layer: 6
+  m_Name: SideThrusterLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,6 +837,132 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5945400023426039333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930244127957696101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bef080be6c35584d810de34a476dc45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thruster: {fileID: 930244127957696101}
+--- !u!96 &5736729572814744475
+TrailRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930244127957696101}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 0.3
+  m_PreviewTimeScale: 1
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.3656717
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MinVertexDistance: 0.1
+  m_MaskInteraction: 0
+  m_Autodestruct: 0
+  m_Emitting: 1
+  m_ApplyActiveColorSpace: 1
 --- !u!1 &999190560170208131
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,7 +974,7 @@ GameObject:
   - component: {fileID: 2266688280210632760}
   - component: {fileID: 6770142296131537602}
   - component: {fileID: 6318524978209303808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +1058,7 @@ GameObject:
   - component: {fileID: 3916544980061833075}
   - component: {fileID: 3053812439551317894}
   - component: {fileID: 8396387196670154774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1017,9 +1145,10 @@ MonoBehaviour:
   _yawFactor: 0
   _pitchFactor: 0
   _rollFactor: 0
+  _hyperspeedFactor: 0
   _engines:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5945400023426039333}
+  - {fileID: 2933470187159330290}
 --- !u!114 &8396387196670154774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,6 +1199,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 05f94904-cceb-4941-81bd-1a9d2670e019
     m_ActionName: Player/QuitGameOverride[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1f3fb0f5-4ded-4a0d-9cac-f04957040af2
+    m_ActionName: Player/ToggleCamera[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab8cf7af-cb58-4129-8da8-695ddeec9156
+    m_ActionName: Player/AircraftHyperSpeed[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1086,7 +1223,7 @@ GameObject:
   - component: {fileID: 9048996619300618670}
   - component: {fileID: 7076232071779049382}
   - component: {fileID: 3793160256503396003}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button4-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1169,7 +1306,7 @@ GameObject:
   - component: {fileID: 7037417981068913025}
   - component: {fileID: 8173668217505108938}
   - component: {fileID: 3908866658239046116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Gauge2-Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5914431708512579842}
   - component: {fileID: 7552287091133947375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1304,9 +1441,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4527269727494798601}
   - component: {fileID: 2258346055603455661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CM_CockpitCamera3D
-  m_TagString: Untagged
+  m_TagString: CockpitCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1363,7 +1500,19 @@ MonoBehaviour:
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ToggleAsteroidsCam, Assembly-CSharp
+          m_MethodName: ToggleAsteroidsDisplayOff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 139635303268444268}
 --- !u!1 &1738609189199124140
@@ -1377,7 +1526,7 @@ GameObject:
   - component: {fileID: 3542577988317309246}
   - component: {fileID: 2901855525074915691}
   - component: {fileID: 5679595735650203207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1462,7 +1611,7 @@ GameObject:
   - component: {fileID: 986820815255537378}
   - component: {fileID: 1636392204103518830}
   - component: {fileID: 888815004043585922}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blaster_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1563,7 +1712,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5802349592474071693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6182240530430198196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1630,7 +1779,7 @@ GameObject:
   - component: {fileID: 7926840651671066451}
   - component: {fileID: 774139005381899406}
   - component: {fileID: 482701681750309205}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wing6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1712,7 +1861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 216719029009473839}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_FootStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1747,7 +1896,7 @@ GameObject:
   - component: {fileID: 6766768188125562203}
   - component: {fileID: 9122627910451491334}
   - component: {fileID: 3093517355394752574}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_FootStand-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1828,7 +1977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4221760414630729811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1844,7 +1993,7 @@ Transform:
   m_GameObject: {fileID: 1990568815742069415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: -0, y: -0, z: 2.239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1861,7 +2010,7 @@ GameObject:
   - component: {fileID: 5409528580987435828}
   - component: {fileID: 8612363716516854219}
   - component: {fileID: 2319918518469808944}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1942,7 +2091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 210142296719653413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Screens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1977,7 +2126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8222342162522519956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2012,7 +2161,7 @@ GameObject:
   - component: {fileID: 226594416965717496}
   - component: {fileID: 6842687190228388367}
   - component: {fileID: 8723640081437974904}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Gauge1-Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2094,7 +2243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8637557266758652004}
   - component: {fileID: 1321132125765071589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2148,7 +2297,7 @@ GameObject:
   - component: {fileID: 6046311427085123373}
   - component: {fileID: 7616051592249710506}
   - component: {fileID: 5110332708593922338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2230,7 +2379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6002033997126360369}
   - component: {fileID: 1527528225551508777}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2284,7 +2433,7 @@ GameObject:
   - component: {fileID: 5235344207953844838}
   - component: {fileID: 5841189057133380430}
   - component: {fileID: 1578920347821909121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2367,7 +2516,7 @@ GameObject:
   - component: {fileID: 611623396434434411}
   - component: {fileID: 3914224416517878325}
   - component: {fileID: 2506080270344578568}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_SeatEjectorHandle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2448,7 +2597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3279101713025553926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2483,7 +2632,7 @@ GameObject:
   - component: {fileID: 7831409787731502355}
   - component: {fileID: 779369052503134673}
   - component: {fileID: 4168115959391784244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2566,7 +2715,7 @@ GameObject:
   - component: {fileID: 3478488583699046780}
   - component: {fileID: 6420154208047888530}
   - component: {fileID: 2143098430269406112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch3-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2647,7 +2796,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2417698641417232554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Seat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2681,9 +2830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139635303268444268}
   - component: {fileID: 4138756481374459479}
-  - component: {fileID: 9076539810307139332}
-  - component: {fileID: 7506634832749086439}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2717,55 +2864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9076539810307139332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2761494692239258044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0
-  m_LookaheadSmoothing: 0
-  m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0
-  m_BiasY: 0
-  m_CenterOnActivate: 1
---- !u!114 &7506634832749086439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2761494692239258044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
 --- !u!1 &2828872692481956704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,7 +2874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7943236631168189190}
   - component: {fileID: 3546391946200491634}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2829,7 +2927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 390257915636823324}
   - component: {fileID: 4082070246729145345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2883,7 +2981,7 @@ GameObject:
   - component: {fileID: 4204548889201506920}
   - component: {fileID: 3215668712840496580}
   - component: {fileID: 5073906673223031971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Big_Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2967,7 +3065,7 @@ GameObject:
   - component: {fileID: 1732776106759668452}
   - component: {fileID: 5219400560650037726}
   - component: {fileID: 9080626981163406822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wing6_Mirrored
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3051,7 +3149,7 @@ GameObject:
   - component: {fileID: 1773341316097104587}
   - component: {fileID: 8929663132510807015}
   - component: {fileID: 4086153705701429626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Joystick2-Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3134,7 +3232,7 @@ GameObject:
   - component: {fileID: 9217353729524791813}
   - component: {fileID: 1905713331530347392}
   - component: {fileID: 3649375048603912518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch1-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3217,7 +3315,7 @@ GameObject:
   - component: {fileID: 8286271438617968393}
   - component: {fileID: 943476647135007165}
   - component: {fileID: 98428219801774436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_FootStand-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3300,7 +3398,7 @@ GameObject:
   - component: {fileID: 3714824033767882598}
   - component: {fileID: 1397757334598885546}
   - component: {fileID: 4360350540403925263}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3383,7 +3481,7 @@ GameObject:
   - component: {fileID: 3755428676504866104}
   - component: {fileID: 3109082603036023129}
   - component: {fileID: 8699421095424955847}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Gauge2-Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3464,7 +3562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8523835829074595274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3499,7 +3597,7 @@ GameObject:
   - component: {fileID: 2095553966401900963}
   - component: {fileID: 1535346949939037289}
   - component: {fileID: 3210939711406786140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3581,7 +3679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1289223668326773427}
   - component: {fileID: 7456186941813832909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3633,7 +3731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4827018069115973575}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3668,7 +3766,7 @@ GameObject:
   - component: {fileID: 3726534372682691240}
   - component: {fileID: 6832192123345116762}
   - component: {fileID: 3238555250520265299}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Seat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3749,7 +3847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3534457401985811042}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3782,7 +3880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 358732492115694923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3817,7 +3915,7 @@ GameObject:
   - component: {fileID: 1158894079958339331}
   - component: {fileID: 4224673626562988441}
   - component: {fileID: 744011963486524654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch3-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3899,7 +3997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073685543721640653}
   - component: {fileID: 5205051883869649420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3953,7 +4051,7 @@ GameObject:
   - component: {fileID: 7650207391184492208}
   - component: {fileID: 4279201762795388857}
   - component: {fileID: 8992416133838358763}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4034,7 +4132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 678538334114739919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4068,7 +4166,7 @@ GameObject:
   - component: {fileID: 8124983173997025378}
   - component: {fileID: 4412071273345403382}
   - component: {fileID: 1630550676156933837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button4-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4151,7 +4249,7 @@ GameObject:
   - component: {fileID: 4399777244929337112}
   - component: {fileID: 2994048292978610387}
   - component: {fileID: 7755608340431530554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Stand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4234,7 +4332,7 @@ GameObject:
   - component: {fileID: 4022263556197811685}
   - component: {fileID: 7070069806972393486}
   - component: {fileID: 7872110731605049327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Joystick2-Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4317,7 +4415,7 @@ GameObject:
   - component: {fileID: 6048464158452209617}
   - component: {fileID: 6556070126267058839}
   - component: {fileID: 441967340709144254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button4-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4400,7 +4498,7 @@ GameObject:
   - component: {fileID: 1013599131352442881}
   - component: {fileID: 6431686531849433717}
   - component: {fileID: 8873168345250288860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cockpit3_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4483,7 +4581,7 @@ GameObject:
   - component: {fileID: 4120305268538647682}
   - component: {fileID: 7082799902188786178}
   - component: {fileID: 5969902640094231231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cockpit3_Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4566,7 +4664,7 @@ GameObject:
   - component: {fileID: 419626243735424443}
   - component: {fileID: 5043797270077044640}
   - component: {fileID: 5312364336955565678}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Gauge1-Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4649,7 +4747,7 @@ GameObject:
   - component: {fileID: 8430332047268534518}
   - component: {fileID: 2153411058561433947}
   - component: {fileID: 5800488158080156718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch2-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4730,7 +4828,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3275117370917400740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4780,7 +4878,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7068004575712684157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4815,7 +4913,7 @@ GameObject:
   - component: {fileID: 8254587318474735654}
   - component: {fileID: 3004346719783717556}
   - component: {fileID: 407347477977407613}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_HUD-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4897,7 +4995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7987504690990066292}
   - component: {fileID: 3825086172939192040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4952,7 +5050,7 @@ GameObject:
   - component: {fileID: 4227694676123000778}
   - component: {fileID: 4555968100151840653}
   - component: {fileID: 6741789538891010281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Screen-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5033,7 +5131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 506025972559131392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switchs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5076,7 +5174,7 @@ GameObject:
   - component: {fileID: 3594733773397177972}
   - component: {fileID: 2569411561967871702}
   - component: {fileID: 7048266491458429151}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch2-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5157,7 +5255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8465209315960042937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5173,7 +5271,7 @@ Transform:
   m_GameObject: {fileID: 6123686279445364627}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: -0, y: -0, z: 2.239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5189,7 +5287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8313588681429511314}
   - component: {fileID: 2757262541232981810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerShipInput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5230,9 +5328,10 @@ MonoBehaviour:
   - {fileID: 7805182449436144389}
   - {fileID: 888815004043585922}
   _realisticJoyStickEnabled: 0
-  _filterMouseMovement: 0
+  _filterMouseMovement: 1
   _factorToEaseShipRollBy: 3
   _factorToEaseShipThrustBy: 3
+  _factorToBoostShipSpeedBy: 5
 --- !u!1 &6149048180841828033
 GameObject:
   m_ObjectHideFlags: 0
@@ -5242,7 +5341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4423300934634421637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cockpit3_InteriorDetails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5285,7 +5384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4936118837168906002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5317,7 +5416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2350564411389795792}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5351,7 +5450,7 @@ GameObject:
   - component: {fileID: 311310008806369593}
   - component: {fileID: 3742774778599436231}
   - component: {fileID: 5447603522871741025}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5434,7 +5533,7 @@ GameObject:
   - component: {fileID: 8762198081958109313}
   - component: {fileID: 5010736363215930851}
   - component: {fileID: 1519719717174147020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5482,9 +5581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 3
   m_FollowOffset: {x: 0, y: 150, z: -0}
-  m_XDamping: 1
+  m_XDamping: 0.5
   m_YDamping: 0
-  m_ZDamping: 1
+  m_ZDamping: 0.5
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -5501,7 +5600,7 @@ GameObject:
   - component: {fileID: 3462476161481829641}
   - component: {fileID: 4878972655329741592}
   - component: {fileID: 7813616702896810975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_ScreenFrame-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5582,7 +5681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3977098535275478357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Gauge2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5618,8 +5717,8 @@ GameObject:
   - component: {fileID: 3869714524953020093}
   - component: {fileID: 5072962738806878161}
   - component: {fileID: 1916518236488713945}
-  m_Layer: 0
-  m_Name: CockpitEquipments_HUD-2
+  m_Layer: 6
+  m_Name: Crosshair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5715,7 +5814,7 @@ GameObject:
   - component: {fileID: 6688101300772124177}
   - component: {fileID: 5231074282695964896}
   - component: {fileID: 7352357916281801084}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_ThrottleControl1-Handle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5797,7 +5896,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1415684709520094455}
   - component: {fileID: 93532070933825687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5851,7 +5950,7 @@ GameObject:
   - component: {fileID: 2134086863423305210}
   - component: {fileID: 1865883924419738643}
   - component: {fileID: 7506897606451912899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5934,7 +6033,7 @@ GameObject:
   - component: {fileID: 5291322898348450565}
   - component: {fileID: 238760747084366551}
   - component: {fileID: 5901966029548291303}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Screen-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6015,7 +6114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5426204251971713718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Handles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6050,7 +6149,7 @@ GameObject:
   - component: {fileID: 3320498201028601425}
   - component: {fileID: 7763988432555513001}
   - component: {fileID: 1879779598874606632}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6133,7 +6232,7 @@ GameObject:
   - component: {fileID: 6866553519560421784}
   - component: {fileID: 3691287303240492582}
   - component: {fileID: 3566276557390828964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6216,7 +6315,7 @@ GameObject:
   - component: {fileID: 220156870359837645}
   - component: {fileID: 762131094757728148}
   - component: {fileID: 2706743435162102060}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6298,7 +6397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8171537718289248568}
   - component: {fileID: 5860057407013279504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cockpit3_WithInterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6355,7 +6454,7 @@ GameObject:
   - component: {fileID: 3200481678935765525}
   - component: {fileID: 1292488536318761822}
   - component: {fileID: 3186137734629686506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thruster1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6438,7 +6537,7 @@ GameObject:
   - component: {fileID: 8571783863027666585}
   - component: {fileID: 390156163887641247}
   - component: {fileID: 2096592731082032775}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_ThrottleContro1-Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6520,7 +6619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7662972482754670190}
   - component: {fileID: 1523970741657595829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6573,7 +6672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673072657440128056}
   - component: {fileID: 1208713313600016442}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6627,7 +6726,7 @@ GameObject:
   - component: {fileID: 3724451713174360277}
   - component: {fileID: 5054313143954128561}
   - component: {fileID: 4959282971031782689}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Engine1_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6712,8 +6811,10 @@ GameObject:
   - component: {fileID: 2571641209495048557}
   - component: {fileID: 7016097375606467021}
   - component: {fileID: 5184499896289985669}
-  m_Layer: 0
-  m_Name: MainBody13_Mirrored
+  - component: {fileID: 2933470187159330290}
+  - component: {fileID: 8667589848576233130}
+  m_Layer: 6
+  m_Name: SideThrusterRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6785,6 +6886,132 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2933470187159330290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476389623418565012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bef080be6c35584d810de34a476dc45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _thruster: {fileID: 7476389623418565012}
+--- !u!96 &8667589848576233130
+TrailRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476389623418565012}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 0.3
+  m_PreviewTimeScale: 1
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.3656717
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: -1
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MinVertexDistance: 0.1
+  m_MaskInteraction: 0
+  m_Autodestruct: 0
+  m_Emitting: 1
+  m_ApplyActiveColorSpace: 1
 --- !u!1 &7578053278080057502
 GameObject:
   m_ObjectHideFlags: 0
@@ -6796,7 +7023,7 @@ GameObject:
   - component: {fileID: 8586525646372877111}
   - component: {fileID: 4790400040071767317}
   - component: {fileID: 889444817113134191}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainBody2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6880,7 +7107,7 @@ GameObject:
   - component: {fileID: 6940571998686805676}
   - component: {fileID: 2615346058655058037}
   - component: {fileID: 6381180310129495693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Engine1_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6964,7 +7191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4466889309409169857}
   - component: {fileID: 4574958360212416494}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7019,7 +7246,7 @@ GameObject:
   - component: {fileID: 3839327044231812089}
   - component: {fileID: 641685514169237961}
   - component: {fileID: 4329062836928087254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch3-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7101,7 +7328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4081281578328061049}
   - component: {fileID: 5722816616117845397}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7155,7 +7382,7 @@ GameObject:
   - component: {fileID: 4245047853269393021}
   - component: {fileID: 43228695253502726}
   - component: {fileID: 120480810996577558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button4-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7237,7 +7464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6939411379141978993}
   - component: {fileID: 8643649316679801714}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7291,7 +7518,7 @@ GameObject:
   - component: {fileID: 9024370131049160302}
   - component: {fileID: 6718568324394486595}
   - component: {fileID: 8329175337661033252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Switch3-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7372,7 +7599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6811554772357343616}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7408,7 +7635,7 @@ GameObject:
   - component: {fileID: 4087367961649381686}
   - component: {fileID: 9211358811168885710}
   - component: {fileID: 7805182449436144389}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blaster_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7509,7 +7736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4860950178218537709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Gauge1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7544,7 +7771,7 @@ GameObject:
   - component: {fileID: 1593855539412171727}
   - component: {fileID: 1621364359152536830}
   - component: {fileID: 3792552976266490510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wing2_Mirrored
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7628,7 +7855,7 @@ GameObject:
   - component: {fileID: 5900682474788866197}
   - component: {fileID: 3413134469646200305}
   - component: {fileID: 4302420062554054339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_ScreenFrame-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7709,7 +7936,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8792993385714850176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7743,7 +7970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8511229237006081570}
   - component: {fileID: 6365898290858956837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7797,7 +8024,7 @@ GameObject:
   - component: {fileID: 8253495695003381726}
   - component: {fileID: 2037886665537535935}
   - component: {fileID: 2810482876208305896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button6-7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7880,7 +8107,7 @@ GameObject:
   - component: {fileID: 7862480061540546139}
   - component: {fileID: 1011745020420838087}
   - component: {fileID: 6193242884548796572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CockpitEquipments_Button4-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7963,7 +8190,7 @@ GameObject:
   - component: {fileID: 9120460257611376402}
   - component: {fileID: 5967120844107257393}
   - component: {fileID: 664888705596327939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpaceDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12792,7 +13019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129927963428181795}
   - component: {fileID: 8480954940046612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CM_FollowCamera2D
   m_TagString: FollowCamera
   m_Icon: {fileID: 0}
@@ -12851,7 +13078,19 @@ MonoBehaviour:
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: ToggleAsteroidsCam, Assembly-CSharp
+          m_MethodName: ToggleAsteroidsDisplayOn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 8762198081958109313}
 --- !u!1 &9080632637690769026
@@ -12863,7 +13102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 706325517311825450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

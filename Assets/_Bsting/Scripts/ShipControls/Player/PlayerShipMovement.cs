@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 namespace Bsting.Ship.Player
 {
@@ -17,6 +18,7 @@ namespace Bsting.Ship.Player
     {
         // Public fields:
         [SerializeField] public PlayerInputSystem PlayerInputBinds;
+        [SerializeField] public float HyperspeedBoostAmount = 2.0f;
         [HideInInspector, SerializeField] public bool _isPitchInverted = false;
         [HideInInspector, SerializeField] public bool _isMouseFilteredToGameWindow = false; // Added
         [HideInInspector, SerializeField] public float _stepValueToEaseRoll = 1f;
@@ -121,6 +123,20 @@ namespace Bsting.Ship.Player
 
                 // If there's nothing sensed on the bind, then return no factor on thrust:
                 return _easedRollFactor;
+            }
+        }
+
+        public override float HyperspeedFactorInput
+        {
+            get
+            {
+                // ...
+                float currentBoostSignedVal = PlayerInputBinds.Player.AircraftHyperSpeed.ReadValue<float>();
+
+                // ADDING
+                float currentEstimatedBoost = Mathf.Approximately(Mathf.Abs(currentBoostSignedVal), 0f) ? 1.0f : (currentBoostSignedVal * HyperspeedBoostAmount);
+
+                return currentEstimatedBoost;
             }
         }
         /* ========   END OF MAIN SPACESHIP INPUT CONNECTORS/ACCESSORS ======== */
