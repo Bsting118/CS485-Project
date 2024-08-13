@@ -80,5 +80,21 @@ namespace Bsting.Ship.Player
                 }
             }
         }
+
+        public void DisableAllBlasters()
+        {
+            foreach (Blaster connectedBlaster in _listOfConnectedBlasters)
+            {
+                connectedBlaster.enabled = false;
+            }
+        }
+
+        public void EnableAllBlasters()
+        {
+            foreach (Blaster connectedBlaster in _listOfConnectedBlasters)
+            {
+                connectedBlaster.enabled = true;
+            }
+        }
     }
 }

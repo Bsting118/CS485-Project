@@ -44,6 +44,7 @@ namespace Bsting.Ship
 
         private Rigidbody _thisRigidBody;
         private PlayerInputSystem _connectedInputMap = null;
+        private PlayerShipMovementInput _initPlayerInputControls = null;
         private Coroutine _hyperspeedRoutine = null;
         private bool _canUseHyperspeed = true;
         private bool _isHyperspeedPressed = false;
@@ -51,6 +52,8 @@ namespace Bsting.Ship
         private float _timeLeftOnHyperspeedCooldown;
         private float _MAX_SPEED_FACTOR = 0f;
         private float _currentBoostSpeed = 0f;
+        private float _currentHyperspeedMultiplier = 0f;
+        private bool _hasHyperSpeedJumpstarted = false;
 
         IShipMovement SourcedInput => _shipMovementInput.ShipControls;
 
@@ -65,8 +68,8 @@ namespace Bsting.Ship
             {
                 if (_shipMovementInput.GetType() == typeof(PlayerShipMovementInput))
                 {
-                    PlayerShipMovementInput temp = _shipMovementInput as PlayerShipMovementInput;
-                    _connectedInputMap = temp._playerInputMap;
+                    _initPlayerInputControls = _shipMovementInput as PlayerShipMovementInput;
+                    _connectedInputMap = _initPlayerInputControls._playerInputMap;
                 }
             }
         }
@@ -80,7 +83,7 @@ namespace Bsting.Ship
 
             if (Mathf.Approximately(0f, _MAX_SPEED_FACTOR))
             {
-                _MAX_SPEED_FACTOR = (_thrustForce * 1);
+                _MAX_SPEED_FACTOR = (_thrustForce * 1); // 1 is to represent a pressed Thrust input value 
             }
         }
 
@@ -131,32 +134,34 @@ namespace Bsting.Ship
             // "If we can use hyperspeed ability, and it has not been pressed yet":
             if (_canUseHyperspeed && !_isHyperspeedPressed) 
             {
-                if (_hyperspeedFactor > 1.0f) // Hyperspeed input is being pressed
+                if ((_hyperspeedFactor > 1.0f) && (_hyperspeedRoutine == null)) // Hyperspeed input is being pressed
                 {
+                    _currentHyperspeedMultiplier = _hyperspeedFactor;
                     _hyperspeedRoutine = StartCoroutine(UseHyperspeed()); // ADDING
                 }
             }
 
             // Physics-update THRUST:
-            // TODO: Change out .AddForce() with setting the RigidBody's velocity directly instead and then ease to reset back to 0 once hyperspeed is done
             if (Mathf.Approximately(0f, _thrustFactor) && _isHyperspeedPressed)
             {
-                Debug.Log("Adding hyperspeed force while no thrust is active.");
-                _thisRigidBody.AddForce(transform.forward * (_currentBoostSpeed * _hyperspeedFactor * Time.fixedDeltaTime));
+                CheckIfHyperspeedHasBeenJumpstarted();
+                //_thisRigidBody.velocity = new Vector3(_cachedOriginalVelocity.x, _cachedOriginalVelocity.y, _currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
+                _thisRigidBody.velocity = transform.forward * (_currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 CheckIfBoostedSpeedExceedsMaxSpeed();
             }
             else if (!_connectedInputMap.Player.AircraftThrust.IsPressed() && _isHyperspeedPressed)
             {
-                Debug.Log("Adding hyperspeed force while no thrust input is pressed.");
-                _thisRigidBody.AddForce(transform.forward * (_currentBoostSpeed * _hyperspeedFactor * Time.fixedDeltaTime));
+                CheckIfHyperspeedHasBeenJumpstarted();
+                //_thisRigidBody.velocity = new Vector3(_cachedOriginalVelocity.x, _cachedOriginalVelocity.y, _currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
+                _thisRigidBody.velocity = transform.forward * (_currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 CheckIfBoostedSpeedExceedsMaxSpeed();
             }
             else if (!Mathf.Approximately(0f, _thrustFactor) && _isHyperspeedPressed)
             {
-                Debug.Log("Adding hyperspeed force while thrust IS active.");
-                _currentBoostSpeed += (_thrustForce * _thrustFactor);
-                CheckIfBoostedSpeedExceedsMaxSpeed();
-                _thisRigidBody.AddForce(transform.forward * (_currentBoostSpeed * _hyperspeedFactor * Time.fixedDeltaTime));
+                _hasHyperSpeedJumpstarted = true;
+                _currentBoostSpeed = _MAX_SPEED_FACTOR;
+                //_thisRigidBody.velocity = new Vector3(_cachedOriginalVelocity.x, _cachedOriginalVelocity.y, _currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
+                _thisRigidBody.velocity = transform.forward * (_currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 CheckIfBoostedSpeedExceedsMaxSpeed();
             }
             else if (!Mathf.Approximately(0f, _thrustFactor) && !_isHyperspeedPressed)
@@ -171,14 +176,15 @@ namespace Bsting.Ship
         IEnumerator UseHyperspeed()
         {
             ResetDurationAndCooldownBarValues();
-
             _canUseHyperspeed = false;
             _isHyperspeedPressed = true;
+            if (_initPlayerInputControls != null) { _initPlayerInputControls.DisableAllBlasters(); } // Disable blasters while in boost mode
             OnHyperspeedActivated.Invoke();
             _currentBoostSpeed = (_thrustForce / 2);
             yield return new WaitForSeconds(_hyperSpeedDuration);
 
             _isHyperspeedPressed = false;
+            if (_initPlayerInputControls != null) { _initPlayerInputControls.EnableAllBlasters(); }
             OnHyperspeedExpired.Invoke();
             Debug.Log("!!! Hyperspeed is out of fuel. Cooldown engaged. !!!");
 
@@ -188,6 +194,8 @@ namespace Bsting.Ship
             _hyperspeedRoutine = null;
             ResetDurationAndCooldownBarValues();
             _currentBoostSpeed = 0f;
+            _currentHyperspeedMultiplier = 0f;
+            _hasHyperSpeedJumpstarted = false;
             _canUseHyperspeed = true;
             Debug.Log("=== Cooldown expired. Hyperspeed is ready! ===");
         }
@@ -208,7 +216,16 @@ namespace Bsting.Ship
             }
             else
             {
-                _currentBoostSpeed += Mathf.Lerp(_currentBoostSpeed, _MAX_SPEED_FACTOR, Time.fixedDeltaTime);
+                _currentBoostSpeed = Mathf.Lerp(_currentBoostSpeed, _MAX_SPEED_FACTOR, Time.fixedDeltaTime);
+            }
+        }
+
+        private void CheckIfHyperspeedHasBeenJumpstarted()
+        {
+            if (!_hasHyperSpeedJumpstarted)
+            {
+                _thisRigidBody.AddForce(transform.forward * (_currentBoostSpeed * _hyperspeedFactor * Time.fixedDeltaTime));
+                _hasHyperSpeedJumpstarted = true;
             }
         }
         #endregion
