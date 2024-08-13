@@ -1057,6 +1057,7 @@ GameObject:
   - component: {fileID: 3456099716402772840}
   - component: {fileID: 3916544980061833075}
   - component: {fileID: 3053812439551317894}
+  - component: {fileID: 8942146576546571976}
   - component: {fileID: 8396387196670154774}
   m_Layer: 6
   m_Name: PlayerShip
@@ -1153,10 +1154,47 @@ MonoBehaviour:
   _hyperSpeedCooldownTime: 5
   OnHyperspeedActivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8942146576546571976}
+        m_TargetAssemblyTypeName: Bsting.Ship.FX.HyperspeedVFXController, Assembly-CSharp
+        m_MethodName: EnableChromaticAbberation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHyperspeedExpired:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8942146576546571976}
+        m_TargetAssemblyTypeName: Bsting.Ship.FX.HyperspeedVFXController, Assembly-CSharp
+        m_MethodName: DisableChromaticAbberation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8942146576546571976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276503476368695643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c404d34e4e072274aa9e47d372b74743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSettings: {fileID: 3700982979320627523}
 --- !u!114 &8396387196670154774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1449,6 +1487,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4527269727494798601}
   - component: {fileID: 2258346055603455661}
+  - component: {fileID: 3700982979320627523}
   m_Layer: 6
   m_Name: CM_CockpitCamera3D
   m_TagString: CockpitCamera
@@ -1523,6 +1562,23 @@ MonoBehaviour:
           m_CallState: 2
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 139635303268444268}
+--- !u!114 &3700982979320627523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663422054386766352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 11400000, guid: 45299c8ea90975941aa6bfcaee0e070c, type: 2}
 --- !u!1 &1738609189199124140
 GameObject:
   m_ObjectHideFlags: 0

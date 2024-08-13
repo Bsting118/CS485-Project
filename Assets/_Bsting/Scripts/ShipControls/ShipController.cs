@@ -61,7 +61,6 @@ namespace Bsting.Ship
         void Awake()
         {
             _thisRigidBody = GetComponent<Rigidbody>();
-            // ResetDurationAndCooldownBarValues();
 
             // ADDING:
             if (_shipMovementInput != null)
