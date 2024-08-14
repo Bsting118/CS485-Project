@@ -13,8 +13,10 @@ namespace Bsting.Ship.FX
     {
         [SerializeField] public List<CinemachineVirtualCamera> ListOfVirtualCams;
         [SerializeField] public List<CinemachineVolumeSettings> VolumeSettings;
-        [SerializeField] private float _amplitudeToApplyToCameraShake = 5.0f;
-        [SerializeField] private float _frequencyToApplyToCameraShake = 5.0f;
+        [SerializeField] private float _amplitudeToApplyToFirstPersonCameraShake = 5.0f;
+        [SerializeField] private float _frequencyToApplyToFirstPersonCameraShake = 5.0f;
+        [SerializeField] private float _amplitudeToApplyToThirdPersonCameraShake = 0.5f;
+        [SerializeField] private float _frequencyToApplyToThirdPersonCameraShake = 0.5f;
 
         private List<ChromaticAberration> chromaticAberrations;
         private List<CinemachineBasicMultiChannelPerlin> perlinNoiseModules;
@@ -58,6 +60,25 @@ namespace Bsting.Ship.FX
             toThisNoise.m_FrequencyGain = frequencyGain;
         }
 
+        private GameObject GetGameObjectOfVirtualCameraComponent(CinemachineComponentBase vcamComp)
+        {
+            GameObject currentVCamGameObj = null;
+
+            if (vcamComp != null)
+            {
+                currentVCamGameObj = vcamComp.gameObject;
+
+                bool isInvisibleCMObj = (currentVCamGameObj.name == "cm");
+
+                if (isInvisibleCMObj)
+                {
+                    currentVCamGameObj = vcamComp.transform.parent.gameObject;
+                }
+            }
+
+            return currentVCamGameObj;
+        }
+
         public void EnableChromaticAbberation()
         {
             foreach (ChromaticAberration chromAberr in chromaticAberrations)
@@ -80,7 +101,24 @@ namespace Bsting.Ship.FX
         {
             foreach (CinemachineBasicMultiChannelPerlin noiseModule in perlinNoiseModules)
             {
-                ApplyShakeToNoise(noiseModule, _amplitudeToApplyToCameraShake, _frequencyToApplyToCameraShake);
+                GameObject vcamObject = GetGameObjectOfVirtualCameraComponent(noiseModule);
+                bool isOnTPCamera = vcamObject.CompareTag("FollowCamera");
+                bool isOnFPCamera = vcamObject.CompareTag("CockpitCamera");
+                //Debug.Log("Name of parent game object checking tag on: " + noiseModule.transform.parent.gameObject.name);
+                Debug.Log("Is noise module attached to the THIRD Person Camera? > " + isOnTPCamera);
+                Debug.Log("Is noise module attached to the FIRST Person Camera? > " + isOnFPCamera);
+
+                if (isOnTPCamera)
+                {
+                    ApplyShakeToNoise(noiseModule, _amplitudeToApplyToThirdPersonCameraShake, _frequencyToApplyToThirdPersonCameraShake);
+                }
+                else if (isOnFPCamera)
+                {
+                    ApplyShakeToNoise(noiseModule, _amplitudeToApplyToFirstPersonCameraShake, _frequencyToApplyToFirstPersonCameraShake);
+                }
+
+
+                //ApplyShakeToNoise(noiseModule, _amplitudeToApplyToCameraShake, _frequencyToApplyToCameraShake);
             }
         }
 

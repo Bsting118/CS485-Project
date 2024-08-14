@@ -1194,7 +1194,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c404d34e4e072274aa9e47d372b74743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeSettings: {fileID: 3700982979320627523}
+  ListOfVirtualCams: []
+  VolumeSettings: []
+  _amplitudeToApplyToFirstPersonCameraShake: 1.25
+  _frequencyToApplyToFirstPersonCameraShake: 1.25
+  _amplitudeToApplyToThirdPersonCameraShake: 0
+  _frequencyToApplyToThirdPersonCameraShake: 0
 --- !u!114 &8396387196670154774
 MonoBehaviour:
   m_ObjectHideFlags: 0

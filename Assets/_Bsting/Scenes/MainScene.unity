@@ -787,6 +787,16 @@ PrefabInstance:
       propertyPath: ListOfVirtualCams.Array.data[1]
       value: 
       objectReference: {fileID: 150092293}
+    - target: {fileID: 8942146576546571976, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: _amplitudeToApplyToThirdPersonCameraShake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942146576546571976, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: _frequencyToApplyToThirdPersonCameraShake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
