@@ -48,6 +48,12 @@ namespace Bsting.Ship.FX
             }
         }
 
+        void OnApplicationQuit()
+        {
+            DisableCameraShake();
+            DisableChromaticAbberation();
+        }
+
         private void InitVcamPropertyLists()
         {
             chromaticAberrations = new List<ChromaticAberration>();
