@@ -155,7 +155,7 @@ namespace Bsting.Ship
             }
             else if (!Mathf.Approximately(0f, _thrustFactor) && _isHyperspeedPressed)
             {
-                _hasHyperSpeedJumpstarted = true;
+                CheckIfHyperspeedHasBeenJumpstarted();
                 _currentBoostSpeed = _MAX_SPEED_FACTOR;
                 _thisRigidBody.velocity = transform.forward * (_currentBoostSpeed * _currentHyperspeedMultiplier * Time.fixedDeltaTime);
                 CheckIfBoostedSpeedExceedsMaxSpeed();
@@ -202,6 +202,23 @@ namespace Bsting.Ship
         {
             _amountOfHyperspeedRemaining = _hyperSpeedDuration;
             _timeLeftOnHyperspeedCooldown = _hyperSpeedCooldownTime;
+        }
+
+        // TODO: complete this function and add it to Hyperspeed If conditions inside FixedUpdate()
+        private void MakeDirectionOfRigidBodyGoForward(Rigidbody usingThisRigidbody)
+        {
+            Vector3 currentVelocity = usingThisRigidbody.velocity;
+            var localVelocity = usingThisRigidbody.transform.InverseTransformDirection(currentVelocity);
+
+            bool isRBMovingForward = (localVelocity.z > 0);
+
+            if (!isRBMovingForward)
+            {
+                // Force/override velocity to go forward on RB:
+                Vector3 normalizedLocalForwardVel = usingThisRigidbody.transform.InverseTransformDirection(transform.forward);
+                Debug.Log("Found normalized local forward velocity of RB to be set to: " + normalizedLocalForwardVel);
+                usingThisRigidbody.velocity = usingThisRigidbody.transform.InverseTransformDirection(transform.forward);
+            }
         }
 
         private void CheckIfBoostedSpeedExceedsMaxSpeed()

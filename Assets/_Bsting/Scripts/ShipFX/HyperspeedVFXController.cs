@@ -65,14 +65,6 @@ namespace Bsting.Ship.FX
                 chromAberr.intensity.value = 1f;
                 chromAberr.intensity.overrideState = true;
             }
-
-            /*
-            if (chromaticAberration)
-            {
-                chromaticAberration.intensity.value = 1f;
-                chromaticAberration.intensity.overrideState = true;
-            }
-            */
         }
 
         public void DisableChromaticAbberation()
@@ -82,14 +74,6 @@ namespace Bsting.Ship.FX
                 chromAberr.intensity.value = 0f;
                 chromAberr.intensity.overrideState = true;
             }
-
-            /*
-            if (chromaticAberration)
-            {
-                chromaticAberration.intensity.value = 0f;
-                chromaticAberration.intensity.overrideState = true;
-            }
-            */
         }
 
         public void EnableCameraShake()
