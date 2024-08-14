@@ -1167,12 +1167,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8942146576546571976}
+        m_TargetAssemblyTypeName: Bsting.Ship.FX.HyperspeedVFXController, Assembly-CSharp
+        m_MethodName: EnableCameraShake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHyperspeedExpired:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8942146576546571976}
         m_TargetAssemblyTypeName: Bsting.Ship.FX.HyperspeedVFXController, Assembly-CSharp
         m_MethodName: DisableChromaticAbberation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8942146576546571976}
+        m_TargetAssemblyTypeName: Bsting.Ship.FX.HyperspeedVFXController, Assembly-CSharp
+        m_MethodName: DisableCameraShake
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1194,12 +1218,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c404d34e4e072274aa9e47d372b74743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListOfVirtualCams: []
-  VolumeSettings: []
+  ListOfVirtualCams:
+  - {fileID: 2258346055603455661}
+  - {fileID: 8480954940046612}
+  VolumeSettings:
+  - {fileID: 3700982979320627523}
+  - {fileID: 3968619351675079625}
   _amplitudeToApplyToFirstPersonCameraShake: 1.25
   _frequencyToApplyToFirstPersonCameraShake: 1.25
-  _amplitudeToApplyToThirdPersonCameraShake: 0
-  _frequencyToApplyToThirdPersonCameraShake: 0
+  _amplitudeToApplyToThirdPersonCameraShake: 1
+  _frequencyToApplyToThirdPersonCameraShake: 1
 --- !u!114 &8396387196670154774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2899,6 +2927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139635303268444268}
   - component: {fileID: 4138756481374459479}
+  - component: {fileID: 4822994089470970407}
   m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
@@ -2933,6 +2962,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4822994089470970407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2761494692239258044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 239.03146, y: 457.2627, z: 651.46277}
 --- !u!1 &2828872692481956704
 GameObject:
   m_ObjectHideFlags: 0
@@ -5602,6 +5648,7 @@ GameObject:
   - component: {fileID: 8762198081958109313}
   - component: {fileID: 5010736363215930851}
   - component: {fileID: 1519719717174147020}
+  - component: {fileID: 2788005617127060053}
   m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
@@ -5650,14 +5697,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 3
   m_FollowOffset: {x: 0, y: 150, z: -0}
-  m_XDamping: 0.5
+  m_XDamping: 0
   m_YDamping: 0
-  m_ZDamping: 0.5
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+--- !u!114 &2788005617127060053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6293098651186995687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 0
+  mNoiseOffsets: {x: 769.85645, y: 164.55807, z: 903.7921}
 --- !u!1 &6320977951899566376
 GameObject:
   m_ObjectHideFlags: 0
@@ -13088,6 +13152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2129927963428181795}
   - component: {fileID: 8480954940046612}
+  - component: {fileID: 3968619351675079625}
   m_Layer: 6
   m_Name: CM_FollowCamera2D
   m_TagString: FollowCamera
@@ -13162,6 +13227,23 @@ MonoBehaviour:
           m_CallState: 2
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 8762198081958109313}
+--- !u!114 &3968619351675079625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9055202225991738955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FocusTracksTarget: 0
+  m_FocusTracking: 0
+  m_FocusTarget: {fileID: 0}
+  m_FocusOffset: 0
+  m_Profile: {fileID: 11400000, guid: 45299c8ea90975941aa6bfcaee0e070c, type: 2}
 --- !u!1 &9080632637690769026
 GameObject:
   m_ObjectHideFlags: 0
