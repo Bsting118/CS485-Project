@@ -4,41 +4,107 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using Cinemachine.PostFX;
+using Cinemachine;
+using Unity.Mathematics;
 
 namespace Bsting.Ship.FX
 {
     public class HyperspeedVFXController : MonoBehaviour
     {
-        [SerializeField] public CinemachineVolumeSettings volumeSettings;
+        [SerializeField] public List<CinemachineVirtualCamera> ListOfVirtualCams;
+        [SerializeField] public List<CinemachineVolumeSettings> VolumeSettings;
+        [SerializeField] private float _amplitudeToApplyToCameraShake = 5.0f;
+        [SerializeField] private float _frequencyToApplyToCameraShake = 5.0f;
 
-        private ChromaticAberration chromaticAberration;
+        private List<ChromaticAberration> chromaticAberrations;
+        private List<CinemachineBasicMultiChannelPerlin> perlinNoiseModules;
 
         private void Awake()
         {
-            if (volumeSettings != null)
+            InitVcamPropertyLists();
+
+            if (VolumeSettings != null)
             {
-                foreach (VolumeComponent volumeComponent in volumeSettings.m_Profile.components)
+                foreach (CinemachineVolumeSettings vcamVolume in VolumeSettings)
                 {
-                    if (volumeComponent.name == "ChromaticAberration") chromaticAberration = volumeComponent as ChromaticAberration;
+                    foreach (VolumeComponent volumeComponent in vcamVolume.m_Profile.components)
+                    {
+                        if (volumeComponent.name == "ChromaticAberration")
+                        {
+                            chromaticAberrations.Add(volumeComponent as ChromaticAberration);
+                        }
+                    }
+                }
+            }
+
+            if (ListOfVirtualCams != null)
+            {
+                foreach (CinemachineVirtualCamera vcam in ListOfVirtualCams)
+                {
+                    perlinNoiseModules.Add(vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>());
                 }
             }
         }
 
+        private void InitVcamPropertyLists()
+        {
+            chromaticAberrations = new List<ChromaticAberration>();
+            perlinNoiseModules = new List<CinemachineBasicMultiChannelPerlin>();
+        }
+
+        private void ApplyShakeToNoise(CinemachineBasicMultiChannelPerlin toThisNoise, float amplitudeGain, float frequencyGain)
+        {
+            toThisNoise.m_AmplitudeGain = amplitudeGain;
+            toThisNoise.m_FrequencyGain = frequencyGain;
+        }
+
         public void EnableChromaticAbberation()
         {
+            foreach (ChromaticAberration chromAberr in chromaticAberrations)
+            {
+                chromAberr.intensity.value = 1f;
+                chromAberr.intensity.overrideState = true;
+            }
+
+            /*
             if (chromaticAberration)
             {
                 chromaticAberration.intensity.value = 1f;
                 chromaticAberration.intensity.overrideState = true;
             }
+            */
         }
 
         public void DisableChromaticAbberation()
         {
+            foreach (ChromaticAberration chromAberr in chromaticAberrations)
+            {
+                chromAberr.intensity.value = 0f;
+                chromAberr.intensity.overrideState = true;
+            }
+
+            /*
             if (chromaticAberration)
             {
                 chromaticAberration.intensity.value = 0f;
                 chromaticAberration.intensity.overrideState = true;
+            }
+            */
+        }
+
+        public void EnableCameraShake()
+        {
+            foreach (CinemachineBasicMultiChannelPerlin noiseModule in perlinNoiseModules)
+            {
+                ApplyShakeToNoise(noiseModule, _amplitudeToApplyToCameraShake, _frequencyToApplyToCameraShake);
+            }
+        }
+
+        public void DisableCameraShake()
+        {
+            foreach (CinemachineBasicMultiChannelPerlin noiseModule in perlinNoiseModules)
+            {
+                ApplyShakeToNoise(noiseModule, 0f, 0f);
             }
         }
     }
