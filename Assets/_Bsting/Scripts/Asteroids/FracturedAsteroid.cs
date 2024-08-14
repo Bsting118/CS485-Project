@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class FracturedAsteroid : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField][Range(1f, 5f)] private float _duration = 2f;
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        Debug.Log("==== Fractured Asteroid Enabled! ====");
+        Destroy(gameObject, _duration);
     }
 }
