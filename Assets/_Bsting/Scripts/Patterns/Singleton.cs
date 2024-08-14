@@ -29,17 +29,24 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
         if (Instance != null && Instance != this)
         {
-            Debug.Log("Destroying Object");
             DestroyImmediate(this.gameObject);
         }
         else
         {
-            Instance = this;
-        }
+            Instance = this as T;
 
-        if (!_isDestroyedOnLoad)
-        {
-            DontDestroyOnLoad(this.gameObject);
+            if (!_isDestroyedOnLoad)
+            {
+                // Allow for a parent object to become the singleton holder:
+                if (transform.parent != null)
+                {
+                    DontDestroyOnLoad(transform.parent.gameObject);
+                }
+                else
+                {
+                    DontDestroyOnLoad(this.gameObject);
+                }
+            }
         }
     }
     #endregion
