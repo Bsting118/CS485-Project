@@ -14,7 +14,7 @@ using UnityEngine;
 /// <typeparam name="T">Class Type To Become A Singleton</typeparam>
 public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
-    public static Singleton<T> Instance { get; protected set; }
+    public static T Instance { get; protected set; }
     [SerializeField] protected bool _isDestroyedOnLoad = false;
 
     #region MonoBehaviors

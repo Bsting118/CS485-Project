@@ -18,8 +18,6 @@ namespace Bsting.Ship.Player
     {
         public PlayerInputSystem _playerInputMap { get; private set; }
 
-        [SerializeField] private GameManager _connectedGameManager = null;
-        [SerializeField] private CameraManager _connectedCameraManager = null;
         [SerializeField] private List<Blaster> _listOfConnectedBlasters;
         [SerializeField] private bool _realisticJoyStickEnabled = true;
         [SerializeField] private bool _filterMouseMovement = false;
@@ -36,20 +34,23 @@ namespace Bsting.Ship.Player
             _playerInputMap = new PlayerInputSystem();
             _playerInputMap.Enable();
 
-            // Send to Game Manager:
-            if (_connectedGameManager != null)
-            {
-                _connectedGameManager.SetPlayerInputInstance(_playerInputMap);
-                _filterMouseMovement = _connectedGameManager.IsMouseIgnoredOutsideGameWindow();
-            }
-
-            if (_connectedCameraManager != null)
-            {
-                _connectedCameraManager.SetPlayerInputInstance(_playerInputMap);
-            }
-
             ConnectAllShipBlasters();
 
+        }
+
+        void OnEnable()
+        {
+            // Send to Game Manager:
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SetPlayerInputInstance(_playerInputMap);
+                _filterMouseMovement = GameManager.Instance.IsMouseIgnoredOutsideGameWindow();
+            }
+
+            if (CameraManager.Instance != null)
+            {
+                CameraManager.Instance.SetPlayerInputInstance(_playerInputMap);
+            }
         }
 
         protected override void Start()
