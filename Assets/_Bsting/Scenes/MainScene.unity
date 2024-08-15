@@ -629,7 +629,13 @@ Transform:
   - {fileID: 39794352}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &723849808
+--- !u!1 &1125442578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9030755534898010744, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 569508171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1168036120
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -640,7 +646,7 @@ PrefabInstance:
     - target: {fileID: 1416604782288699281, guid: 7bc016e4c5e6cf6458c90fc46ea9a6f4,
         type: 3}
       propertyPath: m_Name
-      value: Rock1
+      value: Asteroid1
       objectReference: {fileID: 0}
     - target: {fileID: 2018901051108453575, guid: 7bc016e4c5e6cf6458c90fc46ea9a6f4,
         type: 3}
@@ -692,17 +698,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8947308608493140810, guid: 7bc016e4c5e6cf6458c90fc46ea9a6f4,
+        type: 3}
+      propertyPath: fractured
+      value: 
+      objectReference: {fileID: 6756670850018392349, guid: 79923c32bd229b6428ec696d355207ab,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bc016e4c5e6cf6458c90fc46ea9a6f4, type: 3}
---- !u!1 &1125442578 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9030755534898010744, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 569508171}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1316707945
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,4 +905,4 @@ SceneRoots:
   - {fileID: 598574842}
   - {fileID: 1650062292}
   - {fileID: 569508171}
-  - {fileID: 723849808}
+  - {fileID: 1168036120}

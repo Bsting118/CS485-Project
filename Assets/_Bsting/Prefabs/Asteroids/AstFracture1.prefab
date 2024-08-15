@@ -8855,7 +8855,7 @@ GameObject:
   - component: {fileID: 1438413640296195329}
   - component: {fileID: 5508361796562597020}
   m_Layer: 12
-  m_Name: RockFracture1
+  m_Name: AstFracture1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8988,6 +8988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250288a2661b7464faf7c4265a973659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _duration: 1
 --- !u!1 &6782304643743777318
 GameObject:
   m_ObjectHideFlags: 0
