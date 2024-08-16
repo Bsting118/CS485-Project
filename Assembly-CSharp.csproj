@@ -110,8 +110,10 @@
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IDamageable.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Runtime\PlanetParallaxSpecular.shader" />
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
+    <None Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Runtime\PlanetSpecular.shader" />
     <None Include="Assets\_Bsting\Asset Store Packages\HiRezSpaceshipsCreatorFree\Readme.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\_FAQ - Informations\Help Readme SOS.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Readme.txt" />

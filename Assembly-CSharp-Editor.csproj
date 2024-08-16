@@ -60,7 +60,17 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetPreviewWindow.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetNoisePerlin.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetAsset.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetComponentEditor.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetNoiseWorley.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetNoiseGenerator.cs" />
+    <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetTextureGenerator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetNoiseGenerator.compute" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
