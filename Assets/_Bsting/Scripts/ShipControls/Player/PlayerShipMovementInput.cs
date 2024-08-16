@@ -25,6 +25,9 @@ namespace Bsting.Ship.Player
         [SerializeField] private float _factorToEaseShipThrustBy = 1.0f;
         [SerializeField] private float _factorToBoostShipHyperspeedBy = 3.0f;
 
+        private bool _hasGameManagerBeenInit = false;
+        private bool _hasCameraManagerBeenInit = false;
+
         #region MonoBehaviors
         protected override void Awake()
         {
@@ -41,20 +44,23 @@ namespace Bsting.Ship.Player
         void OnEnable()
         {
             // Send to Game Manager:
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.SetPlayerInputInstance(_playerInputMap);
-                _filterMouseMovement = GameManager.Instance.IsMouseIgnoredOutsideGameWindow();
-            }
+            SubscribeGameManagersInputSystem();
 
-            if (CameraManager.Instance != null)
-            {
-                CameraManager.Instance.SetPlayerInputInstance(_playerInputMap);
-            }
+            SubscribeCameraManagersInputSystem();
         }
 
         protected override void Start()
         {
+            if (!_hasGameManagerBeenInit)
+            {
+                SubscribeGameManagersInputSystem();
+            }
+
+            if (!_hasCameraManagerBeenInit)
+            {
+                SubscribeCameraManagersInputSystem();
+            }
+
             // Apply player input action map to player config:
             ShipControls = ShipInputHandler.GetInputControls(_inputTypeForThisShip,
                                                              playerInputMap: _playerInputMap,
@@ -79,6 +85,25 @@ namespace Bsting.Ship.Player
                 {
                     connectedBlaster.SetPlayerInputInstance(_playerInputMap);
                 }
+            }
+        }
+
+        private void SubscribeGameManagersInputSystem()
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.SetPlayerInputInstance(_playerInputMap);
+                _filterMouseMovement = GameManager.Instance.IsMouseIgnoredOutsideGameWindow();
+                _hasGameManagerBeenInit = true;
+            }
+        }
+
+        private void SubscribeCameraManagersInputSystem()
+        {
+            if (CameraManager.Instance != null)
+            {
+                CameraManager.Instance.SetPlayerInputInstance(_playerInputMap);
+                _hasCameraManagerBeenInit = true;
             }
         }
 

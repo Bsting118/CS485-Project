@@ -73,6 +73,12 @@ namespace Bsting.Ship
             }
         }
 
+        void OnEnable()
+        {
+            // Send initial Transform to Level Manager:
+            LevelManager.Instance.SetPlayerShipTransform(GetTransformOfShip());
+        }
+
         void Start()
         {
             foreach (ShipEngine engine in _engines)
@@ -88,6 +94,9 @@ namespace Bsting.Ship
 
         void Update()
         {
+            // At the start of each frame, send updated transform info to Level Manager:
+            LevelManager.Instance.SetPlayerShipTransform(GetTransformOfShip());
+
             // Get processed input values from interface to Input Actions:
             _thrustFactor = SourcedInput.ThrustFactorInput;
             _yawFactor = SourcedInput.YawFactorInput;
@@ -255,6 +264,21 @@ namespace Bsting.Ship
             float currentTimeLeft = _timeLeftOnHyperspeedCooldown;
             return currentTimeLeft;
         }
+
+        public Vector3 GetPositionOfShip()
+        {
+            return this.gameObject.transform.position;
+        }
+
+        public Transform GetTransformOfShip()
+        {
+            return this.gameObject.transform;
+        }
         #endregion
+
+        public void SetPositionOfShip(Vector3 newPos)
+        {
+            this.gameObject.transform.position = newPos;
+        }
     }
 }

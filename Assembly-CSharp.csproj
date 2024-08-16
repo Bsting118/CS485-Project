@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorSmoke.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipMovementBase.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipEngine.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Environment\Treadmill\LevelManager.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchPosition.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorComponent.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IVirtualCameras.cs" />
