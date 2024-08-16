@@ -674,8 +674,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isDestroyedOnLoad: 0
-  sphereCenterPos: {x: 0, y: 0, z: 0}
-  sphereRadius: 100
+  _sphereCenterPos: {x: 0, y: 0, z: 0}
+  _sphereRadius: 100
+  _isPlayerTeleportedToEdgeOfMap: 0
+  OnTeleportPlayerReady:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerTeleported:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1125442578 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9030755534898010744, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,

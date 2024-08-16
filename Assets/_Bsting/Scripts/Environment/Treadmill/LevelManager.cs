@@ -2,6 +2,7 @@ using Bsting.Ship.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : Manager<LevelManager>
 {
@@ -9,9 +10,12 @@ public class LevelManager : Manager<LevelManager>
     // Teleport - should warp player to opposite edge but facing inside normal direction to playable field
 
     // Fields:
-    [SerializeField] private Vector3 sphereCenterPos = Vector3.zero;
+    [SerializeField] private Vector3 _sphereCenterPos = Vector3.zero;
     // Unity Forum posts says most game devs keep run distance under/at 10,000 units (> 100,000 = scuffed):
-    [SerializeField][Range(50f, 10000f)] private float sphereRadius = 100.0f;
+    [SerializeField][Range(50f, 10000f)] private float _sphereRadius = 100.0f;
+    [SerializeField] private bool _isPlayerTeleportedToEdgeOfMap = true;
+    [SerializeField] public UnityEvent OnTeleportPlayerReady = new UnityEvent();
+    [SerializeField] public UnityEvent OnPlayerTeleported = new UnityEvent();
 
     // Private var(s):
     private Transform _connectedPlayerShipTransform = null;
@@ -23,7 +27,7 @@ public class LevelManager : Manager<LevelManager>
     {
         base.Awake();
 
-        sphereCenterPos = this.gameObject.transform.position;
+        _sphereCenterPos = this.gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -35,7 +39,7 @@ public class LevelManager : Manager<LevelManager>
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(sphereCenterPos, sphereRadius);
+        Gizmos.DrawWireSphere(_sphereCenterPos, _sphereRadius);
     }
 
     private void CheckIfPlayerNeedsToBeTeleportedBack(Transform currentPlayerTransform)
@@ -43,14 +47,16 @@ public class LevelManager : Manager<LevelManager>
         if (currentPlayerTransform != null)
         {
             _playerPos = currentPlayerTransform.position;
-            _directionFromCenter = _playerPos - sphereCenterPos;
+            _directionFromCenter = _playerPos - _sphereCenterPos;
 
             // Determine if player is out of bounds:
             // (Vector length to sphere center > radius of sphere)
-            if (_directionFromCenter.magnitude > sphereRadius)
+            if (_directionFromCenter.magnitude > _sphereRadius)
             {
                 // ...
+                OnTeleportPlayerReady.Invoke();
                 TeleportToOppositeEnd(currentPlayerTransform);
+                OnPlayerTeleported.Invoke();
             }
         }
     }
@@ -59,7 +65,16 @@ public class LevelManager : Manager<LevelManager>
     {
         _directionFromCenter.Normalize();
 
-        playerTransform.position = sphereCenterPos - _directionFromCenter * sphereRadius;
+        if (_isPlayerTeleportedToEdgeOfMap)
+        {
+            // To opposite edge (Asteroids-style):
+            playerTransform.position = _sphereCenterPos - _directionFromCenter * _sphereRadius;
+        }
+        else
+        {
+            // To center of treadmill sphere in same direction:
+            playerTransform.position = _sphereCenterPos - _directionFromCenter;
+        }
     }
 
     public void SetPlayerShipTransform(Transform updatedPlayerTransform)
