@@ -110,9 +110,6 @@ namespace Bsting.Ship.FX
                 GameObject vcamObject = GetGameObjectOfVirtualCameraComponent(noiseModule);
                 bool isOnTPCamera = vcamObject.CompareTag("FollowCamera");
                 bool isOnFPCamera = vcamObject.CompareTag("CockpitCamera");
-                //Debug.Log("Name of parent game object checking tag on: " + noiseModule.transform.parent.gameObject.name);
-                Debug.Log("Is noise module attached to the THIRD Person Camera? > " + isOnTPCamera);
-                Debug.Log("Is noise module attached to the FIRST Person Camera? > " + isOnFPCamera);
 
                 if (isOnTPCamera)
                 {
@@ -123,8 +120,6 @@ namespace Bsting.Ship.FX
                     ApplyShakeToNoise(noiseModule, _amplitudeToApplyToFirstPersonCameraShake, _frequencyToApplyToFirstPersonCameraShake);
                 }
 
-
-                //ApplyShakeToNoise(noiseModule, _amplitudeToApplyToCameraShake, _frequencyToApplyToCameraShake);
             }
         }
 

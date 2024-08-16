@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Bsting.Ship.Managers;
 
 namespace Bsting.Ship
 {
@@ -54,6 +55,7 @@ namespace Bsting.Ship
         private float _currentBoostSpeed = 0f;
         private float _currentHyperspeedMultiplier = 0f;
         private bool _hasHyperSpeedJumpstarted = false;
+        private bool _hasLevelManagerBeenInit = false;
 
         IShipMovement SourcedInput => _shipMovementInput.ShipControls;
 
@@ -75,12 +77,32 @@ namespace Bsting.Ship
 
         void OnEnable()
         {
-            // Send initial Transform to Level Manager:
-            LevelManager.Instance.SetPlayerShipTransform(GetTransformOfShip());
+            SubscribeShipTransformToLevelManager();
+        }
+
+        void OnDisable()
+        {
+            if (_hyperspeedRoutine != null)
+            {
+                InterruptHyperspeedRoutine();
+            }
+        }
+
+        void OnDestroy()
+        {
+            if (_hyperspeedRoutine != null)
+            {
+                InterruptHyperspeedRoutine();
+            }
         }
 
         void Start()
         {
+            if (!_hasLevelManagerBeenInit)
+            {
+                SubscribeShipTransformToLevelManager();
+            }
+
             foreach (ShipEngine engine in _engines)
             {
                 engine.Init(SourcedInput);
@@ -213,7 +235,7 @@ namespace Bsting.Ship
             _timeLeftOnHyperspeedCooldown = _hyperSpeedCooldownTime;
         }
 
-        // TODO: complete this function and add it to Hyperspeed If conditions inside FixedUpdate()
+        // Backup Function in case things go south later in development:
         private void MakeDirectionOfRigidBodyGoForward(Rigidbody usingThisRigidbody)
         {
             Vector3 currentVelocity = usingThisRigidbody.velocity;
@@ -225,7 +247,6 @@ namespace Bsting.Ship
             {
                 // Force/override velocity to go forward on RB:
                 Vector3 normalizedLocalForwardVel = usingThisRigidbody.transform.InverseTransformDirection(transform.forward);
-                Debug.Log("Found normalized local forward velocity of RB to be set to: " + normalizedLocalForwardVel);
                 usingThisRigidbody.velocity = usingThisRigidbody.transform.InverseTransformDirection(transform.forward);
             }
         }
@@ -248,6 +269,16 @@ namespace Bsting.Ship
             {
                 _thisRigidBody.AddForce(transform.forward * (_currentBoostSpeed * _hyperspeedFactor * Time.fixedDeltaTime));
                 _hasHyperSpeedJumpstarted = true;
+            }
+        }
+
+        private void SubscribeShipTransformToLevelManager()
+        {
+            // Send initial Transform to Level Manager:
+            if (LevelManager.Instance != null)
+            {
+                LevelManager.Instance.SetPlayerShipTransform(GetTransformOfShip());
+                _hasLevelManagerBeenInit = true;
             }
         }
         #endregion
@@ -279,6 +310,12 @@ namespace Bsting.Ship
         public void SetPositionOfShip(Vector3 newPos)
         {
             this.gameObject.transform.position = newPos;
+        }
+
+        public void InterruptHyperspeedRoutine()
+        {
+            StopCoroutine(_hyperspeedRoutine);
+            _hyperspeedRoutine = null;
         }
     }
 }
