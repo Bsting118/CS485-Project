@@ -10,6 +10,10 @@
         _Parallax ("Height", Range(0.005, 0.08)) = 0.02
 
         _IllumMap ("Illumination Map", 2D) = "black" {}
+        _IlluminationFactor("Illumination Factor", Range(0, 3)) = 1.0
+        _PlayerPositionToIlluminate ("Player Position For Lighting", Vector) = (0, 0, 0)
+        _CenterWSPosition ("Centered Position", Vector) = (0, 0, 0) // New property
+        //_LightDirection ("Light Direction", Vector) = (0, 1, 0, 0)
         _CityEmissionStrength ("City Emission Strength", Range(0, 1)) = 0.5
 
         _CloudMap ("Cloud Map", 2D) = "black" {}
@@ -35,8 +39,12 @@ HLSLPROGRAM
             CBUFFER_START(UnityPerMaterial)
 
 float4 _SpecularColour;
+//float4 _LightDirection; // The light direction vector
+float3 _PlayerPositionToIlluminate; // ADDED
+float3 _CenterWSPosition;
 float _Shininess;
 float _Parallax;
+float _IlluminationFactor;
 float _CityEmissionStrength;
 float _CloudAlpha;
             TEXTURE2D(_GroundMap);
@@ -49,6 +57,7 @@ float _CloudAlpha;
             SAMPLER(sampler_CloudMap);
             TEXTURE2D(_CloudNormalMap);
             SAMPLER(sampler_CloudNormalMap);
+
             CBUFFER_END
 
 struct Attributes
@@ -62,10 +71,12 @@ struct Attributes
 struct Varyings
 {
     float4 positionHCS : SV_POSITION;
+    // List Texture Coordinate channels:
     float2 uv0 : TEXCOORD0;
     float3 normalWS : TEXCOORD1;
     float3 tangentWS : TEXCOORD2;
     float3 bitangentWS : TEXCOORD3;
+    float3 positionWS : TEXCOORD4; // Add this line to store world space position
 };
 
 Varyings Vert(Attributes input)
@@ -84,6 +95,7 @@ Varyings Vert(Attributes input)
     output.normalWS = normalWS;
     output.tangentWS = tangentWS;
     output.bitangentWS = bitangentWS;
+    output.positionWS = positionWS; // Store world space position
 
     return output;
 }
@@ -102,8 +114,8 @@ half4 Frag(Varyings input) : SV_Target
     float3 normalWS = mul(normalTS, TBN);
 
     // Obtain main light direction (SRP)
-    Light mainLight = GetMainLight();
-    float3 lightDir = normalize(mainLight.direction);
+    //float3 lightDir = normalize(_LightDirection.xyz); // Using the new Light Direction
+    float3 lightDir = normalize(_PlayerPositionToIlluminate - _CenterWSPosition); // Using player's position for lighting
 
     // Lighting and Specular calculations
     float3 viewDir = normalize(_WorldSpaceCameraPos.xyz - input.positionHCS.xyz);
@@ -113,8 +125,10 @@ half4 Frag(Varyings input) : SV_Target
     float NdotH = saturate(dot(normalWS, halfDir));
     float specular = pow(NdotH, _Shininess) * NdotL;
 
+    // Apply illumination factor to the lighting
     float3 color = groundColor.rgb * NdotL + illumColor.rgb * _CityEmissionStrength;
     color += _SpecularColour.rgb * specular;
+    color *= _IlluminationFactor; // Apply the illumination factor
 
     return half4(color, 1.0);
 }

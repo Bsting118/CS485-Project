@@ -86,5 +86,11 @@ namespace Bsting.Ship.Managers
         {
             _currentPlayerInputSystem = newInputInstance;
         }
+
+        public List<GameObject> GetListOfManagedCameras()
+        {
+            List<GameObject> managedCameras = _virtualCameras;
+            return managedCameras;
+        }
     }
 }

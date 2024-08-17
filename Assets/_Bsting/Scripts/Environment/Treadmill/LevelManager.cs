@@ -1,4 +1,5 @@
 using Bsting.Ship.Managers;
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,11 @@ namespace Bsting.Ship.Managers
         [SerializeField] public UnityEvent OnPlayerOutOfTeleport = new UnityEvent();
         [SerializeField][Range(0f, 10f)] private float _teleportDelayTime = 2.0f;
         [SerializeField][Range(0f, 10f)] private float _teleportSicknessTime = 1.0f;
+
+        [Header("Environment Shading Settings")]
+        //[SerializeField] public List<Material> TargetLitMaterialsToFacePlayerDirection = new List<Material>();
+        [SerializeField] public List<GameObject> TargetShadedObjectsToFacePlayerDirection = new List<GameObject>();
+        [SerializeField] private GameObject _firstPerson3DCamera = null;
 
         // Private var(s):
         private Transform _connectedPlayerShipTransform = null;
@@ -79,13 +85,35 @@ namespace Bsting.Ship.Managers
         // Update is called once per frame
         void Update()
         {
+            // Treadmill Teleport Update:
             CheckIfPlayerNeedsToBeTeleportedBack(_connectedPlayerShipTransform);
+
+            // Lit Environmental Shader Materials Update:
+            UpdateLitMaterialsToFacePlayer();
         }
 
-        private void OnDrawGizmos()
+        void OnDrawGizmos()
         {
+            // Draw playable area sphere:
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(_sphereCenterPosition, _sphereRadius);
+
+            // Draw first-person in-range of view sphere (anything past this is culled w/o workarounds):
+            if (_firstPerson3DCamera != null)
+            {
+                Color semiTransparentGizmoColor = Color.green;
+                semiTransparentGizmoColor.a = 0.2f;
+                Gizmos.color = semiTransparentGizmoColor;
+                float renderRadius = _firstPerson3DCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FarClipPlane;
+                Vector3 centerPos = GetCurrentPlayerPos();
+                Gizmos.DrawSphere(centerPos, renderRadius);
+                Gizmos.DrawWireSphere(centerPos, renderRadius);
+            }
+        }
+
+        void OnApplicationQuit()
+        {
+            ResetAllLitMaterialsFacingPosition();
         }
         #endregion
 
@@ -116,7 +144,8 @@ namespace Bsting.Ship.Managers
         {
             if (currentPlayerTransform != null)
             {
-                _playerPos = currentPlayerTransform.position;
+                //_playerPos = currentPlayerTransform.position;
+                _playerPos = GetCurrentPlayerPos(currentPlayerTransform);
                 _directionFromCenter = _playerPos - _sphereCenterPosition;
 
                 // Determine if player is out of bounds:
@@ -161,6 +190,63 @@ namespace Bsting.Ship.Managers
                 // To center of treadmill sphere in same direction:
                 playerTransform.position = _sphereCenterPosition - _directionFromCenter;
             }
+        }
+
+        private void UpdateLitMaterialsToFacePlayer()
+        {
+            Vector3 playerPos = GetCurrentPlayerPos();
+
+            foreach (GameObject shadedObj in TargetShadedObjectsToFacePlayerDirection)
+            {
+                if (shadedObj != null)
+                {
+                    // Get Unity properties:
+                    Material targetMat = shadedObj.GetComponent<Renderer>().material;
+                    Transform targetTransform = shadedObj.transform;
+
+                    if ((targetMat != null) && (targetTransform != null))
+                    {
+                        // Process params:
+                        Vector3 targetObjPos = targetTransform.position;
+
+                        // Set shader properties on this shaded object:
+                        targetMat.SetVector("_PlayerPositionToIlluminate", playerPos);
+                        targetMat.SetVector("_CenterWSPosition", targetObjPos);
+                    }
+                }
+            }
+        }
+
+        private void ResetAllLitMaterialsFacingPosition()
+        {
+            foreach (GameObject shadedObj in TargetShadedObjectsToFacePlayerDirection)
+            {
+                if (shadedObj != null)
+                {
+                    Material targetMat = shadedObj.GetComponent<Renderer>().material;
+
+                    if (targetMat != null)
+                    {
+                        targetMat.SetVector("_PlayerPositionToIlluminate", Vector3.zero);
+                    }
+                }
+            }
+        }
+
+        private Vector3 GetCurrentPlayerPos(Transform usingThisTransform = null)
+        {
+            Vector3 foundPos = Vector3.zero;
+
+            if (usingThisTransform != null)
+            {
+                foundPos = usingThisTransform.position;
+            }
+            else if (_connectedPlayerShipTransform != null)
+            {
+                foundPos = _connectedPlayerShipTransform.position;
+            }
+
+            return foundPos;
         }
         #endregion
 

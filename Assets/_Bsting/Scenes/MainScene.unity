@@ -759,7 +759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isDestroyedOnLoad: 0
   _sphereCenterPosition: {x: 0, y: 0, z: 0}
-  _sphereRadius: 100
+  _sphereRadius: 500
   _isPlayerTeleportedToEdgeOfMap: 0
   OnTeleportPlayerReady:
     m_PersistentCalls:
@@ -772,6 +772,9 @@ MonoBehaviour:
       m_Calls: []
   _teleportDelayTime: 2
   _teleportSicknessTime: 1
+  TargetShadedObjectsToFacePlayerDirection:
+  - {fileID: 312239468}
+  _firstPerson3DCamera: {fileID: 2014050235}
 --- !u!1 &861876116
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +787,7 @@ GameObject:
   - component: {fileID: 861876118}
   - component: {fileID: 861876117}
   m_Layer: 0
-  m_Name: Atmosphere
+  m_Name: AtmosphereShader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

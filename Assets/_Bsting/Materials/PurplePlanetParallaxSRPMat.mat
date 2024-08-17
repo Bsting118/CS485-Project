@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlanetParallaxSRPMat
+  m_Name: PurplePlanetParallaxSRPMat
   m_Shader: {fileID: 4800000, guid: 9a53619e2457f024f86bc7da249d43b5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -47,8 +47,13 @@ Material:
     m_Floats:
     - _CityEmissionStrength: 0.488
     - _CloudAlpha: 1
+    - _Illumination: 2
+    - _IlluminationFactor: 1.5
     - _Parallax: 0.0267
     - _Shininess: 200
     m_Colors:
+    - _CenterWSPosition: {r: 0, g: 0, b: 0, a: 1}
+    - _LightDirection: {r: 0, g: 1, b: 0, a: 0}
+    - _PlayerPositionToIlluminate: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularColour: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
