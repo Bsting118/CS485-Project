@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CyanPlanetParallax
+  m_Shader: {fileID: 4800000, guid: 9a53619e2457f024f86bc7da249d43b5, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CloudMap:
+        m_Texture: {fileID: 2800000, guid: 3801bd1eb8a934641be60ccb9db693b0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CloudNormalMap:
+        m_Texture: {fileID: 2800000, guid: c85ef10c8cb11f84a8dedbcae8b4ffc5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GroundMap:
+        m_Texture: {fileID: 2800000, guid: 9b98a4b3a231a3741afeed8fc58f6930, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IllumMap:
+        m_Texture: {fileID: 2800000, guid: 3a16a60f0967de942bf645b9c1d69cfa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: e7de980f3fd6ec94bab02fe05bab5575, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CityEmissionStrength: 0.5
+    - _CloudAlpha: 1
+    - _IlluminationFactor: 0.6
+    - _Parallax: 0.02
+    - _Shininess: 10
+    m_Colors:
+    - _CenterWSPosition: {r: 0, g: 0, b: 0, a: 1}
+    - _PlayerPositionToIlluminate: {r: 0, g: 0, b: 0, a: 1}
+    - _SpecularColour: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
