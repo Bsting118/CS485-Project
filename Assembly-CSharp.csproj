@@ -110,15 +110,37 @@
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IDamageable.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Runtime\PlanetParallaxSpecular.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\Help Readme SOS.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\Resources\Detonator\Textures\HeatDistort.shader" />
     <None Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Runtime\PlanetSpecular.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\_Bsting\Asset Store Packages\HiRezSpaceshipsCreatorFree\Readme.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\_Bsting\UI\Fonts\Note.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Runtime\PlanetParallaxSpecularSRP.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\_FAQ - Informations\Help Readme SOS.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Readme.txt" />
     <None Include="Assets\_Bsting\Asset Store Packages\OccaSoftware\Crosshairs\Readme.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
