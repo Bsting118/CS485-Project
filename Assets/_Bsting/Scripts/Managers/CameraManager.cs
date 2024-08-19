@@ -1,9 +1,18 @@
+/*-------------------------------------
+ Custom script made by Brendan Sting
+ Date: 7/27/2024
+-------------------------------------*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Bsting.Ship.Managers
 {
+    /// <summary>
+    /// A camera manager that goes through a list of 
+    /// virtual cameras and decides which one to activate. 
+    /// </summary>
     public class CameraManager : Manager<CameraManager>, IVirtualCameras
     {
         [Header("List Of Virtual Cameras To Activate")]
