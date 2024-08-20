@@ -13,6 +13,7 @@ namespace Bsting.Ship.Managers
 
         // Feature: Treadmill will be a sphere that will reset player back facing inside the playable zone
         // Teleport - should warp player to opposite edge but facing inside normal direction to playable field
+        // NEW Teleport - should warp player to center of treadmill sphere but facing normal direction
 
         [Header("Spherical Teleport-Based Treadmill Settings")]
         [SerializeField] private Vector3 _sphereCenterPosition = Vector3.zero;
@@ -27,7 +28,6 @@ namespace Bsting.Ship.Managers
         [SerializeField][Range(0f, 10f)] private float _teleportSicknessTime = 1.0f;
 
         [Header("Environment Shading Settings")]
-        //[SerializeField] public List<Material> TargetLitMaterialsToFacePlayerDirection = new List<Material>();
         [SerializeField] public List<GameObject> TargetShadedObjectsToFacePlayerDirection = new List<GameObject>();
         [SerializeField] private GameObject _firstPerson3DCamera = null;
 
@@ -144,7 +144,6 @@ namespace Bsting.Ship.Managers
         {
             if (currentPlayerTransform != null)
             {
-                //_playerPos = currentPlayerTransform.position;
                 _playerPos = GetCurrentPlayerPos(currentPlayerTransform);
                 _directionFromCenter = _playerPos - _sphereCenterPosition;
 
