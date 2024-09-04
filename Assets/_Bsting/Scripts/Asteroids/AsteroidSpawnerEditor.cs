@@ -21,10 +21,17 @@ public class AsteroidSpawnerEditor : Editor
         // Add a testing spawn button to the Inspector:
         if (GUILayout.Button("Spawn Test Asteroid"))
         {
-            asteroidSpawnerScript.SpawnAsteroid(asteroidSpawnerScript.TargetSource, 
-                                                asteroidSpawnerScript.AngleSpawnCone, 
-                                                asteroidSpawnerScript.RadiusToSpawnAwayFrom, 
-                                                asteroidSpawnerScript.PrefabToSpawn);
+            if (asteroidSpawnerScript.ListOfPossiblePrefabsToSpawn != null && asteroidSpawnerScript.ListOfPossiblePrefabsToSpawn.Count > 0)
+            {
+                // Get the chosen prefab via random selection:
+                int chosenPrefabIndex = Random.Range((int)0, (int)(asteroidSpawnerScript.ListOfPossiblePrefabsToSpawn.Count - 1));
+                GameObject chosenPrefab = asteroidSpawnerScript.ListOfPossiblePrefabsToSpawn[chosenPrefabIndex];
+
+                asteroidSpawnerScript.SpawnAsteroid(asteroidSpawnerScript.TargetSource,
+                                                    asteroidSpawnerScript.AngleSpawnCone,
+                                                    asteroidSpawnerScript.RadiusToSpawnAwayFrom,
+                                                    chosenPrefab);
+            }
         }
     }
 }

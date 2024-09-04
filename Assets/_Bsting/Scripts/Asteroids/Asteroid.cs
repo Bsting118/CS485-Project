@@ -33,6 +33,8 @@ public class Asteroid : MonoBehaviour, IDamageable
             Instantiate(_explosionPrefab, hitPosition, Quaternion.identity);
         }
 
+        // Destroy and report dstruction of Asteroid to allow a new spawn:
+        AsteroidUnitSpawner.Instance.ReportAsteroidDestroyed();
         Destroy(this.gameObject);
     }
 }
