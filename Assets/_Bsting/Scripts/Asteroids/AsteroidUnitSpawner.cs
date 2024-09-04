@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AsteroidUnitSpawner : MonoBehaviour
 {
-    public Transform _targetSource;
-    public float _angleSpawnCone;
-    public float _radiusToSpawnAwayFrom;
-    public GameObject _prefabToSpawn;
+    [field: SerializeField] public Transform TargetSource { get; private set; } = null;
+    [field: SerializeField] public GameObject PrefabToSpawn { get; private set; } = null;
+    [field: SerializeField] public float AngleSpawnCone { get; private set; }
+    [field: SerializeField] public float RadiusToSpawnAwayFrom { get; private set; }
 
     // Start is called before the first frame update
     void Start()

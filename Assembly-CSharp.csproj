@@ -74,7 +74,6 @@
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IVirtualCameras.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\HyperspeedVFXController.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\AddSpaceDust.cs" />
-    <Compile Include="Assets\AsteroidUnitSpawner.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Asteroids\FracturedAsteroid.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\CamMatchRotation.cs" />
@@ -100,11 +99,12 @@
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\ControlThrusterTrail.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorForce.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IShipMovement.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Asteroids\AsteroidSpawnerEditor.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorHeatwave.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\ShipInputHandler.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\AsteroidSpawnerEditor.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipControls\Player\PlayerShipMovement.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Asteroids\AsteroidUnitSpawner.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Skybox\SkyboxHandler.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\ToggleAsteroidsCam.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\Manager.cs" />
