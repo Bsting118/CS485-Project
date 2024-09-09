@@ -102,6 +102,18 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
         return spawnedAsteroid;
     }
 
+    private void ThrowAsteroidAtTarget(GameObject asteroidObj, Transform target, float atSpeed, float throwFactorToTarget = 2f)
+    {
+        // Assuming that asteroid object has a RigidBody for applied physics:
+        Rigidbody asteroidRB = asteroidObj.GetComponent<Rigidbody>();
+
+        /* --- Setting up Vector line to find the endpoint where the Asteroid should be moved/shot to --- */
+        // Intersect and extend past the target
+        Vector3 headingOfAsteroid = (target.position - asteroidObj.transform.position) * throwFactorToTarget;
+        Vector3 endingSpot = asteroidObj.transform.position + headingOfAsteroid;
+
+    }
+
     private void TryToSpawnNextAsteroid(List<GameObject> givenListOfAsteroidPrefabs, 
                                            Transform fromThisOrigin, 
                                            float angleOfSpawnCone, 
