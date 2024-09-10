@@ -60,24 +60,17 @@ public class Asteroid : MonoBehaviour, IDamageable
 
         // Assuming that asteroid object has a RigidBody for applied physics:
         Rigidbody asteroidRB = this.gameObject.GetComponent<Rigidbody>();
-        //asteroidRB.interpolation = RigidbodyInterpolation.Interpolate;
 
         /* --- Setting up Vector line to find the endpoint where the Asteroid should be moved/shot to --- */
         // Intersect and extend past the target
-        Debug.Log("Target position: " + target.position);
-        Debug.Log("Asteroid position: " + _transform.position);
         Vector3 headingOfAsteroid = (target.position - _transform.position) * throwFactorToTarget;
-        Debug.Log("Heading of asteroid: " + headingOfAsteroid);
 
-        // Debug.Log("Found heading vector: " + headingOfAsteroid);
-
-        Vector3 endingSpot = _transform.position + headingOfAsteroid;
-
-        // Debug.Log("Found ending spot position: " + endingSpot);
-
-        //asteroidRB.MovePosition(_transform.position + endingSpot * Time.deltaTime * atSpeed);
         // Using AddForce() instead of  MovePosition() now:
-        asteroidRB.AddForce(headingOfAsteroid);
+        if (!_hasStartedToHurdle)
+        {
+            asteroidRB.AddForce(headingOfAsteroid * atSpeed);
+            _hasStartedToHurdle = true;
+        }
 
     }
 
@@ -87,27 +80,17 @@ public class Asteroid : MonoBehaviour, IDamageable
 
         // Assuming that asteroid object has a RigidBody for applied physics:
         Rigidbody asteroidRB = this.gameObject.GetComponent<Rigidbody>();
-        //asteroidRB.interpolation = RigidbodyInterpolation.Interpolate;
 
         /* --- Setting up Vector line to find the endpoint where the Asteroid should be moved/shot to --- */
         // Intersect and extend past the target
         Vector3 headingOfAsteroid = (target - _transform.position) * throwFactorToTarget;
 
-        // Debug.Log("Found heading vector: " + headingOfAsteroid);
-
-        Vector3 endingSpot = _transform.position + headingOfAsteroid;
-
-        // Debug.Log("Found ending spot position: " + endingSpot);
-
-        //asteroidRB.MovePosition(_transform.position + endingSpot * Time.deltaTime * atSpeed);
         // Using AddForce() instead of  MovePosition() now:
         if (!_hasStartedToHurdle)
         {
             asteroidRB.AddForce(headingOfAsteroid * atSpeed);
             _hasStartedToHurdle = true;
         }
-
-        Debug.Log("Velocity of asteroid: " + asteroidRB.velocity);
 
     }
 }
