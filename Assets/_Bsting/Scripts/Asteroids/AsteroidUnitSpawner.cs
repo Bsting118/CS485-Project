@@ -4,7 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
+public class AsteroidUnitSpawner : MonoBehaviour
 {
     // Public properties:
     [field: SerializeField] public Transform TargetSource { get; private set; } = null;
@@ -16,12 +16,15 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
     [SerializeField] private int _limitOfAsteroidsToSpawnInScene = 8;
     [SerializeField] private float _hurdlingSpeedForAsteroids = 1.0f;
 
+    //public static AsteroidUnitSpawner Instance { get; protected set; }
+    private AsteroidUnitSpawner _instance = null;
+
     // Private var's:
     private int _countOfAsteroidsInScene = 0;
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
+        LoadSpawnerInstance();
     }
 
     // Start is called before the first frame update
@@ -106,6 +109,26 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
         return spawnedAsteroid;
     }
 
+    /// <summary>
+    /// Simple accessor to access the centralized instance of this spawner script
+    /// </summary>
+    /// <returns>AsteroidUnitSpawner</returns>
+    public AsteroidUnitSpawner GetSpawnerInstance()
+    {
+        return _instance;
+    }
+
+    /// <summary>
+    /// Helper function to create a global point of access to this spawner:
+    /// </summary>
+    private void LoadSpawnerInstance()
+    {
+        if (_instance == null || _instance != this)
+        {
+            _instance = this;
+        }
+    }
+
     private void TryToSpawnNextAsteroid(List<GameObject> givenListOfAsteroidPrefabs, 
                                            Transform fromThisOrigin, 
                                            float angleOfSpawnCone, 
@@ -127,6 +150,7 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
 
                     // Spawn the chosen prefab and report added Asteroid:
                     GameObject spawnedAsteroid = SpawnAsteroid(fromThisOrigin, angleOfSpawnCone, distanceFromOrigin, chosenPrefab);
+                    spawnedAsteroid.GetComponent<Asteroid>()._parentSpawner = _instance;
 
                     // Look at the origin point to aim slingshot vector at it:
                     spawnedAsteroid.transform.LookAt(fromThisOrigin);

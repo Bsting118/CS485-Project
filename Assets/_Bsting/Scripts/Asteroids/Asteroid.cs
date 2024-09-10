@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour, IDamageable
 {
+    [field: SerializeField, HideInInspector] public AsteroidUnitSpawner _parentSpawner { get; set; } = null;
     [field: SerializeField] public Vector3 TargetToHurdleTowards { get; set; }
     [field: SerializeField] public bool HasTargetBeenSet { get; set; } = false;
     [field: SerializeField] public float SpeedToApplyToHurdlingAsteroid { get; set; } = 1.0f;
@@ -48,7 +49,7 @@ public class Asteroid : MonoBehaviour, IDamageable
         }
 
         // Destroy and report dstruction of Asteroid to allow a new spawn:
-        AsteroidUnitSpawner.Instance.ReportAsteroidDestroyed();
+        _parentSpawner.ReportAsteroidDestroyed();
         Destroy(this.gameObject);
     }
     #endregion
