@@ -15,6 +15,7 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
 
     // Inspector-exposed fields:
     [SerializeField] private int _limitOfAsteroidsToSpawnInScene = 8;
+    [SerializeField] private float _hurdlingSpeedForAsteroids = 1.0f;
 
     // Private var's:
     private int _countOfAsteroidsInScene = 0;
@@ -34,6 +35,11 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
     void Update()
     {
         // ...
+        // TryToSpawnNextAsteroid(ListOfPossiblePrefabsToSpawn, TargetSource, AngleSpawnCone, RadiusToSpawnAwayFrom);
+    }
+
+    void FixedUpdate()
+    {
         TryToSpawnNextAsteroid(ListOfPossiblePrefabsToSpawn, TargetSource, AngleSpawnCone, RadiusToSpawnAwayFrom);
     }
 
@@ -95,6 +101,8 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
         // Spawn:
         GameObject spawnedAsteroid = Instantiate(chosenPrefab, finalVectorOffset, Quaternion.identity);
 
+        Debug.Log("Position of spawned asteroid: " + spawnedAsteroid.transform.position);
+
         // Update Asteroid counter:
         _countOfAsteroidsInScene++;
 
@@ -102,17 +110,26 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
         return spawnedAsteroid;
     }
 
-    private void ThrowAsteroidAtTarget(GameObject asteroidObj, Transform target, float atSpeed, float throwFactorToTarget = 2f)
+    /*
+    private void ThrowAsteroidAtTarget(GameObject asteroidObj, Transform target, float atSpeed = 1.0f, float throwFactorToTarget = 2f)
     {
         // Assuming that asteroid object has a RigidBody for applied physics:
         Rigidbody asteroidRB = asteroidObj.GetComponent<Rigidbody>();
 
-        /* --- Setting up Vector line to find the endpoint where the Asteroid should be moved/shot to --- */
+        // --- Setting up Vector line to find the endpoint where the Asteroid should be moved/shot to --- 
         // Intersect and extend past the target
         Vector3 headingOfAsteroid = (target.position - asteroidObj.transform.position) * throwFactorToTarget;
+
+        // Debug.Log("Found heading vector: " + headingOfAsteroid);
+
         Vector3 endingSpot = asteroidObj.transform.position + headingOfAsteroid;
 
+        // Debug.Log("Found ending spot position: " + endingSpot);
+
+        asteroidRB.MovePosition(endingSpot * atSpeed);
+
     }
+    */
 
     private void TryToSpawnNextAsteroid(List<GameObject> givenListOfAsteroidPrefabs, 
                                            Transform fromThisOrigin, 
@@ -139,6 +156,13 @@ public class AsteroidUnitSpawner : Singleton<AsteroidUnitSpawner>
 
                     // Look at the origin point to aim slingshot vector at it:
                     spawnedAsteroid.transform.LookAt(fromThisOrigin);
+
+                    // Throw it!
+                    spawnedAsteroid.GetComponent<Asteroid>().TargetToHurdleTowards = fromThisOrigin.position;
+                    spawnedAsteroid.GetComponent<Asteroid>().HasTargetBeenSet = true;
+                    spawnedAsteroid.GetComponent<Asteroid>().SpeedToApplyToHurdlingAsteroid = _hurdlingSpeedForAsteroids;
+                    //ThrowAsteroidAtTarget(spawnedAsteroid, fromThisOrigin);
+                    // Doesn't seem to work due to being only done once when spawned; needs to be called continually in a loop --> put in asteroid's own script
                 }
             }
         }

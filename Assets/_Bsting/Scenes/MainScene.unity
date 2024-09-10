@@ -727,6 +727,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
+      propertyPath: _hurdlingSpeedForAsteroids
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
       propertyPath: <AngleSpawnCone>k__BackingField
       value: 90
       objectReference: {fileID: 0}
@@ -735,6 +740,17 @@ PrefabInstance:
       propertyPath: <RadiusToSpawnAwayFrom>k__BackingField
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: <ListOfPossiblePrefabsToSpawn>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: <ListOfPossiblePrefabsToSpawn>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 1416604782288699281, guid: 7bc016e4c5e6cf6458c90fc46ea9a6f4,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
