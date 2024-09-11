@@ -14,6 +14,7 @@ public class AsteroidUnitSpawner : MonoBehaviour
 
     // Inspector-exposed fields:
     [SerializeField] private int _limitOfAsteroidsToSpawnInScene = 8;
+    [SerializeField] private float _lifetimeForEachAsteroid = 25.0f;
     [SerializeField] private float _cooldownTimeBetweenEachSpawn = 1.5f;
     [SerializeField] private float _hurdlingSpeedForAsteroids = 1.0f;
 
@@ -185,7 +186,10 @@ public class AsteroidUnitSpawner : MonoBehaviour
 
                     // Spawn the chosen prefab and report added Asteroid:
                     GameObject spawnedAsteroid = SpawnAsteroid(fromThisOrigin, angleOfSpawnCone, distanceFromOrigin, chosenPrefab);
+
+                    // Setup spawn settings on spawn:
                     spawnedAsteroid.GetComponent<Asteroid>()._parentSpawner = _instance;
+                    spawnedAsteroid.GetComponent<Asteroid>().LifetimeOfAsteroid = _lifetimeForEachAsteroid;
 
                     // Look at the origin point to aim slingshot vector at it:
                     spawnedAsteroid.transform.LookAt(fromThisOrigin);

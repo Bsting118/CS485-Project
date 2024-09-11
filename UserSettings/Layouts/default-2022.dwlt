@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 81
+  controlID: 28
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 82
+  controlID: 29
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 50}
   m_MaxSize: {x: 32384, y: 8096}
   vertical: 0
-  controlID: 83
+  controlID: 30
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -760,7 +760,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Bsting/Prefabs/Asteroids
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -768,15 +768,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 65
   m_LastFolders:
-  - Assets/_Bsting/Prefabs/Asteroids
+  - Assets
   m_LastFoldersGridSize: 65
   m_LastProjectPath: D:\GitHubDesktop\CS485-Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 150}
-    m_SelectedIDs: c4be0000
-    m_LastClickedID: 48836
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: ee7c0000
+    m_LastClickedID: 31982
     m_ExpandedIDs: 00000000ee7c0000f07c0000f27c0000f47c0000f67c0000f87c0000fa7c0000fc7c0000fe7c0000007d0000027d0000047d0000067d0000087d00000a7d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000d48700007285000088cb00000000000032740000ac060000f47f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -899,9 +899,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 1cfaffff0efbffff026f0000
+      m_SelectedIDs: 66f7ffff
+      m_LastClickedID: -2202
+      m_ExpandedIDs: d6faffff0efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1334,9 +1334,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3285.426, y: -647.2343, z: -2417.509}
+    m_Target: {x: 103.04371, y: -1174.6312, z: 3887.8416}
     speed: 2
-    m_Value: {x: -3285.426, y: -647.2343, z: -2417.509}
+    m_Value: {x: 103.04371, y: -1174.6312, z: 3887.8416}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1382,9 +1382,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.036995973, y: -0.88799065, z: 0.07400419, w: 0.45276123}
+    m_Target: {x: 0.14828712, y: 0.013612786, z: -0.0013680478, w: 0.9890347}
     speed: 2
-    m_Value: {x: 0.037554774, y: -0.8883943, z: 0.07537894, w: 0.4512905}
+    m_Value: {x: 0.1467784, y: 0.012128706, z: -0.0011272009, w: 0.9890943}
   m_Size:
     m_Target: 2053.2668
     speed: 2
