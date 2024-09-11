@@ -14,35 +14,47 @@ public class AsteroidUnitSpawner : MonoBehaviour
 
     // Inspector-exposed fields:
     [SerializeField] private int _limitOfAsteroidsToSpawnInScene = 8;
+    [SerializeField] private float _cooldownTimeBetweenEachSpawn = 1.5f;
     [SerializeField] private float _hurdlingSpeedForAsteroids = 1.0f;
-
-    //public static AsteroidUnitSpawner Instance { get; protected set; }
-    private AsteroidUnitSpawner _instance = null;
 
     // Private var's:
     private int _countOfAsteroidsInScene = 0;
+    private AsteroidUnitSpawner _instance = null;
+    private bool _readyToSpawnNextAsteroid = false;
+    private Coroutine _spawnCooldownRoutine = null;
 
+    #region Monobehaviors
     void Awake()
     {
         LoadSpawnerInstance();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
-        // ...
+        LoadSpawnerInstance();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDisable()
     {
-        // ...
+        if (_spawnCooldownRoutine != null)
+        {
+            InterruptSpawnerCooldownRoutine();
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (_spawnCooldownRoutine != null)
+        {
+            InterruptSpawnerCooldownRoutine();
+        }
     }
 
     void FixedUpdate()
     {
         TryToSpawnNextAsteroid(ListOfPossiblePrefabsToSpawn, TargetSource, AngleSpawnCone, RadiusToSpawnAwayFrom);
     }
+    #endregion
 
     /// <summary>
     ///  Takes a Quaternion to define the direction of the cone (spot) 
@@ -84,6 +96,27 @@ public class AsteroidUnitSpawner : MonoBehaviour
             _countOfAsteroidsInScene--;
         }
     }
+
+    #region Coroutine(s)
+    IEnumerator SpawnCooldown()
+    {
+        // Anything after the WaitForSeconds will be held in pause
+        // (will not run until its timer expires):
+        yield return new WaitForSeconds(_cooldownTimeBetweenEachSpawn);
+
+        // Have flag variable after timer to use as cooldown enforcer/lock
+        _readyToSpawnNextAsteroid = true;
+    }
+    #endregion
+
+    #region Coroutine Helper(s)
+    public void InterruptSpawnerCooldownRoutine()
+    {
+        StopCoroutine(_spawnCooldownRoutine);
+        _spawnCooldownRoutine = null;
+        _readyToSpawnNextAsteroid = true; // Default flag value
+    }
+    #endregion
 
     /// <summary>
     /// Helper function that spawns in an Asteroid from a prefab. 
@@ -127,6 +160,8 @@ public class AsteroidUnitSpawner : MonoBehaviour
         {
             _instance = this;
         }
+
+        _readyToSpawnNextAsteroid = true;
     }
 
     private void TryToSpawnNextAsteroid(List<GameObject> givenListOfAsteroidPrefabs, 
@@ -140,7 +175,7 @@ public class AsteroidUnitSpawner : MonoBehaviour
 
             if (givenListOfAsteroidPrefabs != null)
             {
-                if (givenListOfAsteroidPrefabs.Count > 0)
+                if (givenListOfAsteroidPrefabs.Count > 0 && _readyToSpawnNextAsteroid)
                 {
                     // There ARE prefabs we can choose from:
 
@@ -155,10 +190,13 @@ public class AsteroidUnitSpawner : MonoBehaviour
                     // Look at the origin point to aim slingshot vector at it:
                     spawnedAsteroid.transform.LookAt(fromThisOrigin);
 
-                    // Throw it!
+                    // Setup throw settings!
                     spawnedAsteroid.GetComponent<Asteroid>().TargetToHurdleTowards = fromThisOrigin.position;
                     spawnedAsteroid.GetComponent<Asteroid>().HasTargetBeenSet = true;
                     spawnedAsteroid.GetComponent<Asteroid>().SpeedToApplyToHurdlingAsteroid = _hurdlingSpeedForAsteroids;
+
+                    _readyToSpawnNextAsteroid = false;
+                    _spawnCooldownRoutine = StartCoroutine(SpawnCooldown());
                 }
             }
         }

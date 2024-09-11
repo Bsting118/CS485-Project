@@ -732,6 +732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
+      propertyPath: _cooldownTimeBetweenEachSpawn
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
       propertyPath: <AngleSpawnCone>k__BackingField
       value: 90
       objectReference: {fileID: 0}
