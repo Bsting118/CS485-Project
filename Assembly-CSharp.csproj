@@ -89,6 +89,7 @@
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorGlow.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\ExampleFracture.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\Managers\UIManager.cs" />
     <Compile Include="Assets\Input\PlayerInputSystem.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorLight.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\Detonator.cs" />
