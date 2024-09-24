@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Bsting.Ship.Managers
 {
@@ -28,8 +29,8 @@ namespace Bsting.Ship.Managers
         [SerializeField][Range(0f, 10f)] private float _teleportSicknessTime = 1.0f;
 
         [Header("Environment Shading Settings")]
-        [SerializeField] public List<GameObject> TargetShadedObjectsToFacePlayerDirection = new List<GameObject>();
-        [SerializeField] private GameObject _firstPerson3DCamera = null;
+        [field: SerializeField] public List<GameObject> TargetShadedObjectsToFacePlayerDirection = new List<GameObject>();
+        [field: SerializeField] public GameObject FirstPerson3DCamera = null;
 
         // Private var(s):
         private Transform _connectedPlayerShipTransform = null;
@@ -68,6 +69,9 @@ namespace Bsting.Ship.Managers
             {
                 InterruptTeleportExitRoutine();
             }
+
+            // Removed subscriber if Singleton is disabled or queued for destruction:
+            SceneManager.activeSceneChanged -= ClearListOfCurrentShadedObjects;
         }
 
         void OnDestroy()
@@ -80,6 +84,12 @@ namespace Bsting.Ship.Managers
             {
                 InterruptTeleportExitRoutine();
             }
+        }
+
+        private void Start()
+        {
+            // Hook up listener to wipe out dropped game object references upon scene change:
+            SceneManager.activeSceneChanged += ClearListOfCurrentShadedObjects;
         }
 
         // Update is called once per frame
@@ -99,12 +109,12 @@ namespace Bsting.Ship.Managers
             Gizmos.DrawWireSphere(_sphereCenterPosition, _sphereRadius);
 
             // Draw first-person in-range of view sphere (anything past this is culled w/o workarounds):
-            if (_firstPerson3DCamera != null)
+            if (FirstPerson3DCamera != null)
             {
                 Color semiTransparentGizmoColor = Color.green;
                 semiTransparentGizmoColor.a = 0.2f;
                 Gizmos.color = semiTransparentGizmoColor;
-                float renderRadius = _firstPerson3DCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FarClipPlane;
+                float renderRadius = FirstPerson3DCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FarClipPlane;
                 Vector3 centerPos = GetCurrentPlayerPos();
                 Gizmos.DrawSphere(centerPos, renderRadius);
                 Gizmos.DrawWireSphere(centerPos, renderRadius);
@@ -247,6 +257,18 @@ namespace Bsting.Ship.Managers
 
             return foundPos;
         }
+
+        private void ClearListOfCurrentShadedObjects(Scene current, Scene next)
+        {
+            // Wipe the dropped reference list from the scene change event:
+            if (TargetShadedObjectsToFacePlayerDirection != null && TargetShadedObjectsToFacePlayerDirection.Count > 0)
+            {
+                TargetShadedObjectsToFacePlayerDirection.Clear();
+            }
+
+            // Force the connected FP camera to be cleared:
+            FirstPerson3DCamera = null;
+        }
         #endregion
 
         #region Coroutine Helper(s)
@@ -272,6 +294,18 @@ namespace Bsting.Ship.Managers
             {
                 _connectedPlayerShipTransform = updatedPlayerTransform;
             }
+        }
+
+        public void SetFirstPerson3DCamera(GameObject newFPCamera)
+        {
+            FirstPerson3DCamera = newFPCamera;
+        }
+        #endregion
+
+        #region Public Accessor(s)
+        public GameObject GetFirstPerson3DCamera()
+        {
+            return FirstPerson3DCamera;
         }
         #endregion
     }

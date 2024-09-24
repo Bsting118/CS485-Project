@@ -86,7 +86,7 @@ namespace Bsting.Ship.Managers
 
         public void QuitGame()
         {
-
+            Debug.Log("MSG: Game Manager QUIT triggered.");
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else

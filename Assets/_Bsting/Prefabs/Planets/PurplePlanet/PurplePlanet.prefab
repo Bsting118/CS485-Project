@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 1101243074009551165}
   - component: {fileID: 4692111814596538425}
   - component: {fileID: 3441136473469966488}
+  - component: {fileID: 5087293759097255977}
   m_Layer: 0
   m_Name: PurplePlanet
   m_TagString: Untagged
@@ -167,3 +168,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5087293759097255977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136740364132801794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7a98c0452e6494fb05707d1aa338c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

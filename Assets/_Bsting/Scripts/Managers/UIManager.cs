@@ -12,9 +12,26 @@ namespace Bsting.Ship.Managers
         [field: SerializeField] public GameObject UIMenuToEnableOnBoot { get; private set; } = null;
         [field: SerializeField] public List<GameObject> ListOfUIMenus { get; private set; } = new List<GameObject>();
 
+        private const int _MAIN_MENU_INDEX = 0;
+
         void OnEnable()
         {
             TryToStartDefaultUIMenu();
+        }
+
+        void OnDisable()
+        {
+            // Removed subscriber if Singleton is disabled or queued for destruction:
+            SceneManager.activeSceneChanged -= UpdateListOfCurrentMenus;
+        }
+
+        private void Start()
+        {
+            /* --- Setup a one-shot default behavior with UI Manager --- */
+            // (clear the UI serialized property fields after scene change happens)
+
+            // Subscribe the clear and set menus method to the activeSceneChanged event:
+            SceneManager.activeSceneChanged += UpdateListOfCurrentMenus;
         }
 
         public void PlayMainGame()
@@ -25,6 +42,14 @@ namespace Bsting.Ship.Managers
             {
                 // Load the next queued scene index (the one after the main menu; should be "Main Scene"):
                 SceneManager.LoadScene(queuedBuildIndex);
+            }
+        }
+
+        public void GoToMainMenu()
+        {
+            if (!IsBuildIndexMainMenu(SceneManager.GetActiveScene().buildIndex))
+            {
+                SceneManager.LoadScene(_MAIN_MENU_INDEX);
             }
         }
 
@@ -60,6 +85,20 @@ namespace Bsting.Ship.Managers
             }
         }
 
+        private bool IsBuildIndexMainMenu(int thisBuildIndex)
+        {
+            if (thisBuildIndex > 0)
+            {
+                // It's a level beyond the main menu spot, so no:
+                return false;
+            }
+            else
+            {
+                // It is scene index 0 or less; so yes:
+                return true;
+            }
+        }
+
         private void DisableAllListedUIMenus()
         {
             // Go through each menu and disable it (make it invisible, essentially):
@@ -80,7 +119,7 @@ namespace Bsting.Ship.Managers
                 }
                 else
                 {
-                    Debug.LogWarning("WARN: No UI menus provided in UI Manager's list. No UI-disabling action has been taken.");
+                    Debug.Log("MSG: No UI menus provided in UI Manager's list. No UI-disabling action has been taken.");
                 }
 
                 // Then enable the one we want enabled by default:
@@ -90,7 +129,30 @@ namespace Bsting.Ship.Managers
                 }
                 else
                 {
-                    Debug.LogWarning("WARN: No default UI menu has been specified. No UI-enabling action has been taken.");
+                    Debug.Log("MSG: No default UI menu has been specified. No UI-enabling action has been taken.");
+                }
+            }
+        }
+
+        private void UpdateListOfCurrentMenus(Scene current, Scene next)
+        {
+            if (ListOfUIMenus.Count > 0)
+            {
+                // Verified current is no longer the active scene; proceed to clear:
+                if (SceneManager.GetActiveScene().name != current.name)
+                {
+                    ListOfUIMenus.Clear();
+                    UIMenuToEnableOnBoot = null;
+                    Debug.Log("MSG: UI Manager has cleared its old menu references from last scene.");
+                }
+            }
+
+            if (EnableDefaultUIBehavior)
+            {
+                // Now that fields are reset, disable the default startup:
+                if (!IsBuildIndexMainMenu(next.buildIndex))
+                {
+                    EnableDefaultUIBehavior = false;
                 }
             }
         }

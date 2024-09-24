@@ -6,6 +6,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Bsting.Ship.Managers
 {
@@ -49,10 +50,18 @@ namespace Bsting.Ship.Managers
             base.Awake();
         }
 
+        void OnDisable()
+        {
+            // Removed subscriber if Singleton is disabled or queued for destruction:
+            SceneManager.activeSceneChanged -= ClearListOfCurrentPlayerCameras;
+        }
 
         // Start is called before the first frame update
         void Start()
         {
+            // Hook up listener to wipe out dropped game object references upon scene change:
+            SceneManager.activeSceneChanged += ClearListOfCurrentPlayerCameras;
+
             // Set CockpitCamera to be active camera by startup:
             SetActiveCamera(VirtualCameras.CockpitCamera);
         }
@@ -91,6 +100,14 @@ namespace Bsting.Ship.Managers
             }
         }
 
+        private void ClearListOfCurrentPlayerCameras(Scene current, Scene next)
+        {
+            if (_virtualCameras != null && _virtualCameras.Count > 0)
+            {
+                _virtualCameras.Clear();
+            }
+        }
+
         public void SetPlayerInputInstance(PlayerInputSystem newInputInstance)
         {
             _currentPlayerInputSystem = newInputInstance;
@@ -100,6 +117,11 @@ namespace Bsting.Ship.Managers
         {
             List<GameObject> managedCameras = _virtualCameras;
             return managedCameras;
+        }
+
+        public void SetListOfManagedCameras(List<GameObject> newListOfCameras)
+        {
+            _virtualCameras = newListOfCameras;
         }
     }
 }

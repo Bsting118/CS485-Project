@@ -743,10 +743,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <TargetSource>k__BackingField: {fileID: 3456099716402772840}
-  <PrefabToSpawn>k__BackingField: {fileID: 1416604782288699281, guid: 7bc016e4c5e6cf6458c90fc46ea9a6f4,
-    type: 3}
+  <ListOfPossiblePrefabsToSpawn>k__BackingField: []
   <AngleSpawnCone>k__BackingField: 360
   <RadiusToSpawnAwayFrom>k__BackingField: 25
+  _limitOfAsteroidsToSpawnInScene: 8
+  _lifetimeForEachAsteroid: 25
+  _cooldownTimeBetweenEachSpawn: 1.5
+  _hurdlingSpeedForAsteroids: 1
 --- !u!1 &787454567694201440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1204,9 @@ MonoBehaviour:
   _engines:
   - {fileID: 5945400023426039333}
   - {fileID: 2933470187159330290}
+  _localShipCameras:
+  - {fileID: 1663422054386766352}
+  - {fileID: 9055202225991738955}
   _hyperSpeedDuration: 3
   _hyperSpeedCooldownTime: 5
   OnHyperspeedActivated:

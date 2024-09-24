@@ -36,6 +36,7 @@ namespace Bsting.Ship
 
         [Header("Ship Model Components")]
         [SerializeField] List<ShipEngine> _engines;
+        [SerializeField] List<GameObject> _localShipCameras;
 
         [Header("Ship Abilities")]
         [SerializeField] private float _hyperSpeedDuration = 3.0f;
@@ -77,7 +78,10 @@ namespace Bsting.Ship
 
         void OnEnable()
         {
+            // Setup or Fetch from Managers here (for Player scenes):
             SubscribeShipTransformToLevelManager();
+
+            ReinitializeCameraManagerList();
         }
 
         void OnDisable()
@@ -116,6 +120,9 @@ namespace Bsting.Ship
 
         void Update()
         {
+            // Make sure any dynamic local lists are setup:
+            CheckToRefreshChildCameraList();
+
             // At the start of each frame, send updated transform info to Level Manager:
             LevelManager.Instance.SetPlayerShipTransform(GetTransformOfShip());
 
@@ -279,6 +286,37 @@ namespace Bsting.Ship
             {
                 LevelManager.Instance.SetPlayerShipTransform(GetTransformOfShip());
                 _hasLevelManagerBeenInit = true;
+            }
+        }
+
+        private void CheckToRefreshChildCameraList()
+        {
+            if (_localShipCameras.Count <= 0)
+            {
+                // Refresh it:
+                for (int index = 0; index < transform.childCount; index++)
+                {
+                    // Get the current child game object under the ship controller:
+                    GameObject currentChild = transform.GetChild(index).gameObject;
+
+                    // Check if its a ship camera, and if so, add to the local list of cameras:
+                    if (currentChild.CompareTag("CockpitCamera") || currentChild.CompareTag("FollowCamera"))
+                    {
+                        _localShipCameras.Add(currentChild);
+                    }
+                }
+            }
+        }
+
+        private void ReinitializeCameraManagerList()
+        {
+            if (CameraManager.Instance != null)
+            {
+                if (_localShipCameras != null)
+                {
+                    CameraManager.Instance.SetListOfManagedCameras(_localShipCameras);
+                    Debug.Log("MSG: Reinitialized local ship cameras list on Camera Manager. Count of ship cameras: " + _localShipCameras.Count);
+                }
             }
         }
         #endregion
