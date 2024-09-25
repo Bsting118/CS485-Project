@@ -80,6 +80,12 @@ namespace Bsting.Ship.Managers
                 _gameHasBeenPaused = false;
             }
         }
+
+        void OnDisable()
+        {
+            // Removed subscriber if Singleton is disabled or queued for destruction:
+            SceneManager.activeSceneChanged -= ClearPauseManagerReference;
+        }
         #endregion
 
         #region Helper Function(s)
