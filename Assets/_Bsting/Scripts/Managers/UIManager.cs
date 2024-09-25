@@ -13,6 +13,7 @@ namespace Bsting.Ship.Managers
         [field: SerializeField] public List<GameObject> ListOfUIMenus { get; private set; } = new List<GameObject>();
 
         private const int _MAIN_MENU_INDEX = 0;
+        private bool _hasSubscribedToSceneChange = false;
 
         void OnEnable()
         {
@@ -21,8 +22,13 @@ namespace Bsting.Ship.Managers
 
         void OnDisable()
         {
-            // Removed subscriber if Singleton is disabled or queued for destruction:
-            SceneManager.activeSceneChanged -= UpdateListOfCurrentMenus;
+            if (_hasSubscribedToSceneChange)
+            {
+                // Removed subscriber if Singleton is disabled or queued for destruction:
+                SceneManager.activeSceneChanged -= UpdateListOfCurrentMenus;
+                _hasSubscribedToSceneChange = false;
+                Debug.Log("MSG: Removed UIManager subscriber to active scene changed event.");
+            }
         }
 
         private void Start()
@@ -30,8 +36,14 @@ namespace Bsting.Ship.Managers
             /* --- Setup a one-shot default behavior with UI Manager --- */
             // (clear the UI serialized property fields after scene change happens)
 
-            // Subscribe the clear and set menus method to the activeSceneChanged event:
-            SceneManager.activeSceneChanged += UpdateListOfCurrentMenus;
+            // Adding flag lock:
+            if (!_hasSubscribedToSceneChange)
+            {
+                // Subscribe the clear and set menus method to the activeSceneChanged event:
+                SceneManager.activeSceneChanged += UpdateListOfCurrentMenus;
+                _hasSubscribedToSceneChange = true;
+                Debug.Log("MSG: Added UIManager subscriber to active scene changed event.");
+            }
         }
 
         public void PlayMainGame()

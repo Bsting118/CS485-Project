@@ -21,6 +21,7 @@ namespace Bsting.Ship.Managers
 
         private PlayerInputSystem _currentPlayerInputSystem;
         private int _virtualCamerasIndex = -1;
+        private bool _hasSubscribedToSceneChange = false;
 
         public VirtualCameras CameraKeyPressed
         {
@@ -52,15 +53,26 @@ namespace Bsting.Ship.Managers
 
         void OnDisable()
         {
-            // Removed subscriber if Singleton is disabled or queued for destruction:
-            SceneManager.activeSceneChanged -= ClearListOfCurrentPlayerCameras;
+            if (_hasSubscribedToSceneChange)
+            {
+                // Removed subscriber if Singleton is disabled or queued for destruction:
+                SceneManager.activeSceneChanged -= ClearListOfCurrentPlayerCameras;
+                _hasSubscribedToSceneChange = false;
+                Debug.Log("MSG: Removed CameraManager subscriber to active scene changed event.");
+            }
         }
 
         // Start is called before the first frame update
         void Start()
         {
-            // Hook up listener to wipe out dropped game object references upon scene change:
-            SceneManager.activeSceneChanged += ClearListOfCurrentPlayerCameras;
+            // Adding flag lock:
+            if (!_hasSubscribedToSceneChange)
+            {
+                // Hook up listener to wipe out dropped game object references upon scene change:
+                SceneManager.activeSceneChanged += ClearListOfCurrentPlayerCameras;
+                _hasSubscribedToSceneChange = true;
+                Debug.Log("MSG: Added CameraManager subscriber to active scene changed event.");
+            }
 
             // Set CockpitCamera to be active camera by startup:
             SetActiveCamera(VirtualCameras.CockpitCamera);

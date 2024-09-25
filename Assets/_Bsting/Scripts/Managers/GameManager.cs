@@ -29,6 +29,7 @@ namespace Bsting.Ship.Managers
         // Private var's:
         private PlayerInputSystem _currentPlayerInputSystem = null;
         private bool _gameHasBeenPaused = false;
+        private bool _hasSubscribedToSceneChange = false;
         private float _copyOfFixedDeltaTime;
 
         #region MonoBehaviors
@@ -45,8 +46,14 @@ namespace Bsting.Ship.Managers
         {
             RestrictMouseInputToGameWindow(shouldHideCursor: _hideMouseCursor, shouldConfineCursor: _confineMouseCursorToGameWindow);
 
-            // Hook up listener to wipe out dropped game object references upon scene change:
-            SceneManager.activeSceneChanged += ClearPauseManagerReference;
+            // Adding flag lock:
+            if (!_hasSubscribedToSceneChange)
+            {
+                // Hook up listener to wipe out dropped game object references upon scene change:
+                SceneManager.activeSceneChanged += ClearPauseManagerReference;
+                _hasSubscribedToSceneChange = true;
+                Debug.Log("MSG: Added GameManager subscriber to active scene changed event.");
+            }
         }
 
         // Update is called once per frame
@@ -83,8 +90,13 @@ namespace Bsting.Ship.Managers
 
         void OnDisable()
         {
-            // Removed subscriber if Singleton is disabled or queued for destruction:
-            SceneManager.activeSceneChanged -= ClearPauseManagerReference;
+            if (_hasSubscribedToSceneChange)
+            {
+                // Removed subscriber if Singleton is disabled or queued for destruction:
+                SceneManager.activeSceneChanged -= ClearPauseManagerReference;
+                _hasSubscribedToSceneChange = false;
+                Debug.Log("MSG: Removed GameManager subscriber to active scene changed event.");
+            }
         }
         #endregion
 

@@ -41,6 +41,7 @@ namespace Bsting.Ship.Managers
         private bool _canWarpPlayer = false;
         private bool _canPlayerExitThroughWarp = false;
         private bool _teleportProcessStarted = false;
+        private bool _hasSubscribedToSceneChange = false;
 
         #region MonoBehaviors
         protected override void Awake()
@@ -70,8 +71,13 @@ namespace Bsting.Ship.Managers
                 InterruptTeleportExitRoutine();
             }
 
-            // Removed subscriber if Singleton is disabled or queued for destruction:
-            SceneManager.activeSceneChanged -= ClearListOfCurrentShadedObjects;
+            if (_hasSubscribedToSceneChange)
+            {
+                // Removed subscriber if Singleton is disabled or queued for destruction:
+                SceneManager.activeSceneChanged -= ClearListOfCurrentShadedObjects;
+                _hasSubscribedToSceneChange = false;
+                Debug.Log("MSG: Removed LevelManager subscriber to active scene changed event.");
+            }
         }
 
         void OnDestroy()
@@ -88,8 +94,14 @@ namespace Bsting.Ship.Managers
 
         private void Start()
         {
-            // Hook up listener to wipe out dropped game object references upon scene change:
-            SceneManager.activeSceneChanged += ClearListOfCurrentShadedObjects;
+            // Adding flag lock:
+            if (!_hasSubscribedToSceneChange)
+            {
+                // Hook up listener to wipe out dropped game object references upon scene change:
+                SceneManager.activeSceneChanged += ClearListOfCurrentShadedObjects;
+                _hasSubscribedToSceneChange = true;
+                Debug.Log("MSG: Added LevelManager subscriber to active scene changed event.");
+            }
         }
 
         // Update is called once per frame
