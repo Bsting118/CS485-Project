@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Bsting.Ship.Managers
 {
@@ -15,11 +16,19 @@ namespace Bsting.Ship.Managers
     /// </summary>
     public class GameManager : Manager<GameManager>
     {
+        // Properties:
+        // (Will have to wipe and refresh this on scene changes)
+        [field: SerializeField] public PauseUIController PauseController = null; 
+
+        // Fields:
         [SerializeField] private bool _hideMouseCursor = true;
         [SerializeField] private bool _confineMouseCursorToGameWindow = true;
         [SerializeField] private bool _ignoreMouseCursorOutsideGameWindow = true;
+        [SerializeField] private bool _enableQuitGameOverrideOnTab = false;
 
+        // Private var's:
         private PlayerInputSystem _currentPlayerInputSystem = null;
+        private bool _gameHasBeenPaused = false;
 
         #region MonoBehaviors
         protected override void Awake()
@@ -38,10 +47,30 @@ namespace Bsting.Ship.Managers
         {
             if (_currentPlayerInputSystem != null)
             {
-                if (WasQuitOverrideTriggered())
+                // Misc. managed inputs:
+                if (_enableQuitGameOverrideOnTab)
                 {
-                    QuitGame();
+                    if (WasQuitOverrideTriggered())
+                    {
+                        QuitGame();
+                    }
                 }
+
+                if (WasPauseTriggered() && IsAValidSceneForPausing())
+                {
+                    PauseController.TogglePausedGame();
+                }
+            }
+
+            if (PauseUIController.GameIsPaused)
+            {
+                SetPlayerInputActionMapToUI();
+                _gameHasBeenPaused = true;
+            }
+            else if (!PauseUIController.GameIsPaused && _gameHasBeenPaused)
+            {
+                SetPlayerInputActionMapToPlayer();
+                _gameHasBeenPaused = false;
             }
         }
         #endregion
@@ -68,10 +97,47 @@ namespace Bsting.Ship.Managers
             }
         }
 
+        #region Public Accessor(s)
+        public PauseUIController GetGameManagedPauseController()
+        {
+            return PauseController;
+        }
+        #endregion
+
+        #region Public Mutator(s)
         public void SetPlayerInputInstance(PlayerInputSystem newInputInstance)
         {
             _currentPlayerInputSystem = newInputInstance;
         }
+
+        public void SetPlayerInputActionMapToUI()
+        {
+            if (_currentPlayerInputSystem != null)
+            {
+                _currentPlayerInputSystem.Player.Disable();
+                _currentPlayerInputSystem.UI.Enable();
+            }
+        }
+
+        public void SetPlayerInputActionMapToPlayer()
+        {
+            if (_currentPlayerInputSystem != null)
+            {
+                _currentPlayerInputSystem.UI.Disable();
+                _currentPlayerInputSystem.Player.Enable();
+            }
+
+            // NOTE: You should call this each time we switch scenes since its the default action map.
+        }
+
+        public void SetPauseController(PauseUIController newController)
+        {
+            if (newController != null)
+            {
+                PauseController = newController;
+            }
+        }
+        #endregion
 
         public bool IsMouseIgnoredOutsideGameWindow()
         {
@@ -79,9 +145,27 @@ namespace Bsting.Ship.Managers
             return result;
         }
 
+        public bool IsAValidSceneForPausing()
+        {
+            bool result = false;
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+            {
+                result = true;
+            }
+
+            return result;
+        }
+
         public bool WasQuitOverrideTriggered()
         {
             return _currentPlayerInputSystem.Player.QuitGameOverride.WasPressedThisFrame();
+        }
+
+        public bool WasPauseTriggered()
+        {
+            return (_currentPlayerInputSystem.Player.TogglePause.WasPressedThisFrame()
+                    || 
+                    _currentPlayerInputSystem.UI.TogglePause.WasPressedThisFrame());
         }
 
         public void QuitGame()

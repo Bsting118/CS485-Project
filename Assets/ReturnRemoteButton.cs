@@ -27,14 +27,27 @@ public class ReturnRemoteButton : MonoBehaviour
         TryToAddUIReturnListener();
     }
 
+    void Update()
+    {
+        // In case of callstack conflicts:
+        if (!_hasListenerBeenAdded)
+        {
+            TryToGetButtonOnThisObject();
+
+            TryToAddUIReturnListener();
+        }
+    }
+
     void OnDisable()
     {
         TryToRemoveAllListeners();
+        _hasListenerBeenAdded = false;
     }
 
     void OnDestroy()
     {
         _attachedReturnToMenuButton.onClick.RemoveAllListeners();
+        _hasListenerBeenAdded = false;
     }
 
     private void TryToGetButtonOnThisObject()

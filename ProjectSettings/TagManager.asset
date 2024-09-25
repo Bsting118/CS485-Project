@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CockpitCamera
   - FollowCamera
+  - PauseToggle
   layers:
   - Default
   - TransparentFX

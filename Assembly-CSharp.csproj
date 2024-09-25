@@ -115,6 +115,7 @@
     <Compile Include="Assets\_Bsting\Scripts\Managers\Manager.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\_Creepy_Cat\3D Games Effects Pack Free\Example_02\InstanceExample.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IDamageable.cs" />
+    <Compile Include="Assets\PauseUIController.cs" />
     <Compile Include="Assets\NewGameRemoteButton.cs" />
   </ItemGroup>
   <ItemGroup>
