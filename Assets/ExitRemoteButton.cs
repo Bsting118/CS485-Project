@@ -29,11 +29,13 @@ public class ExitRemoteButton : MonoBehaviour
     void OnDisable()
     {
         TryToRemoveAllListeners();
+        _hasListenerBeenAdded = false;
     }
 
     void OnDestroy()
     {
         _attachedExitButton.onClick.RemoveAllListeners();
+        _hasListenerBeenAdded = false;
     }
 
     private void TryToGetButtonOnThisObject()

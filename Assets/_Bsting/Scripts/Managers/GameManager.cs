@@ -29,17 +29,24 @@ namespace Bsting.Ship.Managers
         // Private var's:
         private PlayerInputSystem _currentPlayerInputSystem = null;
         private bool _gameHasBeenPaused = false;
+        private float _copyOfFixedDeltaTime;
 
         #region MonoBehaviors
         protected override void Awake()
         {
             base.Awake();
+
+            // Clone fixed delta time in case we need to restore or override it from anywhere in the game:
+            this._copyOfFixedDeltaTime = Time.fixedDeltaTime;
         }
 
         // Start is called before the first frame update
         void Start()
         {
             RestrictMouseInputToGameWindow(shouldHideCursor: _hideMouseCursor, shouldConfineCursor: _confineMouseCursorToGameWindow);
+
+            // Hook up listener to wipe out dropped game object references upon scene change:
+            SceneManager.activeSceneChanged += ClearPauseManagerReference;
         }
 
         // Update is called once per frame
@@ -95,6 +102,22 @@ namespace Bsting.Ship.Managers
             {
                 Cursor.visible = true;
             }
+        }
+
+        private void ClearPauseManagerReference(Scene current, Scene next)
+        {
+            if (PauseController != null)
+            {
+                PauseController = null;
+            }
+
+            // Reset to default action map:
+            SetPlayerInputActionMapToPlayer();
+
+            // Reset Pause time scaling and status:
+            Time.timeScale = 1.0f;
+            Time.fixedDeltaTime = this._copyOfFixedDeltaTime * Time.timeScale;
+            PauseUIController.SetGameIsPaused(false);
         }
 
         #region Public Accessor(s)

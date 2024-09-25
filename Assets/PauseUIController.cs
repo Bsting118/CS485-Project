@@ -108,10 +108,24 @@ public class PauseUIController : MonoBehaviour
     }
     #endregion
 
+    #region Accessor(s)
     public float GetStoredFixedDeltaTime()
     {
         return this._fixedDeltaTime;
     }
+
+    public static bool GetGameIsPaused()
+    {
+        return GameIsPaused;
+    }
+    #endregion
+
+    #region Mutator(s)
+    public static void SetGameIsPaused(bool toNewStatus)
+    {
+        GameIsPaused = toNewStatus;
+    }
+    #endregion
 
     #region Main Public Method(s)
     public void TogglePausedGame()
