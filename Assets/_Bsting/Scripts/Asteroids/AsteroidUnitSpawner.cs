@@ -9,8 +9,9 @@ public class AsteroidUnitSpawner : MonoBehaviour
     // Public properties:
     [field: SerializeField] public Transform TargetSource { get; private set; } = null;
     [field: SerializeField] public List<GameObject> ListOfPossiblePrefabsToSpawn { get; private set; } = null;
+    [field: SerializeField] public ShipUIController ScoreController { get; private set; } = null; 
     [field: SerializeField] public float AngleSpawnCone { get; private set; }
-    [field: SerializeField] public float RadiusToSpawnAwayFrom { get; private set; }
+    [field: SerializeField] public float RadiusToSpawnAwayFrom { get; private set; } 
 
     // Inspector-exposed fields:
     [SerializeField] private int _limitOfAsteroidsToSpawnInScene = 8;
@@ -90,11 +91,20 @@ public class AsteroidUnitSpawner : MonoBehaviour
     /// Helper function to allow other classes to access this script 
     /// instance and decrement its counter.
     /// </summary>
-    public void ReportAsteroidDestroyed()
+    public void ReportAsteroidDestroyed(bool fromPlayerDamage=false)
     {
         if (_countOfAsteroidsInScene > 0)
         {
             _countOfAsteroidsInScene--;
+        }
+
+        if (fromPlayerDamage)
+        {
+            // Do something with score here:
+            if (ScoreController != null)
+            {
+                ScoreController.UptickPlayerScore();
+            }
         }
     }
 

@@ -100,7 +100,8 @@ public class Asteroid : MonoBehaviour, IDamageable
 
         // Destroy and report dstruction of Asteroid to allow a new spawn:
         Destroy(this.gameObject);
-        _parentSpawner.ReportAsteroidDestroyed();
+        // Mark from Player Damage so our score can go up:
+        _parentSpawner.ReportAsteroidDestroyed(fromPlayerDamage:true);
     }
 
     private void DespawnTheAsteroid()

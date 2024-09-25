@@ -793,6 +793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
+      propertyPath: <ScoreController>k__BackingField
+      value: 
+      objectReference: {fileID: 569508173}
+    - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
       propertyPath: <RadiusToSpawnAwayFrom>k__BackingField
       value: 150
       objectReference: {fileID: 0}
@@ -815,7 +820,42 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2014050236}
+    - targetCorrespondingSourceObject: {fileID: 2463598769833832998, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 569508173}
   m_SourcePrefab: {fileID: 100100000, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4, type: 3}
+--- !u!1 &569508172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2463598769833832998, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 569508171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &569508173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569508172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e8446b7fff6864ab2ac23c1419590f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <ScoreText>k__BackingField: {fileID: 569508174}
+--- !u!114 &569508174 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5116900993778644048, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 569508171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &598574841
 GameObject:
   m_ObjectHideFlags: 0
