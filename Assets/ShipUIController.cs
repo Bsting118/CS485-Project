@@ -10,6 +10,10 @@ public class ShipUIController : MonoBehaviour
     // Properties:
     [field: SerializeField] public TextMeshProUGUI ScoreText { get; private set; } = null;
 
+    // Fields:
+    [Header("Player Score Fields")]
+    [SerializeField] private int _scoreIncrementRate = 50;
+
     // Private var's:
     private int _currentScore = 0;
 
@@ -17,12 +21,6 @@ public class ShipUIController : MonoBehaviour
     void Awake()
     {
         ResetPlayerScore();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -54,7 +52,7 @@ public class ShipUIController : MonoBehaviour
 
     public void UptickPlayerScore()
     {
-        _currentScore++;
+        _currentScore += _scoreIncrementRate;
     }
     #endregion
 }
