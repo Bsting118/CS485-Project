@@ -139,6 +139,12 @@ public class PauseUIController : MonoBehaviour
         else
         {
             Pause();
+
+            // ADDED: Play the pause pop-up sound effect:
+            if (SFXManager.Instance != null)
+            {
+                SFXManager.Instance.PlayPauseTriggeredSFX();
+            }
         }
     }
 

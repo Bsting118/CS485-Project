@@ -189,7 +189,12 @@ namespace Bsting.Ship.Managers
         public bool IsAValidSceneForPausing()
         {
             bool result = false;
-            if (SceneManager.GetActiveScene().buildIndex != 0)
+            int lastSceneBuildIndex = (SceneManager.sceneCountInBuildSettings - 1);
+
+            /* --- MODIFY VALID SCENE EVAL TO ACCOUNT FOR BOTH LAST GAME OVER SCENE AND FIRST MAIN MENU SCENE --- */
+
+            //if (SceneManager.GetActiveScene().buildIndex != 0)
+            if ((SceneManager.GetActiveScene().buildIndex > 0) && (SceneManager.GetActiveScene().buildIndex < lastSceneBuildIndex))
             {
                 result = true;
             }

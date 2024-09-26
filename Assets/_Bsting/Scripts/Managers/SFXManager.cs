@@ -15,6 +15,7 @@ namespace Bsting.Ship.Managers
         [SerializeField] private AudioClip _backButtonSFX = null;
         [SerializeField] private AudioClip _menuButtonSFX = null;
         [SerializeField] private AudioClip _exitGameButtonSFX = null;
+        [SerializeField] private AudioClip _pauseGameSFX = null;
         [SerializeField] private AudioClip _blasterSFX = null;
         // [SerializeField] private AudioClip _engineSFX = null;
         // [SerializeField] private AudioClip _hyperspeedSFX = null;
@@ -66,6 +67,11 @@ namespace Bsting.Ship.Managers
         public void PlayBlasterFiredSFX()
         {
             _audioSourceForSFX?.PlayOneShot(_blasterSFX);
+        }
+
+        public void PlayPauseTriggeredSFX()
+        {
+            _audioSourceForSFX?.PlayOneShot(_pauseGameSFX);
         }
         #endregion
     }
