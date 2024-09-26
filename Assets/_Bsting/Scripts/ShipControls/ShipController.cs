@@ -46,6 +46,7 @@ namespace Bsting.Ship
         [SerializeField] private float _hyperSpeedCooldownTime = 5.0f;
         public UnityEvent OnHyperspeedActivated = new UnityEvent(); // Use this to trigger hyperspeed VFX
         public UnityEvent OnHyperspeedExpired = new UnityEvent(); // Use this to turn off hyperspeed VFX
+        public UnityEvent OnHyperspeedReplenished = new UnityEvent(); // Use this for any hyperspeed SFX or "ready-again" juice
 
         private Rigidbody _thisRigidBody;
         private PlayerInputSystem _connectedInputMap = null;
@@ -247,6 +248,7 @@ namespace Bsting.Ship
             _currentHyperspeedMultiplier = 0f;
             _hasHyperSpeedJumpstarted = false;
             _canUseHyperspeed = true;
+            OnHyperspeedReplenished.Invoke();
             Debug.Log("=== Cooldown expired. Hyperspeed is ready! ===");
         }
         #endregion

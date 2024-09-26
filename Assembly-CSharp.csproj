@@ -115,6 +115,7 @@
     <Compile Include="Assets\_Bsting\Scripts\Asteroids\AsteroidUnitSpawner.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Skybox\SkyboxHandler.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Cameras\ToggleAsteroidsCam.cs" />
+    <Compile Include="Assets\HyperspeedSFXController.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\Manager.cs" />
     <Compile Include="Assets\_Bsting\Scripts\UI\ReturnRemoteButton.cs" />
     <Compile Include="Assets\_Bsting\Scripts\UI\ShipUIController.cs" />

@@ -7,8 +7,10 @@ namespace Bsting.Ship.Managers
     [RequireComponent(typeof(AudioSource))]
     public class SFXManager : Manager<SFXManager>
     {
-        [Header("Audio SFX Player")]
-        [SerializeField] private AudioSource _audioSourceForSFX = null;
+        [Header("Audio SFX Players")]
+        [SerializeField] private AudioSource _audioSourceForUISFX = null;
+        [SerializeField] private AudioSource _audioSourceForPlayerBlastersSFX = null;
+        [SerializeField] private AudioSource _audioSourceForPlayerEngineSFX = null;
         [Header("Audio SFX Clips To Play")]
         [SerializeField] private AudioClip _newGameButtonSFX = null;
         [SerializeField] private AudioClip _settingsButtonSFX = null;
@@ -17,8 +19,9 @@ namespace Bsting.Ship.Managers
         [SerializeField] private AudioClip _exitGameButtonSFX = null;
         [SerializeField] private AudioClip _pauseGameSFX = null;
         [SerializeField] private AudioClip _blasterSFX = null;
-        // [SerializeField] private AudioClip _engineSFX = null;
-        // [SerializeField] private AudioClip _hyperspeedSFX = null;
+        [SerializeField] private AudioClip _hyperspeedActiveSFX = null;
+        [SerializeField] private AudioClip _hyperspeedReadySFX = null;
+        [SerializeField] private AudioClip _hyperspeedOnCooldownSFX = null;
 
         #region MonoBehaviors
         protected override void Awake()
@@ -28,12 +31,25 @@ namespace Bsting.Ship.Managers
 
         void OnEnable()
         {
-            if (_audioSourceForSFX == null)
+            // Backup assignments in case they're still null by the time it's loading:
+            if (_audioSourceForUISFX == null)
             {
-                _audioSourceForSFX = this.gameObject.GetComponent<AudioSource>();
+                _audioSourceForUISFX = this.gameObject.GetComponent<AudioSource>();
+            }
+
+            if (_audioSourceForPlayerBlastersSFX == null)
+            {
+                _audioSourceForPlayerBlastersSFX = this.gameObject.GetComponent<AudioSource>();
+            }
+
+            if (_audioSourceForPlayerEngineSFX == null)
+            {
+                _audioSourceForPlayerEngineSFX = this.gameObject.GetComponent<AudioSource>();
             }
             // Redundant, but provides a reminder to have this property off:
-            _audioSourceForSFX.playOnAwake = false;
+            _audioSourceForUISFX.playOnAwake = false;
+            _audioSourceForPlayerBlastersSFX.playOnAwake = false;
+            _audioSourceForPlayerEngineSFX.playOnAwake = false;
         }
 
         #endregion
@@ -41,37 +57,82 @@ namespace Bsting.Ship.Managers
         #region Helper Method(s)
         public void PlayNewGameButtonClickedSFX()
         {
-            _audioSourceForSFX?.PlayOneShot(_newGameButtonSFX);
+            _audioSourceForUISFX?.PlayOneShot(_newGameButtonSFX);
         }
 
         public void PlaySettingsButtonClickedSFX()
         {
-            _audioSourceForSFX?.PlayOneShot(_settingsButtonSFX);
+            _audioSourceForUISFX?.PlayOneShot(_settingsButtonSFX);
         }
 
         public void PlayExitButtonClickedSFX()
         {
-            _audioSourceForSFX?.PlayOneShot(_exitGameButtonSFX);
+            _audioSourceForUISFX?.PlayOneShot(_exitGameButtonSFX);
         }
 
         public void PlayBackButtonClickedSFX()
         {
-            _audioSourceForSFX?.PlayOneShot(_backButtonSFX);
+            _audioSourceForUISFX?.PlayOneShot(_backButtonSFX);
         }
 
         public void PlayMenuButtonClickedSFX()
         {
-            _audioSourceForSFX?.PlayOneShot(_menuButtonSFX);
+            _audioSourceForUISFX?.PlayOneShot(_menuButtonSFX);
         }
 
         public void PlayBlasterFiredSFX()
         {
-            _audioSourceForSFX?.PlayOneShot(_blasterSFX);
+            _audioSourceForPlayerBlastersSFX?.PlayOneShot(_blasterSFX);
         }
 
         public void PlayPauseTriggeredSFX()
         {
-            _audioSourceForSFX?.PlayOneShot(_pauseGameSFX);
+            _audioSourceForUISFX?.PlayOneShot(_pauseGameSFX);
+        }
+
+        public void PlayHyperspeedActiveSFX()
+        {
+            if (_audioSourceForPlayerEngineSFX != null)
+            {
+                StopCurrentlyActivePlayerEngineSFX();
+                _audioSourceForPlayerEngineSFX.clip = _hyperspeedActiveSFX;
+                _audioSourceForPlayerEngineSFX.Play();
+            }
+        }
+
+        public void PlayHyperspeedReadySFX()
+        {
+            if (_audioSourceForPlayerEngineSFX != null)
+            {
+                StopCurrentlyActivePlayerEngineSFX();
+                _audioSourceForPlayerEngineSFX.clip = _hyperspeedReadySFX;
+                _audioSourceForPlayerEngineSFX.Play();
+            }
+        }
+
+        public void PlayHyperspeedOnCooldownSFX()
+        {
+            if (_audioSourceForPlayerEngineSFX != null)
+            {
+                StopCurrentlyActivePlayerEngineSFX();
+                _audioSourceForPlayerEngineSFX.clip = _hyperspeedOnCooldownSFX;
+                _audioSourceForPlayerEngineSFX.Play();
+            }
+        }
+
+        public void StopCurrentlyActiveUISFX()
+        {
+            _audioSourceForUISFX?.Stop();
+        }
+
+        public void StopCurrentlyActivePlayerBlastersSFX()
+        {
+            _audioSourceForPlayerBlastersSFX?.Stop();
+        }
+
+        public void StopCurrentlyActivePlayerEngineSFX()
+        {
+            _audioSourceForPlayerEngineSFX?.Stop();
         }
         #endregion
     }
