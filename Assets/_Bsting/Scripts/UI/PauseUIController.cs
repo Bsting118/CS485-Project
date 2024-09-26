@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Bsting.Ship.Managers;
 
+[RequireComponent(typeof(AudioSource))]
 public class PauseUIController : MonoBehaviour
 {
     // Default Pause Menu passed; if null, this script will find the first child tagged PauseMenu to use:
     [field: SerializeField] public GameObject PauseMenuToggle { get; private set; } = null;
+    [field: SerializeField] public AudioSource MainMusicTheme { get; private set; } = null;
     // Use this public var, mainly with ship's UI overlay, to disable non-paused stuff:
     public static bool GameIsPaused = false;
     // Used for storing Unity's fixed delta time:
@@ -58,6 +60,18 @@ public class PauseUIController : MonoBehaviour
             GetChildPauseToggle();
             PauseMenuToggle.SetActive(false);
         }
+
+        // ADDED: condition to check for Audio Source to .Pause():
+        if (MainMusicTheme != null)
+        {
+            MainMusicTheme.UnPause();
+        }
+        else
+        {
+            MainMusicTheme = this.gameObject.GetComponent<AudioSource>();
+            MainMusicTheme.UnPause();
+        }
+
         // Set the time to normal runtime for physics engine:
         Time.timeScale = 1.0f;
         // Adjust fixed delta time according to timescale:
@@ -79,6 +93,18 @@ public class PauseUIController : MonoBehaviour
             GetChildPauseToggle();
             PauseMenuToggle.SetActive(true);
         }
+
+        // ADDED: condition to check for Audio Source to .Pause():
+        if (MainMusicTheme != null)
+        {
+            MainMusicTheme.Pause();
+        }
+        else
+        {
+            MainMusicTheme = this.gameObject.GetComponent<AudioSource>();
+            MainMusicTheme.Pause();
+        }
+
         // Freeze time by making its factor = 0 (X * 0 = 0)
         Time.timeScale = 0f;
         // Adjust fixed delta time according to timescale:
