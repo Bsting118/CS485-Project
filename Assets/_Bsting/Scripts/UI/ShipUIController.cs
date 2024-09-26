@@ -73,7 +73,7 @@ public class ShipUIController : MonoBehaviour
             for (int index = 0; index < numOfHealthPoints; index++)
             {
                 // Get the current child game object under the ship controller:
-                GameObject currentHPHeart = transform.GetChild(index).gameObject;
+                GameObject currentHPHeart = HealthBarGroup.transform.GetChild(index).gameObject;
 
                 // Also make each visible here too (set alpha to 1):
                 SetAlphaTransparencyOfHP(currentHPHeart, 1f);
