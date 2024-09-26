@@ -636,6 +636,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 1817932765229580607, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2258346055603455661, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       propertyPath: m_Transitions.m_OnCameraLive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -656,6 +661,11 @@ PrefabInstance:
       propertyPath: _connectedCameraManager
       value: 
       objectReference: {fileID: 357863598}
+    - target: {fileID: 2848170331382851607, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3456099716402772840, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -775,6 +785,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119995983405064742, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8712282682488630365, guid: 0b84a6351d6ef7d48bca1b9be3ad89d4,
         type: 3}

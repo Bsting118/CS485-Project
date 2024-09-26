@@ -744,6 +744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <TargetSource>k__BackingField: {fileID: 3456099716402772840}
   <ListOfPossiblePrefabsToSpawn>k__BackingField: []
+  <ScoreController>k__BackingField: {fileID: 0}
   <AngleSpawnCone>k__BackingField: 360
   <RadiusToSpawnAwayFrom>k__BackingField: 25
   _limitOfAsteroidsToSpawnInScene: 8
@@ -1191,6 +1192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c17b59a76fdee8489d02358f5d6df73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ShipHealthController>k__BackingField: {fileID: 1846202658234538280}
   _shipMovementInput: {fileID: 2757262541232981810}
   _thrustForce: 7500
   _yawForce: 2000
@@ -13470,6 +13472,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80028069f69d6de4784434129cd3975a, type: 3}
+--- !u!114 &1846202658234538280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4775980777827536417, guid: 80028069f69d6de4784434129cd3975a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6618240586827863817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e8446b7fff6864ab2ac23c1419590f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4841381508792163509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1794891621171530684, guid: 80028069f69d6de4784434129cd3975a,

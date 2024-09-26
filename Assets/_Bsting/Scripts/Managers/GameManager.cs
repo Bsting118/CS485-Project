@@ -219,6 +219,21 @@ namespace Bsting.Ship.Managers
         Application.Quit();
 #endif
         }
+
+        public void GameOver()
+        {
+            int numOfScenes = SceneManager.sceneCountInBuildSettings;
+            // Assuming from the Build config:
+            // The "Game Over" scene is always the last indexed scene:
+            if (numOfScenes > 0)
+            {
+                SceneManager.LoadScene(numOfScenes - 1);
+            }
+            else
+            {
+                Debug.LogWarning("WARN: No scenes found in Build Settings. Please input them to correctly locate the Game Over scene.");
+            }
+        }
         #endregion
     }
 }

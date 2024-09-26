@@ -619,4 +619,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ScoreText>k__BackingField: {fileID: 2079067534651712345}
+  <HealthBarGroup>k__BackingField: {fileID: 7773162749571429923}
   _scoreIncrementRate: 50

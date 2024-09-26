@@ -17,6 +17,9 @@ namespace Bsting.Ship
     /// </summary>
     public class ShipController : MonoBehaviour
     {
+        // Properties:
+        [field: SerializeField] public ShipUIController ShipHealthController { get; private set; } = null;
+
         // Fields:
         [Header("Source Input To Control Aircraft")]
         [SerializeField] private ShipMovementInput _shipMovementInput; // this may be PlayerShipMovementInput (inherits)
@@ -97,6 +100,19 @@ namespace Bsting.Ship
             if (_hyperspeedRoutine != null)
             {
                 InterruptHyperspeedRoutine();
+            }
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if (ShipHealthController != null)
+            {
+                // Deduct from the ship's health:
+                ShipHealthController.RemoveHPFromPlayer();
+            }
+            else
+            {
+                Debug.LogWarning("WARN: Collision with the ship happened but no health controller is connected. Please revise.");
             }
         }
 
