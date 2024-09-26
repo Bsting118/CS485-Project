@@ -77,6 +77,8 @@
     <Compile Include="Assets\_Bsting\Scripts\Interfaces\IVirtualCameras.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\HyperspeedVFXController.cs" />
     <Compile Include="Assets\_Bsting\Scripts\ShipFX\AddSpaceDust.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\UI\SettingsRemoteButton.cs" />
+    <Compile Include="Assets\_Bsting\Scripts\UI\GoBackRemoteButton.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorBurstEmitter.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Level Misc\SendCameraDataToLevel.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Asteroids\FracturedAsteroid.cs" />
@@ -94,6 +96,7 @@
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorGlow.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\BreakableAsteroids\Scripts\ExampleFracture.cs" />
     <Compile Include="Assets\_Bsting\Scripts\Managers\UIManager.cs" />
+    <Compile Include="Assets\SFXManager.cs" />
     <Compile Include="Assets\Input\PlayerInputSystem.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\DetonatorLight.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\Detonator Explosion Framework\System\Detonator.cs" />

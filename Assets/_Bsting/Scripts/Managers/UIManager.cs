@@ -15,6 +15,11 @@ namespace Bsting.Ship.Managers
         private const int _MAIN_MENU_INDEX = 0;
         private bool _hasSubscribedToSceneChange = false;
 
+        protected override void Awake()
+        {
+            base.Awake();
+        }
+
         void OnEnable()
         {
             TryToStartDefaultUIMenu();
@@ -48,6 +53,11 @@ namespace Bsting.Ship.Managers
 
         public void PlayMainGame()
         {
+            if (SFXManager.Instance != null)
+            {
+                SFXManager.Instance.PlayNewGameButtonClickedSFX();
+            }
+
             // int queuedBuildIndex = (SceneManager.GetActiveScene().buildIndex) + 1;
             int queuedBuildIndex = (_MAIN_MENU_INDEX) + 1;
 
@@ -60,14 +70,40 @@ namespace Bsting.Ship.Managers
 
         public void GoToMainMenu()
         {
+            if (SFXManager.Instance != null)
+            {
+                SFXManager.Instance.PlayMenuButtonClickedSFX();
+            }
+
             if (!IsBuildIndexMainMenu(SceneManager.GetActiveScene().buildIndex))
             {
                 SceneManager.LoadScene(_MAIN_MENU_INDEX);
             }
         }
 
+        public void GoBack()
+        {
+            if (SFXManager.Instance != null)
+            {
+                SFXManager.Instance.PlayBackButtonClickedSFX();
+            }
+        }
+
+        public void GoToSettingsMenu()
+        {
+            if (SFXManager.Instance != null)
+            {
+                SFXManager.Instance.PlaySettingsButtonClickedSFX();
+            }
+        }
+
         public void ForceQuitGame()
         {
+            if (SFXManager.Instance != null)
+            {
+                SFXManager.Instance.PlayExitButtonClickedSFX();
+            }
+
             // Check to see if we can centralize the Quit through Game Manager:
             if (GameManager.Instance != null)
             {

@@ -144,6 +144,11 @@ public class PauseUIController : MonoBehaviour
 
     public void TryToForceResume()
     {
+        if (SFXManager.Instance != null)
+        {
+            SFXManager.Instance.PlayNewGameButtonClickedSFX();
+        }
+
         // We must be already paused to trigger a resume:
         if (GameIsPaused)
         {

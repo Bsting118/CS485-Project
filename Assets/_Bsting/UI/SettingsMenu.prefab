@@ -434,6 +434,7 @@ GameObject:
   - component: {fileID: 990090846616418857}
   - component: {fileID: 6547700777300870921}
   - component: {fileID: 5172904314597880159}
+  - component: {fileID: 3190521735653136763}
   m_Layer: 5
   m_Name: Controls Button
   m_TagString: Untagged
@@ -579,6 +580,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3190521735653136763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5824845257372337327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3c77ad7c59b3948a81f1f45c45d86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attachedSettingsButton: {fileID: 5172904314597880159}
 --- !u!1 &6072520254977897898
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +905,7 @@ GameObject:
   - component: {fileID: 1628734527124789552}
   - component: {fileID: 2221017594100315374}
   - component: {fileID: 981432504452054367}
+  - component: {fileID: 29655498044667566}
   m_Layer: 5
   m_Name: Back Button
   m_TagString: Untagged
@@ -1036,6 +1051,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &29655498044667566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265563497276705441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6435376472dd17f48af8676d0d4f3c9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attachedGoBackButton: {fileID: 981432504452054367}
 --- !u!1 &8480788671533595821
 GameObject:
   m_ObjectHideFlags: 0

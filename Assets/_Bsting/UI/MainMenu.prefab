@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3522542441946843749}
   - component: {fileID: 1124142177029737443}
   - component: {fileID: 8377869807071210796}
+  - component: {fileID: 8066487000976518162}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -133,6 +134,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8066487000976518162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395870788699758968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a7a814930042a4894ae94e0e953ab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attachedExitButton: {fileID: 8377869807071210796}
 --- !u!1 &949903973749098949
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +294,7 @@ GameObject:
   - component: {fileID: 3320001738509562718}
   - component: {fileID: 6572696295781552927}
   - component: {fileID: 5936905334044021491}
+  - component: {fileID: 3692894435224307799}
   m_Layer: 5
   m_Name: Settings Button
   m_TagString: Untagged
@@ -425,6 +440,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3692894435224307799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388224322388244808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3c77ad7c59b3948a81f1f45c45d86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attachedSettingsButton: {fileID: 5936905334044021491}
 --- !u!1 &1399091507034975453
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +972,7 @@ GameObject:
   - component: {fileID: 6914481807013643921}
   - component: {fileID: 4985039041596235370}
   - component: {fileID: 3882125208518385596}
+  - component: {fileID: 8986697758851168790}
   m_Layer: 5
   m_Name: Start Button
   m_TagString: Untagged
@@ -1065,3 +1094,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8986697758851168790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7246241560282439344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6227d56809c585c4fa599be7efec2636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attachedNewGameButton: {fileID: 3882125208518385596}
