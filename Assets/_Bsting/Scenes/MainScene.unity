@@ -1136,6 +1136,7 @@ MonoBehaviour:
   _backButtonSFX: {fileID: 8300000, guid: 8ddbb3cb406d045698e3f086efb20942, type: 3}
   _menuButtonSFX: {fileID: 8300000, guid: fc737eb889ce345fdbba19060c241873, type: 3}
   _exitGameButtonSFX: {fileID: 8300000, guid: 9e3f21a7ecd5c4f9aacbb8322d2e4bd1, type: 3}
+  _blasterSFX: {fileID: 8300000, guid: 23bc6026606190340954025bfef98731, type: 3}
 --- !u!82 &1063244580
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bsting.Ship.Managers;
 
 namespace Bsting.Ship.Weapons
 {
@@ -37,6 +38,10 @@ namespace Bsting.Ship.Weapons
             if (CanFire && _currentPlayerInputSystem.Player.Fire.WasPressedThisFrame()) 
             {
                 FireProjectile();
+                if (SFXManager.Instance != null)
+                {
+                    SFXManager.Instance.PlayBlasterFiredSFX();
+                }
             }
         }
 
