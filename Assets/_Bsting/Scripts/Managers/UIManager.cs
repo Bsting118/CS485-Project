@@ -48,7 +48,8 @@ namespace Bsting.Ship.Managers
 
         public void PlayMainGame()
         {
-            int queuedBuildIndex = (SceneManager.GetActiveScene().buildIndex) + 1;
+            // int queuedBuildIndex = (SceneManager.GetActiveScene().buildIndex) + 1;
+            int queuedBuildIndex = (_MAIN_MENU_INDEX) + 1;
 
             if (IsSceneBuildIndexInRange(queuedBuildIndex))
             {
