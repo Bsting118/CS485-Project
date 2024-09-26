@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetPreviewWindow.cs" />
+    <Compile Include="Assets\Editor\AsteroidSpawnerEditor.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetNoisePerlin.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetAsset.cs" />
     <Compile Include="Assets\_Bsting\Asset Store Packages\HeyBlairGames\PlanetTextureGenerator\Editor\PlanetComponentEditor.cs" />
