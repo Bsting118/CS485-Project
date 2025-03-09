@@ -6,9 +6,10 @@ This game is basically a sci-fi shooter where you can play in first-person OR to
 Your goal is to score as many points as possible before your life runs out. Your only weakness is getting hit by asteroids, get struck 3 times and 
 it's game over!
 
-Here's a cool picture of it in editor:
+Here's some cool pictures of it in editor:
 
 ![Asteroid-Belt-In-Unity-Editor](https://github.com/Bsting118/CS485-Project/blob/main/github_coverphoto.PNG)
+![Asteroid-Belt-In-Unity-Editor-ThirdPersonView](https://github.com/Bsting118/CS485-Project/blob/main/github_coverphoto2.PNG)
 
 # To Download
 In order to work with this Unity project, please ensure you have Unity ver. 2022.3.20f1 installed locally. The project requires URP/Universal Render Pipeline for certain shaders,
